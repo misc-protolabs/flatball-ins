@@ -4,11 +4,14 @@ TortoiseGit			- TortoiseGit-2.17.0.2-64bit.msi
 
 LibreOffice			- LibreOffice_25.2.4_Win_x86-64.msi
 
-FreeCAD				- FreeCAD_1.0.1-conda-Windows-x86_64-installer-1.exe
+FreeCAD				- FreeCAD_1.0.2-conda-Windows-x86_64-installer.exe
 UltiMaker			- UltiMaker-Cura-5.10.0-win64-X64.exe
 
-KiCAD				- kicad-9.0.2-x86_64.exe
+KiCAD				- kicad-9.0.4-x86_64.exe
 
 Arduino				- arduino-ide_2.3.6_Windows_64bit.exe
 Python				- python-3.13.5-amd64.exe
 VSCode				- VSCodeUserSetup-x64-1.101.2.exe
+
+Three.js			- https://threejs.org/manual/#en/installation
+NodeJS				- node-v22.19.0-x64.msi

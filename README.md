@@ -1,121 +1,60 @@
 # Flatball Inertial Navigation System: Advanced Frisbee Flight Dynamics & Aerodynamics Research
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/misc-protolabs/flatball-ins/.github/workflows/main.yml?branch=main)](https://github.com/misc-protolabs/flatball-ins/actions?query=workflow%3A%22Firmware+Build%22)
-[![Open Issues](https://img.shields.io/github/issues/misc-protolabs/flatball-ins.svg)](https://github.com/misc-protolabs/flatball-ins/issues)
+## 🌀 Open Call: Help Us Decode Frisbee Flight
 
-Inertial navigation system for analyzing flight dynamics and aerodynamic behavior of flatball (frisbee) trajectories. Designed for research-grade IMU deployments and real-time pose estimation.
+We’re building an open-source platform to analyze and visualize frisbee flight — from onboard IMU logging to 3D trajectory playback and CFD-backed airfoil modeling. If you’re into embedded systems, real-time sensor fusion, or just want to help frisbees fly smarter, this is your launchpad.
+What’s in motion:
+- 🛠️ Custom PCB for onboard IMU logging
+- 🚀 Twin-motor frisbee launcher for repeatable flight studies
+- 🌐 Three.js-based 3D visualization of flight trajectories
+- 📜 Apache 2.0 licensing and reproducible workflows for contributors
+We’re looking for:
+- Embedded devs, PCB designers, and sensor wranglers
+- Web-based visualization builders (Three.js, D3, etc.)
+- CFD modelers and aerodynamic tinkerers
+- Outreach-minded collaborators who care about open sports-tech
+Why it matters:
+Frisbee flight is beautiful, chaotic, and underexplored. We want to make flight analytics accessible — not just for researchers, but for athletes, makers, and curious minds everywhere.
+Join us. Fork the repo. Open an issue. Let’s build something that flies.
 
----
+You could drop this into your README.md, pin it as a GitHub issue, or even post it to relevant GitHub Discussions or open-source forums. Want help drafting a short contributor guide or a tweet-sized version for social sharing next?
 
-## ✨ Project Overview
+## 🎯 Project Goals
 
-This project aims to revolutionize frisbee flight analysis through a sophisticated, instrumented disc platform. Our goal is to provide precision data for aerodynamics research, performance analysis, and biomechanical feedback, ultimately contributing to a journal/conference article.
+- Develop a custom PCB mounted to a Discraft 175g Ultra-Star that logs:
+  - 3DOF accelerometer, gyroscope, magnetometer
+  - Barometric pressure, temperature, battery voltage
+- Build a launcher capable of repeatable 6DOF launch conditions using twin e-bike hub motors
+- Validate aerodynamic models across throw types (forehand, backhand, hammer, scoober)
+- Simulate airfoil shape changes using CFD (OpenFOAM) and predict trajectory impacts
+- Visualize flight data in 3D using Three.js and web-based tools
 
-* **Core Goal:** Instrument frisbee flight for precision aerodynamics research, performance analysis, and biomechanical feedback.
-* **Disc Platform:** A modified regulation frisbee meticulously instrumented with sensor suite, logging, wifi, on/off, battery, LEDs.
-* **Sensor Suite:** Integrated 9-DoF IMU (accelerometer, gyroscope, magnetometer) and a BMP390 barometric pressure/temperature sensor, all managed by an onboard microcontroller. Optional GPS module support is planned.
-* **Launch System:** A custom-designed cradle launcher adapted from baseball/softball cannon technology for consistent and controlled disc launches.
-* **Primary Output:** Co-authored journal and/or conference articles based on research findings.
+## 🧠 Skills We're Looking For
 
----
+| Domain | Skills |
+|--------|--------|
+| Embedded Systems | Bluetooth, WiFi, SD/MMC, USB, sensor integration |
+| Realtime Programming | Sensor fusion, I2C/SPI, IMU calibration |
+| Aerospace Engineering | 6DOF rigid body modeling, aerodynamic coefficient estimation |
+| Visualization | Three.js, Node.js, browser-based 3D rendering |
+| Hardware Prototyping | PCB design, launcher fabrication, disc integration |
+| Math & Physics | Quaternions, rotation matrices, Euler angles |
 
-## 🛠️ Hardware Specifications
+## ⚖️ Licensing
 
-The custom-designed PCB and mechanical components are central to our data acquisition capabilities.
-
-| Component             | Description                                    |
-| :-------------------- | :--------------------------------------------- |
-| **Microcontroller** | ESP32-WROOOM (Primary)                         |
-| **Power** | 3.7V LiPo cell with JST connector              |
-| **IMU (6-DoF)** | ISM330DHCX (Gyroscope + Accelerometer)         |
-| **Magnetometer** | MMC5983MA (3-DoF)                              |
-| **Ambient Sensors** | BMP390 (Barometric Pressure + Temperature)     |
-| **PCB Version** | `vx.y` (Currently under development, custom design) |
-| **Cradle Design** | Modular TPU with integrated damping inserts    |
-
-Detailed PCB fabrication files, schematics, and the Bill of Materials (BOM) can be found in the [`hardware/`](./hardware) directory.
-
----
-
-## 💾 Firmware Features
-
-Our FreeRTOS-based firmware is designed for robust real-time data acquisition and management.
-
-* **Real-time OS:** FreeRTOS scheduler operating at 100Hz (sensors), 10Hz, and 1Hz.
-* **Communication:** SPI, I2C, and SD-MMC interfaces for peripheral communication and data storage.
-* **Sensor Integration:**
-    * MMC5983MA 3-DoF Magnetometer
-    * ISM330DHCX 6-DoF Gyroscope + Accelerometer IMU
-    * BMP390 Barometric Pressure and Temperature Sensor
-* **Data Handling:** Real-time data logging directly to SD-MMC card.
-* **Connectivity:** File management and retrieval via an onboard HTTP server; Wi-Fi and Bluetooth capabilities.
-* **Power Management:** Deep sleep modes for extended battery life.
-* **Calibration:** Comprehensive sensor and frisbee calibration routines for data accuracy.
-
-Explore the source code and build instructions within the [`firmware/`](./firmware) directory.
-
----
-
-## 🧪 Test Protocols & Data Handling
-
-Our standardized test protocols ensure consistent and comparable data collection.
-
-| Test Type         | Initial Conditions                      | Metrics Captured             |
-| :---------------- | :-------------------------------------- | :--------------------------- |
-| **Calibration** | Manual                                  | 9-DoF, Pressure, Temperature |
-|                   |                                         |                              |
-| **Forehand (CW)** | $u = 15 \, \text{m/s}$, $r = -50 \, \text{rad/s}$ | 9-DoF, Pressure, Temperature |
-| **Backhand (CCW)**| $u = 15 \, \text{m/s}$, $r = +50 \, \text{rad/s}$ | 9-DoF, Pressure, Temperature |
-|                   |                                         |                              |
-
-All captured data is output in CSV format with automatic timestamping for easy analysis. Analysis scripts and tools are located in the [`analysis/`](./analysis) directory.
-
----
-
-## 🚀 Quick Start Guide
-
-Get up and running with the Flatball Aero SSL project in a few simple steps.
-
-1.  **Clone the Repository:**
-    ```bash
-    git clone [https://github.com/misc-protolabs/flatball-ins.git](https://github.com/misc-protolabs/flatball-ins.git)
-    cd flatball-ins
-    ```
-2.  **Flash Firmware:**
-    ```bash
-    make flash TARGET=esp32
-    ```
-    *(Note: Changed `nrf52840` to `esp32` based on Hardware Specs)*
-3.  **Start Data Logging:**
-    ```bash
-    python scripts/logger.py --port /dev/ttyUSB0 # Adjust port as needed
-    ```
-
-For detailed setup instructions, development environment configuration, and troubleshooting, please refer to our [Wiki](https://github.com/misc-protolabs/flatball-ins/wiki).
-
----
+- All software and hardware files are licensed under the **Apache License 2.0**  
+- Scientific data and papers are licensed under **Creative Commons Attribution (CC-BY)**  
+- Trademark use is restricted; see `NOTICE` for details
 
 ## 🤝 Contributing
 
-We welcome contributions to the Flatball Aero SSL project! Whether you're interested in hardware design, firmware development, data analysis, or documentation, your input is valuable.
+We welcome collaborators! Please read `CONTRIBUTING.md` before submitting code, hardware designs, or documentation. By contributing, you agree to license your work under Apache 2.0 and grant the project maintainers the right to relicense or publish derivative works, including scientific papers and datasets.
 
-* **Reporting Issues:** If you find a bug or have a feature request, please open an issue [here](https://github.com/misc-protolabs/flatball-ins/issues).
-* **Submitting Pull Requests:** For code contributions, please follow our [contribution guidelines](CONTRIBUTING.md) (create this file!) and submit a pull request.
+## 📡 GitHub Repository
 
-Check our [Project Board](https://github.com/misc-protolabs/flatball-ins/projects) for current tasks and priorities.
-
----
-
-## 👥 Contributors
-
-This project is a collaborative effort, made possible by the dedication of the following individuals and organizations:
-
-| <a href="https://github.com/misc-protolabs"><img src="https://github.com/misc-protolabs/flatball-ins/blob/main/admin/mike-schaefer/avatar.jpg" width="100px;" alt="Mike Schaefer"/><br /><sub><b>Mike Schaefer</b></sub></a><br />💻 📐 🔧 |
-| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+Explore the code and contribute here:  
+👉 [https://github.com/misc-protolabs/flatball-ins](https://github.com/misc-protolabs/flatball-ins)
 
 ---
 
-## ⚖️ License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Whether you're an engineer, maker, coder, or frisbee fanatic — this is your invitation to help build something novel, rigorous, and open-source.
