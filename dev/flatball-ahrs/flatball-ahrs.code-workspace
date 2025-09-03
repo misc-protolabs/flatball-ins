@@ -1,0 +1,52 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "python.analysis.typeCheckingMode": "basic",
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/*.map": true
+    },
+    "editor.formatOnSave": true
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Run ESP32 Telemetry Collector",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}/scripts/collector.py",
+        "console": "integratedTerminal",
+        "env": {
+          "PROFILE_LEVEL": "DEBUG",
+          "TELEMETRY_PORT": "/dev/ttyUSB0"
+        }
+      }
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Flash ESP32",
+        "type": "shell",
+        "command": "esptool.py --chip esp32 write_flash 0x1000 firmware.bin",
+        "problemMatcher": [],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      },
+      {
+        "label": "Upload Python Script",
+        "type": "shell",
+        "command": "ampy --port /dev/ttyUSB0 put scripts/collector.py",
+        "group": "none"
+      }
+    ]
+  }
+}

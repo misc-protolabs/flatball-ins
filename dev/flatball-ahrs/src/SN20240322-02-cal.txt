@@ -1,0 +1,89 @@
+#include "cal.h"
+
+const char SN_str[32] = "SN:20240322-02";
+uint8_t baseMACAddress[6] = {0x08, 0xD1, 0xF9, 0x3D, 0x83, 0x98};
+//uint8_t baseMACAddress[6] = {0xA0, 0xB7, 0x65, 0x5E, 0x4E, 0x90};
+uint8_t remoteMACAddress[6] = {0xe8, 0x6b, 0xea, 0xfd, 0x73, 0x44};
+
+// SN:20240322-02 calibrations
+
+// gyroscope calibration
+const FusionMatrix k_ahrs_gyroscopeMisalignment = {
+  1.0f, 0.0f, 0.0f,
+  0.0f, 1.0f, 0.0f,
+  0.0f, 0.0f, 1.0f};
+const FusionVector k_ahrs_gyroscopeSensitivity = {1.0f, 1.0f, 1.0f};
+const FusionVector k_ahrs_gyroscopeOffset = {0.0f, 0.0f, 0.0f};
+
+// accelerometer calibration
+const FusionMatrix k_ahrs_accelerometerMisalignment = {
+  0.9941, -0.0012, -0.0095,
+  -0.0012, 1.0023, -0.0027,
+  -0.0095, -0.0027, 1.0037};
+const FusionVector k_ahrs_accelerometerSensitivity = {1.0f, 1.0f, 1.0f};
+const FusionVector k_ahrs_accelerometerOffset = {-0.0075, -0.0226, 0.0255};
+
+// magnetometer calibration
+const FusionMatrix k_ahrs_softIronMatrix = {
+	1.0288, -0.0165, -0.0059,
+	-0.0165, 0.9373, 0.0338,
+	-0.0059, 0.0338, 1.0386};
+const FusionVector k_ahrs_hardIronOffset = {2.5768, -20.8455, 8.1242};
+// SN:20240322-02 calibrations
+
+// SN:20240322-02 AHRS alogrithm settings
+const FusionAhrsSettings k_ahrs_settings = {
+        .convention = FusionConventionNed,
+        .gain = 0.5f,
+        .gyroscopeRange = 4000.0f, /* replace this with actual gyroscope range in degrees/s */
+        .accelerationRejection = 10.0f,
+        .magneticRejection = 10.0f,
+        .recoveryTriggerPeriod = 500, /* 5 seconds @ 100 hz */
+};
+
+const unsigned int k_ahrs_hz = 100;
+
+const short k_sleep_dly = 30;
+const float k_gz_filt_thr = 1.5;
+const float k_acc_filt_thr = 1.1;
+const float k_dmag_thr = 50.0;
+
+/*
+// SN:2024mmdd-nn magnetic calibrations
+const FusionMatrix k_ahrs_softIronMatrix = {
+	1.0000, 0.0000, 0.0000,
+	0.0000, 1.0000, 0.0000,
+	0.0000, 0.0000, 1.0000};
+const FusionVector k_ahrs_hardIronOffset = {0.0000, 0.0000, 0.0000};
+
+// SN:20240322-02 magnetic calibrations
+const FusionMatrix k_ahrs_softIronMatrix = {
+	1.0000, 0.0000, 0.0000,
+	0.0000, 1.0000, 0.0000,
+	0.0000, 0.0000, 1.0000};
+const FusionVector k_ahrs_hardIronOffset = {-372.1576, -380.6944, -214.2420};
+
+// SN:20241106-03 magnetic calibrations
+const FusionMatrix k_ahrs_softIronMatrix = {
+	0.9989, 0.0040, 0.0039,
+	0.0040, 1.0021, 0.0012,
+	0.0039, 0.0012, 0.9990};
+const FusionVector k_ahrs_hardIronOffset = {0.5033, -6.1215, 1.5609};
+
+*/
+
+/* cal set from some point in time...
+// Define calibration (replace with actual calibration data if available)
+const FusionMatrix gyroscopeMisalignment = {1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f};
+const FusionVector gyroscopeSensitivity = {1.0f, 1.0f, 1.0f};
+const FusionVector gyroscopeOffset = {-0.21f, 0.56f, 0.77f};
+//const FusionVector gyroscopeOffset = {-0.004887 * (180.0/PI), +0.009774 * (180.0/PI), +0.014661 * (180.0/PI)};
+//const FusionVector gyroscopeOffset = {0.0f, 0.0f, 0.0f};
+const FusionMatrix accelerometerMisalignment = {1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f};
+const FusionVector accelerometerSensitivity = {1.0f, 1.0f, 1.0f};
+const FusionVector accelerometerOffset = {0.0f, 0.0f, 0.0f};
+//const FusionMatrix softIronMatrix = {1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f};
+//const FusionVector hardIronOffset = {0.0f, 0.0f, 0.0f};
+const FusionMatrix softIronMatrix = {1.0190, 0.0037, 0.0070, 0.0037, 0.9851, 0.0161, 0.0070, 0.0161, 0.9965};
+const FusionVector hardIronOffset = {-2.9743, 16.0530, -4.9251};
+*/
