@@ -1,4 +1,4 @@
-# Flatball INS: Advanced Frisbee Flight Dynamics & Aerodynamics Research
+# Flatball Inertial Navigation System: Advanced Frisbee Flight Dynamics & Aerodynamics Research
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/misc-protolabs/flatball-ins/.github/workflows/main.yml?branch=main)](https://github.com/misc-protolabs/flatball-ins/actions?query=workflow%3A%22Firmware+Build%22)
