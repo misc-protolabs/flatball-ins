@@ -1,0 +1,29 @@
+%% f-dev 3dof accelerometer calibration
+%
+% unit mounted to regulation ultimate frisbee and tested in open
+% area with little to no known contribution from hard/soft iron
+% inputs from external sources
+% data and results below are for values copied from the gui manually
+% per below
+%
+
+%% calibrate accelerometer (use as necessary)
+% D = [tsc.acc_x.Data, tsc.acc_y.Data, tsc.acc_z.Data];
+D = [tsc.acc_y.Data, tsc.acc_x.Data, -tsc.acc_z.Data];   % NED
+[A,b,expmfs] = magcal( D);
+C = (D-b)*A; % calibrated data
+
+%% add mag cal timeseries to tsc
+t = tsc.Time;
+ts = timeseries( C(:,1), t, 'Name', 'acc_x_cal');
+tsc = tsc.addts( ts);
+ts = timeseries( C(:,2), t, 'Name', 'acc_y_cal');
+tsc = tsc.addts( ts);
+ts = timeseries( C(:,3), t, 'Name', 'acc_z_cal');
+tsc = tsc.addts( ts);
+
+%%
+fprintf( "%s - acc cal\n", SN_str);
+A
+b
+expmfs

@@ -1,0 +1,19 @@
+function h = new_formatted_fig( varargin)
+
+h = figure( ...
+    'WindowStyle', 'normal', ...
+    'DockControls', 'on', ...
+    'WindowStyle', 'docked', ...
+    'PaperOrientation', 'Landscape', ...
+    'PaperPositionMode', 'manual', ...
+    'PaperPosition', [0.25 0.25 10.50 8.00]);
+
+% legend;
+
+if nargin > 0
+    name = varargin{1};
+    set(h,'Name', name);
+end
+
+end % function
+
