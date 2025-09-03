@@ -1,0 +1,197 @@
+{
+  "SFE-DATALOGGER-IOT": {},
+  "Application Settings": {
+    "LED Enabled": true,
+    "Menu Timeout": 60,
+    "Board Name": "",
+    "SD Card Format": 1,
+    "Serial Console Format": 1,
+    "JSON Buffer Size": 5000,
+    "Terminal Baud Rate": 115200,
+    "Enable System Sleep": false,
+    "Sleep Interval (sec)": 60,
+    "Wake Interval (sec)": 120,
+    "Device Names": false,
+    "Color Output": true,
+    "Startup Messages": 0,
+    "Startup Delay": 2
+  },
+  "Save Settings": {
+    "Fallback Restore": true,
+    "Fallback Save": false,
+    "JSON File Buffer Size": 6400
+  },
+  "Time Setup": {
+    "The Time Zone": "MST7MDT,M3.2.0,M11.1.0",
+    "Reference Clock": "NTP Client",
+    "Update Interval": 60,
+    "Enable Clock Fallback": true,
+    "Dependant Interval": 60,
+    "Update Connected": true,
+    "Dependent Interval": 60
+  },
+  "WiFi Network": {
+    "Enabled": false,
+    "Network Name": "PteraWifi",
+    "Password": "",
+    "Network 2 Name": "",
+    "Network 2 Password": "",
+    "Network 3 Name": "",
+    "Network 3 Password": "",
+    "Network 4 Name": "",
+    "Network 4 Password": ""
+  },
+  "NTP Client": {
+    "Enabled": true,
+    "NTP Server One": "pool.ntp.org",
+    "NTP Server Two": "time.nist.gov"
+  },
+  "Logger": {
+    "Timestamp Mode": 1,
+    "Sample Numbering": true,
+    "Numbering Increment": 1,
+    "Output ID": false,
+    "Output Name": false,
+    "SD Card Format": 1,
+    "Serial Console Format": 1,
+    "Rate Metric": false,
+    "System Info": false
+  },
+  "Logging Timer": {
+    "Interval": 10
+  },
+  "Data File": {
+    "Rotate Period": 24,
+    "File Start Number": 1,
+    "Filename Prefix": "sfe"
+  },
+  "MQTT Client": {
+    "Enabled": false,
+    "Port": 1883,
+    "Server": "",
+    "MQTT Topic": "",
+    "Client Name": "",
+    "Username": "",
+    "Password": "",
+    "Buffer Size": 0
+  },
+  "MQTT Secure Client": {
+    "Enabled": false,
+    "Port": 8883,
+    "Server": "",
+    "MQTT Topic": "",
+    "Client Name": "",
+    "Username": "",
+    "Password": "",
+    "Buffer Size": 0,
+    "CA Cert Filename": "",
+    "Client Cert Filename": "",
+    "Client Key Filename": ""
+  },
+  "AWS IoT": {
+    "Enabled": false,
+    "Port": 8883,
+    "Server": "",
+    "MQTT Topic": "$aws/things//shadow/update",
+    "Client Name": "",
+    "Username": "",
+    "Password": "",
+    "Buffer Size": 0,
+    "CA Cert Filename": "",
+    "Client Cert Filename": "",
+    "Client Key Filename": ""
+  },
+  "ThingSpeak MQTT": {
+    "Enabled": false,
+    "Port": 8883,
+    "Server": "",
+    "MQTT Topic": "",
+    "Client Name": "",
+    "Username": "",
+    "Password": "",
+    "Buffer Size": 0,
+    "CA Cert Filename": "",
+    "Client Cert Filename": "",
+    "Client Key Filename": "",
+    "Channels": ""
+  },
+  "Azure IoT": {
+    "Enabled": false,
+    "Port": 8883,
+    "Server": "",
+    "MQTT Topic": "",
+    "Client Name": "",
+    "Username": "",
+    "Password": "",
+    "Buffer Size": 0,
+    "CA Cert Filename": "",
+    "Client Cert Filename": "",
+    "Client Key Filename": "",
+    "Device ID": "",
+    "Device Key": ""
+  },
+  "HTTP IoT": {
+    "Enabled": false,
+    "URL": "",
+    "CA Cert Filename": ""
+  },
+  "Machinechat": {
+    "Enabled": false,
+    "URL": "",
+    "CA Cert Filename": ""
+  },
+  "Arduino IoT": {
+    "Enabled": false,
+    "Thing Name": "",
+    "Thing ID": "",
+    "API Client ID": "",
+    "API Secret": "",
+    "Device Secret": "",
+    "Device ID": ""
+  },
+  "Serial System Settings": {
+    "Menu Timeout": 60
+  },
+  "System Update": {},
+  "DataLogger Button": {},
+  "MAX17048": {
+    "Voltage (V)": true,
+    "State Of Charge (%)": false,
+    "Change Rate (%/hr)": false
+  },
+  "ISM330": {
+    "Accel X (milli-g)": true,
+    "Accel Y (milli-g)": true,
+    "Accel Z (milli-g)": true,
+    "Gyro X (milli-dps)": true,
+    "Gyro Y (milli-dps)": true,
+    "Gyro Z (milli-dps)": true,
+    "Temperature (C)": true,
+    "Accel Data Rate (Hz)": 7,
+    "Accel Full Scale (g)": 1,
+    "Gyro Data Rate (Hz)": 7,
+    "Gyro Full Scale (dps)": 1,
+    "Accel Filter LP2": 1,
+    "Gyro Filter LP1": 1,
+    "Accel Slope Filter": 4,
+    "Gyro LP1 Filter Bandwidth": 3
+  },
+  "MMC5983": {
+    "X Field (Gauss)": true,
+    "Y Field (Gauss)": true,
+    "Z Field (Gauss)": true,
+    "Temperature (C)": true,
+    "Filter Bandwidth (Hz)": 800,
+    "Auto-Reset": 1
+  },
+  "SparkFun DataLogger IoT - 9DoF": {},
+  "Settings": {},
+  "IoT Web Server": {
+    "Enabled": false,
+    "Username": "",
+    "Password": "",
+    "mDNS Support": false,
+    "mDNS Name": "datalogger5B7A0"
+  },
+  "Devices Settings": {}
+}
