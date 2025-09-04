@@ -13,23 +13,40 @@ document.body.appendChild(renderer.domElement);
 
 // --- HELPER TOOLS (for debugging) ---
 // Add axes to visualize the scene's origin (0,0,0)
-const axesHelper = new THREE.AxesHelper(5); 
+const axesHelper = new THREE.AxesHelper(10); 
 scene.add(axesHelper);
 
-// Optional: Add a test cube to confirm rendering is working
-const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
+// --- FIELD & NSEW MARKERS ---
+// Create a grid to represent the field
+const fieldSize = 20; 
+const divisions = 20;
+const gridHelper = new THREE.GridHelper(fieldSize, divisions, 0x0000ff, 0x888888);
+scene.add(gridHelper);
 
-// --- LIGHTING ---
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-scene.add(ambientLight);
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-directionalLight.position.set(0, 10, 5);
-scene.add(directionalLight);
+// Function to create NSEW markers for the field
+function createNSEWMarkers() {
+  const markerMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+  const markerGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
 
-// --- FIELD & MARKER LOGIC ---
+  const nMarker = new THREE.Mesh(markerGeometry, markerMaterial);
+  nMarker.position.set(0, 0, -fieldSize / 2);
+  scene.add(nMarker);
+
+  const sMarker = new THREE.Mesh(markerGeometry, markerMaterial);
+  sMarker.position.set(0, 0, fieldSize / 2);
+  scene.add(sMarker);
+  
+  const eMarker = new THREE.Mesh(markerGeometry, markerMaterial);
+  eMarker.position.set(fieldSize / 2, 0, 0);
+  scene.add(eMarker);
+  
+  const wMarker = new THREE.Mesh(markerGeometry, markerMaterial);
+  wMarker.position.set(-fieldSize / 2, 0, 0);
+  scene.add(wMarker);
+}
+createNSEWMarkers();
+
+// --- CSV MARKER LOGIC ---
 const markerGroup = new THREE.Group();
 scene.add(markerGroup);
 
@@ -37,8 +54,8 @@ function createMarkers(csvData) {
   markerGroup.clear(); // Clear any existing markers
 
   const lines = csvData.split('\n');
-  const markerMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-  const markerGeometry = new THREE.SphereGeometry(0.1, 16, 16);
+  const markerMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00 }); // Changed to yellow for better visibility
+  const markerGeometry = new THREE.SphereGeometry(0.2, 16, 16); // Adjusted size to be more visible
 
   lines.forEach((line) => {
     const values = line.split(',');
@@ -84,9 +101,9 @@ if (uploader) {
 // --- GLTF LOADER ---
 const loader = new GLTFLoader();
 
-// Replace './public/models/my_model.gltf' with your model's correct path and name
+// Updated to your correct model path
 loader.load(
-  './public/models/flatball-usau-frisbee.gltf',
+  './public/models/flatball-usau-frisbee.gltf', 
   function (gltf) {
     scene.add(gltf.scene);
     console.log('Model loaded successfully!');
@@ -100,7 +117,10 @@ loader.load(
     const maxDim = Math.max(size.x, size.y, size.z);
     const fov = camera.fov * (Math.PI / 180);
     let cameraZ = Math.abs(maxDim / 2 / Math.tan(fov / 2));
-    camera.position.set(center.x, center.y, center.z + cameraZ);
+    
+    // Position the camera to a better angle for a flat object
+    camera.position.set(center.x, center.y + maxDim / 2, center.z + cameraZ);
+    camera.lookAt(center);
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.target.copy(center);
