@@ -1,4 +1,3 @@
-// The importmap now handles the paths for us
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
@@ -30,22 +29,72 @@ const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(0, 10, 5);
 scene.add(directionalLight);
 
+// --- FIELD & MARKER LOGIC ---
+const markerGroup = new THREE.Group();
+scene.add(markerGroup);
+
+function createMarkers(csvData) {
+  markerGroup.clear(); // Clear any existing markers
+
+  const lines = csvData.split('\n');
+  const markerMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+  const markerGeometry = new THREE.SphereGeometry(0.1, 16, 16);
+
+  lines.forEach((line) => {
+    const values = line.split(',');
+    if (values.length >= 3) {
+      const x = parseFloat(values[0]);
+      const y = parseFloat(values[1]);
+      const z = parseFloat(values[2]);
+
+      if (!isNaN(x) && !isNaN(y) && !isNaN(z)) {
+        const marker = new THREE.Mesh(markerGeometry, markerMaterial);
+        marker.position.set(x, y, z);
+        markerGroup.add(marker);
+      }
+    }
+  });
+  console.log(`Created ${markerGroup.children.length} markers.`);
+}
+
+// Set up the file uploader
+const uploader = document.getElementById('uploader');
+const uploaderButton = document.getElementById('uploader-button');
+
+if (uploaderButton) {
+  uploaderButton.addEventListener('click', () => {
+    uploader.click(); // Trigger the hidden file input
+  });
+}
+
+if (uploader) {
+  uploader.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const csvContent = e.target.result;
+        createMarkers(csvContent);
+      };
+      reader.readAsText(file);
+    }
+  });
+}
+
 // --- GLTF LOADER ---
 const loader = new GLTFLoader();
 
 // Replace './public/models/my_model.gltf' with your model's correct path and name
 loader.load(
-	'./public/models/flatball-usau-frisbee.gltf',
+  './public/models/flatball-usau-frisbee.gltf',
   function (gltf) {
     scene.add(gltf.scene);
     console.log('Model loaded successfully!');
 
-    // Get the model's bounding box to determine its size and position
     const box = new Box3().setFromObject(gltf.scene);
     const center = new Vector3();
     box.getCenter(center);
 
-    // Position the camera to fit the model in view
     const size = new Vector3();
     box.getSize(size);
     const maxDim = Math.max(size.x, size.y, size.z);
@@ -53,11 +102,9 @@ loader.load(
     let cameraZ = Math.abs(maxDim / 2 / Math.tan(fov / 2));
     camera.position.set(center.x, center.y, center.z + cameraZ);
 
-    // Add OrbitControls for easy camera movement
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.target.copy(center); // Set the point of orbit to the model's center
+    controls.target.copy(center);
     controls.update();
-
   },
   undefined,
   function (error) {
