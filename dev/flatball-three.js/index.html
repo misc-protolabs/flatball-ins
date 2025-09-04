@@ -2,23 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Three.js Field + CSV Test</title>
+  <title>Three.js GLTF Viewer</title>
   <style>
     body { margin: 0; overflow: hidden; background: #87ceeb; }
     canvas { display: block; }
-    #uploader {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(255,255,255,0.8);
-      padding: 5px;
-      border-radius: 4px;
-      z-index: 10;
-    }
   </style>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./libs/three.module.js",
+        "three/addons/": "./libs/jsm/",
+        "three/examples/jsm/": "./libs/jsm/"
+      }
+    }
+  </script>
+
 </head>
 <body>
-  <input type="file" id="uploader" accept=".csv" />
   <script type="module" src="./main.js"></script>
 </body>
 </html>

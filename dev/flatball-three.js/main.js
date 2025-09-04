@@ -1,91 +1,80 @@
-// Copyright 2025 Michael V. Schaefer
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at:
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// The importmap now handles the paths for us
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { Box3, Vector3 } from 'three';
 
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
-import Papa from 'https://cdn.jsdelivr.net/npm/papaparse@5.4.1/+esm';
-
-// --- Scene ---
+// --- SCENE SETUP ---
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x87ceeb);
-
-const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.set(0, 60, 100);
-camera.lookAt(0, 0, 0);
-
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({ antialias: true });
+
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// --- Field ---
-const fieldLength = 105;
-const fieldWidth = 68;
-const fieldGeometry = new THREE.PlaneGeometry(fieldWidth, fieldLength);
-const fieldMaterial = new THREE.MeshBasicMaterial({ color: 0x228B22, side: THREE.DoubleSide });
-const field = new THREE.Mesh(fieldGeometry, fieldMaterial);
-field.rotation.x = -Math.PI / 2;
-scene.add(field);
+// --- HELPER TOOLS (for debugging) ---
+// Add axes to visualize the scene's origin (0,0,0)
+const axesHelper = new THREE.AxesHelper(5); 
+scene.add(axesHelper);
 
-// --- Grid ---
-const gridHelper = new THREE.GridHelper(
-  Math.max(fieldLength, fieldWidth),
-  Math.max(fieldLength, fieldWidth) / 5,
-  0xcccccc,
-  0xcccccc
+// Optional: Add a test cube to confirm rendering is working
+const geometry = new THREE.BoxGeometry(1, 1, 1);
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
+
+// --- LIGHTING ---
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+scene.add(ambientLight);
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+directionalLight.position.set(0, 10, 5);
+scene.add(directionalLight);
+
+// --- GLTF LOADER ---
+const loader = new GLTFLoader();
+
+// Replace './public/models/my_model.gltf' with your model's correct path and name
+loader.load(
+	'./public/models/flatball-usau-frisbee.gltf',
+  function (gltf) {
+    scene.add(gltf.scene);
+    console.log('Model loaded successfully!');
+
+    // Get the model's bounding box to determine its size and position
+    const box = new Box3().setFromObject(gltf.scene);
+    const center = new Vector3();
+    box.getCenter(center);
+
+    // Position the camera to fit the model in view
+    const size = new Vector3();
+    box.getSize(size);
+    const maxDim = Math.max(size.x, size.y, size.z);
+    const fov = camera.fov * (Math.PI / 180);
+    let cameraZ = Math.abs(maxDim / 2 / Math.tan(fov / 2));
+    camera.position.set(center.x, center.y, center.z + cameraZ);
+
+    // Add OrbitControls for easy camera movement
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.target.copy(center); // Set the point of orbit to the model's center
+    controls.update();
+
+  },
+  undefined,
+  function (error) {
+    console.error('An error happened while loading the model:', error);
+  }
 );
-gridHelper.position.y = 0.01;
-scene.add(gridHelper);
 
-// --- Animation loop (rotating camera) ---
-let angle = 0;
+// --- RENDERER AND ANIMATION LOOP ---
 function animate() {
   requestAnimationFrame(animate);
-  angle += 0.002;
-  camera.position.x = 120 * Math.sin(angle);
-  camera.position.z = 120 * Math.cos(angle);
-  camera.lookAt(0, 0, 0);
   renderer.render(scene, camera);
 }
-animate();
 
-// --- CSV Loader ---
-const uploader = document.createElement('input');
-uploader.type = 'file';
-uploader.accept = '.csv';
-uploader.style.position = 'absolute';
-uploader.style.top = '10px';
-uploader.style.left = '10px';
-uploader.style.zIndex = '10';
-document.body.appendChild(uploader);
-
-uploader.addEventListener('change', event => {
-  const file = event.target.files[0];
-  if (!file) return;
-
-  Papa.parse(file, {
-    header: true,
-    dynamicTyping: true,
-    skipEmptyLines: true,
-    complete: results => {
-      console.log(`Loaded ${results.data.length} rows from CSV`);
-      // Show first 5 rows with computed time
-      results.data.slice(0, 5).forEach(row => {
-        const time = row.idx * 0.01;
-        console.log(`t=${time.toFixed(2)}s | qw=${row.qw}, qx=${row.qx}, qy=${row.qy}, qz=${row.qz}`);
-      });
-    },
-    error: err => {
-      console.error("CSV parse error:", err);
-    }
-  });
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+animate();
