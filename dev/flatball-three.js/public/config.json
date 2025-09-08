@@ -1,0 +1,48 @@
+{
+  "playback": {
+    "timeScale": 1.0,
+    "frameInterval": 0.01,
+    "autoPlayOnLoad": true
+  },
+  "orientationOffsets": {
+    "rollOffsetDeg": 0,
+    "pitchOffsetDeg": 0,
+    "yawOffsetDeg": 0
+  },
+  "hud": {
+    "position": "bottom-left",
+    "fontSize": 14,
+    "color": "#0f0",
+    "background": "rgba(0,0,0,0.6)"
+  },
+  "scene": {
+    "coordinateSystem": "ENU",
+    "gridSize": 20,
+    "gridStep": 5,
+    "nsewDistance": 12,
+    "nsewHeight": 1.5,
+    "nsewColor": "#ffaa00",
+    "axesHelperLength": 0.3,
+    "showAxesHelper": true
+  },
+"model": {
+  "frisbeeDiameter": 0.27,
+  "frisbeeStartHeight": 1.0,
+  "frameCorrectionDeg": [0, 0, 0]
+},
+  "lights": {
+    "hemisphere": {
+      "skyColor": "#ffffff",
+      "groundColor": "#222222",
+      "intensity": 1.0
+    },
+    "directional": {
+      "color": "#ffffff",
+      "intensity": 0.8,
+      "position": [5, 10, 7.5]
+    }
+  },
+  "ground": {
+    "color": "#228B22"
+  }
+}
