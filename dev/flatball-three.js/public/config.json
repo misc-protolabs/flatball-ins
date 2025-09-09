@@ -1,48 +1,97 @@
 {
+  "scene": {
+    "coordinateSystem": "ENU",
+    "gridSize": 60,
+    "gridStep": 1,
+	"skyColor": "#87CEEB",
+    "nsewDistance": 20,
+    "nsewHeight": 1.5,
+    "nsewColor": "#ffaa00",
+	"nsewDistanceDelta": 2
+  },
+  "processing": {
+    "units": {
+      "length": "m",
+      "velocity": "m/s",
+      "angles": "rad",
+      "angleRates": "rad/s"
+    }
+  },
   "playback": {
+    "autoPlayOnLoad": true,
     "timeScale": 1.0,
-    "frameInterval": 0.01,
-    "autoPlayOnLoad": true
+    "frameInterval": 0.02
   },
   "orientationOffsets": {
     "rollOffsetDeg": 0,
     "pitchOffsetDeg": 0,
     "yawOffsetDeg": 0
   },
-  "hud": {
-    "position": "bottom-left",
-    "fontSize": 14,
-    "color": "#0f0",
-    "background": "rgba(0,0,0,0.6)"
-  },
-  "scene": {
-    "coordinateSystem": "ENU",
-    "gridSize": 20,
-    "gridStep": 5,
-    "nsewDistance": 12,
-    "nsewHeight": 1.5,
-    "nsewColor": "#ffaa00",
-    "axesHelperLength": 0.3,
-    "showAxesHelper": true
-  },
 "model": {
   "frisbeeDiameter": 0.27,
   "frisbeeStartHeight": 1.0,
+  "startPosition": { "x": 0, "y": 1.0, "z": -30 },
   "frameCorrectionDeg": [0, 0, 0]
 },
+  "hudDebug": {
+    "enabled": false,
+    "position": "bottom-left",
+    "fontSize": 13,
+    "color": "#ffffff",
+    "background": "rgba(0,0,0,0.5)"
+  },
+  "hudState": {
+    "enabled": true,
+    "position": "lowerR",
+    "fontSize": 13,
+    "color": "#00ffd5",
+    "background": "rgba(0,0,0,0.5)",
+    "updateRateHz": 20,
+    "numericFormat": "%10.4f"
+  },
   "lights": {
-    "hemisphere": {
-      "skyColor": "#ffffff",
-      "groundColor": "#222222",
-      "intensity": 1.0
-    },
-    "directional": {
-      "color": "#ffffff",
-      "intensity": 0.8,
-      "position": [5, 10, 7.5]
-    }
+    "skyColor": "#ffffff",
+    "groundColor": "#444444",
+    "ambient": { "intensity": 0.5 },
+    "directional": { "intensity": 0.8 }
   },
   "ground": {
-    "color": "#228B22"
+    "size": 100,
+    "color": "#444444"
+  },
+"camera": {
+  "startPosition": { "x": 0, "y": 10, "z": -45 },
+  "lookAt": { "x": 0, "y": 1, "z": -30 }
+},
+"field": {
+  "length": 100,
+  "width": 37,
+  "endZoneDepth": 18,
+  "playingFieldLength": 64,
+  "brickMarkDistance": 2,
+  "color": "#228B22",
+
+  "lines": {
+    "enabled": true,
+    "color": "#ffffff",
+    "width": 0.05,
+    "brickMarkRadius": 0.5,
+    "drawSidelines": true,
+    "drawEndZoneLines": true,
+    "drawBrickMarks": true,
+    "drawMidline": true,
+    "drawGoalLines": false
+  },
+
+  "grid": {
+    "enabled": true,
+    "spacing": 5,
+    "color": "#cccccc",
+    "width": 0.01,
+    "opacity": 0.3,
+    "drawOnField": true,
+    "drawBeyondField": false,
+    "labelAxes": false
   }
+}
 }

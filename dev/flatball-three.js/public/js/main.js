@@ -5,32 +5,26 @@ import { addLights } from './lights.js';
 import { addGround } from './ground.js';
 import { addControls } from './controls.js';
 import { loadFrisbee, frisbee } from './frisbeeLoader.js';
-import { addCrossHatch, addNSEWMarkers } from './fieldHelpers.js';
+import { addCrossHatch, addNSEWMarkers, addFieldLines, addFieldGrid } from './fieldHelpers.js';
+import { initHUDs, updatePlaybackState, updateHUDs } from './hudHandler.js';
 
 let config;
 let controls;
-
-// Playback state
 let playStartTime = null;
 let playing = false;
-
-// HUD state
-let lastSimTime = 0;
-let lastRoll = 0;
-let lastPitch = 0;
-let lastYaw = 0;
 
 // === Load config.json ===
 async function loadConfig() {
   const res = await fetch('./public/config.json');
   config = await res.json();
   console.group('[Startup] Config loaded');
-  console.table(config.playback);
-  console.table(config.orientationOffsets);
-  console.table(config.scene);
-  console.table(config.model);
-  console.table(config.lights);
-  console.table(config.ground);
+  console.table(config.scene || {});
+  console.table(config.processing?.units || {});
+  console.table(config.playback || {});
+  console.table(config.orientationOffsets || {});
+  console.table(config.model || {});
+  console.table(config.hudDebug || {});
+  console.table(config.hudState || {});
   console.groupEnd();
 }
 
@@ -38,51 +32,17 @@ async function loadConfig() {
 function onCSVLoaded() {
   playStartTime = null;
   playing = config.playback.autoPlayOnLoad;
-  lastSimTime = 0;
-  lastRoll = 0;
-  lastPitch = 0;
-  lastYaw = 0;
   console.info(`[CSV] Loaded ${csvData.length} rows — playback ${playing ? 'started' : 'paused'}`);
-}
-
-// === HUD setup ===
-function setupHUD() {
-  const hudEl = document.getElementById('hud');
-  hudEl.style.position = 'absolute';
-  hudEl.style.fontFamily = 'monospace';
-  hudEl.style.fontSize = `${config.hud.fontSize}px`;
-  hudEl.style.color = config.hud.color;
-  hudEl.style.background = config.hud.background;
-  hudEl.style.padding = '6px 10px';
-  hudEl.style.lineHeight = '1.4';
-  hudEl.style.whiteSpace = 'pre';
-  hudEl.style.pointerEvents = 'none';
-
-  hudEl.style.top = '';
-  hudEl.style.bottom = '';
-  hudEl.style.left = '';
-  hudEl.style.right = '';
-  switch (config.hud.position) {
-    case 'top-left': hudEl.style.top = '10px'; hudEl.style.left = '10px'; break;
-    case 'top-right': hudEl.style.top = '10px'; hudEl.style.right = '10px'; break;
-    case 'bottom-left': hudEl.style.bottom = '10px'; hudEl.style.left = '10px'; break;
-    case 'bottom-right': hudEl.style.bottom = '10px'; hudEl.style.right = '10px'; break;
-  }
 }
 
 // === Animation loop ===
 function animate(timestamp) {
   requestAnimationFrame(animate);
 
-  const hudEl = document.getElementById('hud');
-
   if (playing && csvData.length > 0) {
-    if (!playStartTime) {
-      playStartTime = timestamp;
-      console.debug('[Playback] Started at t=0');
-    }
-    let simTime = ((timestamp - playStartTime) / 1000) * config.playback.timeScale;
+    if (!playStartTime) playStartTime = timestamp;
 
+    let simTime = ((timestamp - playStartTime) / 1000) * config.playback.timeScale;
     const lastTime = (csvData.length - 1) * config.playback.frameInterval;
     if (simTime >= lastTime) {
       simTime = lastTime;
@@ -93,30 +53,22 @@ function animate(timestamp) {
     const idx = Math.min(Math.floor(simTime / config.playback.frameInterval), csvData.length - 1);
     const row = csvData[idx];
     if (row) {
-      const roll  = (row.roll  || 0) + config.orientationOffsets.rollOffsetDeg;
-      const pitch = (row.pitch || 0) + config.orientationOffsets.pitchOffsetDeg;
-      const yaw   = (row.yaw   || 0) + config.orientationOffsets.yawOffsetDeg;
+      const rollDeg  = (row.roll  || 0) + (config.orientationOffsets.rollOffsetDeg  || 0);
+      const pitchDeg = (row.pitch || 0) + (config.orientationOffsets.pitchOffsetDeg || 0);
+      const yawDeg   = (row.yaw   || 0) + (config.orientationOffsets.yawOffsetDeg   || 0);
 
       frisbee.rotation.set(
-        THREE.MathUtils.degToRad(pitch),
-        THREE.MathUtils.degToRad(yaw),
-        THREE.MathUtils.degToRad(roll),
+        THREE.MathUtils.degToRad(pitchDeg),
+        THREE.MathUtils.degToRad(yawDeg),
+        THREE.MathUtils.degToRad(rollDeg),
         'ZYX'
       );
 
-      lastSimTime = simTime;
-      lastRoll = roll;
-      lastPitch = pitch;
-      lastYaw = yaw;
+      updatePlaybackState(simTime, rollDeg, pitchDeg, yawDeg);
     }
   }
 
-  hudEl.textContent =
-    `Time:  ${lastSimTime.toFixed(2)} s\n` +
-    `Roll:  ${lastRoll.toFixed(1)}°\n` +
-    `Pitch: ${lastPitch.toFixed(1)}°\n` +
-    `Yaw:   ${lastYaw.toFixed(1)}°`;
-
+  updateHUDs();
   if (controls) controls.update();
   renderer.render(scene, camera);
 }
@@ -125,55 +77,48 @@ function animate(timestamp) {
 async function init() {
   await loadConfig();
 
-  // Lock camera to ENU top-down
-  camera.position.set(0, 50, 0);   // directly above origin
-  camera.up.set(0, 0, -1);         // +Z (North) is top of view
-  camera.lookAt(0, 0, 0);
+  scene.up.set(0, 1, 0);
+  camera.up.set(0, 1, 0);
+  scene.background = new THREE.Color(config.scene.skyColor || '#87CEEB');
 
-  // Scene setup
   addLights(scene, config);
-  addGround(scene, config);
+
+  // Field surface
   addCrossHatch(scene, config);
+
+  // Field lines
+  addFieldLines(scene, config);
+
+  // Grid overlay
+  addFieldGrid(scene, config);
+
+  // NESW markers
   addNSEWMarkers(scene, config);
 
-  // World frame helper at origin
-  scene.add(new THREE.AxesHelper(1.0));
+  // Camera setup
+  const camPos = config.camera?.startPosition || { x: 0, y: 10, z: -30 };
+  camera.position.set(camPos.x, camPos.y, camPos.z);
 
-  // Controls
+  const camLook = config.camera?.lookAt || { x: 0, y: 0, z: 0 };
+  camera.lookAt(camLook.x, camLook.y, camLook.z);
   controls = addControls(camera, renderer);
-
-// === Camera: start above field, ENU-aligned ===
-camera.position.set(-5, 5, 5);   // elevated and offset so you see depth
-camera.up.set(0, 1, 0);            // standard Three.js up (Y-up)
-camera.lookAt(0, 0, 0);            // look toward origin
-
-// === Controls: full freedom ===
-controls = addControls(camera, renderer);
-controls.target.set(0, 0, 0);      // orbit around field center
-controls.enableRotate = true;      // allow rotation
-controls.enableZoom = true;        // allow zoom
-controls.enablePan = true;         // allow panning
-controls.minDistance = 5;          // optional: prevent zooming inside model
-controls.maxDistance = 200;        // optional: prevent zooming too far
-controls.minPolarAngle = 0;        // allow tilt from horizon
-controls.maxPolarAngle = Math.PI;  // to straight down
+  controls.target.set(camLook.x, camLook.y, camLook.z);
 
   // Frisbee
   loadFrisbee(scene, config);
 
-  // HUD
-  setupHUD();
+  // HUDs
+  initHUDs(config);
 
   // CSV loader
   initCSVLoader(onCSVLoaded);
 
-  // Start loop
   animate();
 }
 
 init();
 
-// Resize handling
+// === Resize handling ===
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
