@@ -1,8 +1,5 @@
 @echo off
-echo Starting Python HTTP server...
-start "" python -m http.server
-
-echo Starting telemetry WebSocket bridge...
-start "" python .\public\py\ins-telemetry.py
-
-echo All services launched.
+echo 🚀 Launching telemetry and HTTP services...
+python .\public\py\ins-3js-servers.py
+echo 🛑 Services stopped.
+pause

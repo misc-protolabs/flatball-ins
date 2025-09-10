@@ -40,7 +40,7 @@
   "frameCorrectionDeg": [90, 0, 90]
 },
   "hudDebug": {
-    "enabled": false,
+    "enabled": true,
     "position": "bottom-left",
     "fontSize": 13,
     "color": "#ffffff",
@@ -101,7 +101,7 @@
   }
 },
 "dataSource": {
-  "mode": "telemetry",
+  "mode": "csv",
   "telemetry": {
     "enabled": true,
     "url": "ws://localhost:8080",
