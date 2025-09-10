@@ -27,7 +27,12 @@ function loadFrisbee(scene, config) {
       );
     }
 
-    scene.add(frisbee);
+	  // Optional AxesHelper
+	  if (config.scene.showAxesHelper) {
+		const axesHelper = new THREE.AxesHelper(config.scene.axesHelperLength);
+		frisbee.add(axesHelper);
+	  }
+	  scene.add(frisbee);
   });
 }
 

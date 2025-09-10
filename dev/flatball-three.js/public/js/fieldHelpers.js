@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { createLetterSprite } from './letterSprite.js'; // assuming you have this helper
+import { frisbee } from './frisbeeLoader.js'; // assumes frisbee is exported
 
 export function addCrossHatch(scene, config) {
   // Remove old field if re‑initializing
@@ -63,33 +64,66 @@ export function addCrossHatch(scene, config) {
   scene.add(group);
 }
 
+function makeTextSprite(message, color = '#ffaa00', fontSize = 64) {
+  const canvas = document.createElement('canvas');
+  canvas.width = 256;
+  canvas.height = 128;
+
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.font = `Bold ${fontSize}px Arial`;
+  ctx.fillStyle = color;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(message, canvas.width / 2, canvas.height / 2);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.needsUpdate = true;
+
+  const material = new THREE.SpriteMaterial({
+    map: texture,
+    transparent: true,
+    depthTest: false
+  });
+
+  const sprite = new THREE.Sprite(material);
+  sprite.scale.set(4, 2, 1); // readable size
+
+  return sprite;
+}
+
 export function addNSEWMarkers(scene, config) {
-  // Remove old markers if re‑initializing
-  const oldMarkers = scene.getObjectByName('nsewMarkers');
-  if (oldMarkers) scene.remove(oldMarkers);
+  const cfg = config.nsewMarkers;
+  if (!cfg?.enabled) return;
+
+//console.log('Frisbee:', frisbee);
+//console.log('Frisbee position:', frisbee?.position?.toArray());
 
   const group = new THREE.Group();
   group.name = 'nsewMarkers';
 
-  const halfLength = config.field.length / 2;
-  const halfWidth = config.field.width / 2;
-  const delta = config.scene.nsewDistanceDelta || 0;
-  const height = config.scene.nsewHeight || 1.5;
-  const color = config.scene.nsewColor || '#ffaa00';
+  const offset = cfg.offset || { x: 15, y: 1.5, z: 15 };
+  const color = cfg.color || '#ffaa00';
+  const fontSize = typeof cfg.fontSize === 'number' ? cfg.fontSize * 64 : 64;
 
-  // ENU: +Z = North, +X = East
-  const directions = [
-    { label: 'N', x: 0, z:  halfLength + delta },
-    { label: 'S', x: 0, z: -halfLength - delta },
-    { label: 'E', x:  halfWidth + delta, z: 0 },
-    { label: 'W', x: -halfWidth - delta, z: 0 }
-  ];
+const base =
+  cfg.attachTo === 'disc' && frisbee && frisbee.position
+    ? frisbee.position.clone()
+    : new THREE.Vector3(0, 0, 0);
 
-  directions.forEach(dir => {
-    const sprite = createLetterSprite(dir.label, color);
-    sprite.position.set(dir.x, height, dir.z);
-    sprite.scale.set(1, 1, 1);
+  const directions = {
+    N: new THREE.Vector3(0, offset.y, offset.z),
+    S: new THREE.Vector3(0, offset.y, -offset.z),
+    W: new THREE.Vector3(offset.x, offset.y, 0),
+    E: new THREE.Vector3(-offset.x, offset.y, 0)
+  };
+
+  Object.entries(directions).forEach(([label, delta]) => {
+    const sprite = makeTextSprite(label, color, fontSize);
+    const position = base.clone().add(delta);
+    sprite.position.copy(position);
     group.add(sprite);
+    //console.log(`Placed ${label} at`, position.toArray());
   });
 
   scene.add(group);

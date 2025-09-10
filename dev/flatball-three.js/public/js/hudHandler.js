@@ -9,6 +9,9 @@ let lastSimTime = 0;
 let lastRollDeg = 0;
 let lastPitchDeg = 0;
 let lastYawDeg = 0;
+let lastRollDegPerSec = 0;
+let lastPitchDegPerSec = 0;
+let lastYawDegPerSec = 0;
 
 // === Utility functions ===
 const degToRad = (deg) => deg * Math.PI / 180;
@@ -68,11 +71,14 @@ export function initHUDs(cfg) {
   }
 }
 
-export function updatePlaybackState(simTime, rollDeg, pitchDeg, yawDeg) {
+export function updatePlaybackState(simTime, rollDeg, pitchDeg, yawDeg, rollDegPerSec, pitchDegPerSec, yawDegPerSec) {
   lastSimTime = simTime;
   lastRollDeg = rollDeg;
   lastPitchDeg = pitchDeg;
   lastYawDeg = yawDeg;
+  lastRollDegPerSec = rollDegPerSec;
+  lastPitchDegPerSec = pitchDegPerSec;
+  lastYawDegPerSec = yawDegPerSec;
 }
 
 export function updateHUDs() {
@@ -108,9 +114,13 @@ export function updateHUDs() {
       const theta = anglesUnit === 'rad' ? degToRad(lastPitchDeg) : lastPitchDeg;
       const psi   = anglesUnit === 'rad' ? degToRad(lastYawDeg)   : lastYawDeg;
 
+      const phidt   = anglesUnit === 'rad' ? degToRad(lastRollDegPerSec)  : lastRollDegPerSec;
+      const thetadt = anglesUnit === 'rad' ? degToRad(lastPitchDegPerSec) : lastPitchDegPerSec;
+      const psidt   = anglesUnit === 'rad' ? degToRad(lastYawDegPerSec)   : lastYawDegPerSec;
+
       const x = 0, y = 0, z = 1;
       const u = 0, v = 0, w = 0;
-      const phidt = 0, thetadt = 0, psidt = 0;
+      //const phidt = 0, thetadt = 0, psidt = 0;
 
       const line1 = `    x: ${formatNumber(x, fmt)}        y: ${formatNumber(y, fmt)}      z: ${formatNumber(z, fmt)}`;
       const line2 = `    u: ${formatNumber(u, fmt)}        v: ${formatNumber(v, fmt)}      w: ${formatNumber(w, fmt)}`;

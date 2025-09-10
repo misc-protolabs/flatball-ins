@@ -3,12 +3,18 @@
     "coordinateSystem": "ENU",
     "gridSize": 60,
     "gridStep": 1,
-	"skyColor": "#87CEEB",
-    "nsewDistance": 20,
-    "nsewHeight": 1.5,
-    "nsewColor": "#ffaa00",
-	"nsewDistanceDelta": 2
+	"showAxesHelper": true,
+	"axesHelperLength": 0.25,
+	"skyColor": "#87CEEB"
   },
+"nsewMarkers": {
+  "enabled": true,
+  "offset": { "x": 2.5, "y": -0.5, "z": 2.5 },
+  "color": "#ffaa00",
+  "fontSize": 0.5,
+  "labelStyle": "flat",
+  "attachTo": "disc"
+},
   "processing": {
     "units": {
       "length": "m",
@@ -24,14 +30,14 @@
   },
   "orientationOffsets": {
     "rollOffsetDeg": 0,
-    "pitchOffsetDeg": 0,
+    "pitchOffsetDeg": -90,
     "yawOffsetDeg": 0
   },
 "model": {
   "frisbeeDiameter": 0.27,
   "frisbeeStartHeight": 1.0,
   "startPosition": { "x": 0, "y": 1.0, "z": -30 },
-  "frameCorrectionDeg": [0, 0, 0]
+  "frameCorrectionDeg": [90, 0, 90]
 },
   "hudDebug": {
     "enabled": false,
@@ -60,7 +66,7 @@
     "color": "#444444"
   },
 "camera": {
-  "startPosition": { "x": 0, "y": 10, "z": -45 },
+  "startPosition": { "x": 0, "y": 2.5, "z": -35 },
   "lookAt": { "x": 0, "y": 1, "z": -30 }
 },
 "field": {
@@ -75,7 +81,7 @@
     "enabled": true,
     "color": "#ffffff",
     "width": 0.05,
-    "brickMarkRadius": 0.5,
+    "brickMarkRadius": 0.125,
     "drawSidelines": true,
     "drawEndZoneLines": true,
     "drawBrickMarks": true,
@@ -92,6 +98,21 @@
     "drawOnField": true,
     "drawBeyondField": false,
     "labelAxes": false
+  }
+},
+"dataSource": {
+  "mode": "telemetry",
+  "telemetry": {
+    "enabled": true,
+    "url": "ws://localhost:8080",
+    "fields": ["x", "y", "z", "roll", "pitch", "yaw"],
+    "scale": 1.0,
+    "debug": true
+  },
+  "csv": {
+    "path": "data/flight.csv",
+    "playbackRate": 1.0,
+    "loop": false
   }
 }
 }
