@@ -77,7 +77,8 @@ def mk_frisbee():
     frisbee_metrics(revolution.Shape)
     Part.export([body], "flatball-usau-frisbee.stl")
     Part.export([body], "flatball-usau-frisbee.step")
-    #print(f"Model(s) exported to stl files.")
+    Part.export([body], "flatball-usau-frisbee.gltf")
+    print(f"Model(s) exported to stl files.")
 
     return body
 
