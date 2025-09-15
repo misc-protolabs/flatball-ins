@@ -3,25 +3,25 @@
     {
       "title": "v1.0 MVP",
       "description": "Minimum viable product with telemetry, playback, and launcher basics",
-      "due_on": "2025-10-15",
+      "due_on": "2025-10-15T00:00:00Z",
       "state": "open"
     },
     {
       "title": "v1.1 Telemetry Upgrade",
       "description": "Async telemetry improvements, heartbeat instrumentation, and live stats",
-      "due_on": "2025-11-01",
+      "due_on": "2025-11-01T00:00:00Z",
       "state": "open"
     },
     {
       "title": "v1.2 Launcher Tuning",
       "description": "Parameterized launcher geometry, QR labeling, and hardware UX",
-      "due_on": "2025-11-15",
+      "due_on": "2025-11-15T00:00:00Z",
       "state": "open"
     },
     {
       "title": "v2.0 Contributor Onboarding",
       "description": "Full docs, test harnesses, and config-driven UI/UX transitions",
-      "due_on": "2025-12-01",
+      "due_on": "2025-12-01T00:00:00Z",
       "state": "open"
     }
   ]
