@@ -55,6 +55,8 @@ We welcome collaborators! Please read `CONTRIBUTING.md` before submitting code, 
 Explore the code and contribute here:  
 👉 [https://github.com/misc-protolabs/flatball-ins](https://github.com/misc-protolabs/flatball-ins)
 
+📘 For detailed repo administration and workflow docs, see [repo-admin.md](admin/mike-schaefer/md/repo-admin.md).
+
 ---
 
 Whether you're an engineer, maker, coder, or frisbee fanatic — this is your invitation to help build something novel, rigorous, and open-source.
