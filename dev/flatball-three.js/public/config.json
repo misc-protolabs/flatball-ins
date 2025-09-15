@@ -34,14 +34,14 @@
     "yawOffsetDeg": 0
   },
 "model": {
-  "frisbeeDiameter": 0.27,
+  "frisbeeDiameter": 1.0,
   "frisbeeStartHeight": 1.0,
   "startPosition": { "x": 0, "y": 1.0, "z": -30 },
   "frameCorrectionDeg": [90, 0, 90]
 },
   "hudDebug": {
     "enabled": true,
-    "position": "bottom-left",
+    "position": "top-left",
     "fontSize": 13,
     "color": "#ffffff",
     "background": "rgba(0,0,0,0.5)"

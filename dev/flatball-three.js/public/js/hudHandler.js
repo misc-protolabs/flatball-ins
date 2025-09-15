@@ -1,3 +1,17 @@
+// Copyright 2025 Michael V. Schaefer
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at:
+// 
+//     http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 // hudHandler.js
 // Handles creation, styling, and updates for Debug HUD and State Vector HUD
 
@@ -5,13 +19,35 @@ let config;
 let lastStateHudUpdateMs = 0;
 
 // Internal state for HUD updates
-let lastSimTime = 0;
-let lastRollDeg = 0;
-let lastPitchDeg = 0;
-let lastYawDeg = 0;
-let lastRollDegPerSec = 0;
-let lastPitchDegPerSec = 0;
-let lastYawDegPerSec = 0;
+let t = 0;
+let ax_raw = 0;
+let ay_raw = 0;
+let az_raw = 0;
+let gx_raw = 0;
+let gy_raw = 0;
+let gz_raw = 0;
+let mx_raw = 0;
+let my_raw = 0;
+let mz_raw = 0;
+let ax = 0;
+let ay = 0;
+let az = 0;
+let gx = 0;
+let gy = 0;
+let gz = 0;
+let mx = 0;
+let my = 0;
+let mz = 0;
+let qx = 0;
+let qy = 0;
+let qz = 0;
+let roll = 0;
+let pitch = 0;
+let yaw = 0;
+let v_batt = 0;
+let p_atm = 0;
+let t_atm = 0;
+let stat = 0;
 
 // === Utility functions ===
 const degToRad = (deg) => deg * Math.PI / 180;
@@ -71,31 +107,52 @@ export function initHUDs(cfg) {
   }
 }
 
-export function updatePlaybackState(simTime, rollDeg, pitchDeg, yawDeg, rollDegPerSec, pitchDegPerSec, yawDegPerSec) {
-  lastSimTime = simTime;
-  lastRollDeg = rollDeg;
-  lastPitchDeg = pitchDeg;
-  lastYawDeg = yawDeg;
-  lastRollDegPerSec = rollDegPerSec;
-  lastPitchDegPerSec = pitchDegPerSec;
-  lastYawDegPerSec = yawDegPerSec;
+export function updatePlaybackState( data) { //simTime, rollDeg, pitchDeg, yawDeg, rollDegPerSec, pitchDegPerSec, yawDegPerSec) {
+	t = data.idx * 0.01;
+	ax_raw = data.ax_raw;
+	ay_raw = data.ay_raw;
+	az_raw = data.az_raw;
+	gx_raw = data.gx_raw;
+	gy_raw = data.gy_raw;
+	gz_raw = data.gz_raw;
+	mx_raw = data.mx_raw;
+	my_raw = data.my_raw;
+	mz_raw = data.mz_raw;
+	ax = data.ax;
+	ay = data.ay;
+	az = data.az;
+	gx = data.gx;
+	gy = data.gy;
+	gz = data.gz;
+	mx = data.mx;
+	my = data.my
+	mz = data.mz;
+	roll= data.roll;
+	pitch = data.pitch
+	yaw = data.yaw;
 }
 
 export function updateHUDs() {
   // Debug HUD (every frame)
   if (config.hudDebug?.enabled) {
     const dbg = document.getElementById('hudDebug');
+	const fmt = config.hudState.numericFormat || '%10.4f';
     const anglesUnit = (config.processing?.units?.angles || 'rad').toLowerCase();
-    const rollOut  = anglesUnit === 'rad' ? degToRad(lastRollDeg)  : lastRollDeg;
-    const pitchOut = anglesUnit === 'rad' ? degToRad(lastPitchDeg) : lastPitchDeg;
-    const yawOut   = anglesUnit === 'rad' ? degToRad(lastYawDeg)   : lastYawDeg;
     const unitLabel = anglesUnit === 'rad' ? 'rad' : 'deg';
 
-    dbg.textContent =
-      `    t: ${lastSimTime.toFixed(2)}  s\n` +
-      ` roll: ${rollOut.toFixed(3)} ${unitLabel}\n` +
-      `pitch: ${pitchOut.toFixed(3)} ${unitLabel}\n` +
-      `  yaw: ${yawOut.toFixed(3)} ${unitLabel}`;
+	const line1 = `ax_raw: ${formatNumber(ax_raw, fmt)} ay_raw: ${formatNumber(ay_raw, fmt)} az_raw: ${formatNumber(az_raw, fmt)}`;
+	const line2 = `gx_raw: ${formatNumber(gx_raw, fmt)} gy_raw: ${formatNumber(gy_raw, fmt)} gz_raw: ${formatNumber(gz_raw, fmt)}`;
+	const line3 = `mx_raw: ${formatNumber(mx_raw, fmt)} my_raw: ${formatNumber(my_raw, fmt)} mz_raw: ${formatNumber(mz_raw, fmt)}`;
+
+	const line4 = `    ax: ${formatNumber(    ax, fmt)}     ay: ${formatNumber(    ay, fmt)}     az: ${formatNumber(    az, fmt)}`;
+	const line5 = `    gx: ${formatNumber(    gx, fmt)}     gy: ${formatNumber(    gy, fmt)}     gz: ${formatNumber(    gz, fmt)}`;
+	const line6 = `    mx: ${formatNumber(    mx, fmt)}     my: ${formatNumber(    my, fmt)}     mz: ${formatNumber(    mz, fmt)}`;
+
+	const line7 = `  roll: ${formatNumber(  roll, fmt)}  pitch: ${formatNumber( pitch, fmt)}    yaw: ${formatNumber(   yaw, fmt)}`;
+
+	dbg.textContent = `${line1}\n${line2}\n${line3}\n\n${line4}\n${line5}\n${line6}\n\n${line7}`;
+
+	//const unitsFooter = `[units] pos: ${config.processing.units.length}, vel: ${config.processing.units.velocity}, angles: ${config.processing.units.angles}, rates: ${config.processing.units.angleRates}`;
   }
 
   // State HUD (throttled)
@@ -110,17 +167,16 @@ export function updateHUDs() {
       const fmt = config.hudState.numericFormat || '%10.4f';
       const anglesUnit = (config.processing?.units?.angles || 'rad').toLowerCase();
 
-      const phi   = anglesUnit === 'rad' ? degToRad(lastRollDeg)  : lastRollDeg;
-      const theta = anglesUnit === 'rad' ? degToRad(lastPitchDeg) : lastPitchDeg;
-      const psi   = anglesUnit === 'rad' ? degToRad(lastYawDeg)   : lastYawDeg;
-
-      const phidt   = anglesUnit === 'rad' ? degToRad(lastRollDegPerSec)  : lastRollDegPerSec;
-      const thetadt = anglesUnit === 'rad' ? degToRad(lastPitchDegPerSec) : lastPitchDegPerSec;
-      const psidt   = anglesUnit === 'rad' ? degToRad(lastYawDegPerSec)   : lastYawDegPerSec;
-
       const x = 0, y = 0, z = 1;
       const u = 0, v = 0, w = 0;
-      //const phidt = 0, thetadt = 0, psidt = 0;
+
+      const phi   = anglesUnit === 'rad' ? degToRad(roll)  : roll;
+      const theta = anglesUnit === 'rad' ? degToRad(pitch) : pitch;
+      const psi   = anglesUnit === 'rad' ? degToRad(yaw)   : yaw;
+
+      const phidt   = anglesUnit === 'rad' ? degToRad(gx) : gx;
+      const thetadt = anglesUnit === 'rad' ? degToRad(gy) : gy;
+      const psidt   = anglesUnit === 'rad' ? degToRad(gz) : gz;
 
       const line1 = `    x: ${formatNumber(x, fmt)}        y: ${formatNumber(y, fmt)}      z: ${formatNumber(z, fmt)}`;
       const line2 = `    u: ${formatNumber(u, fmt)}        v: ${formatNumber(v, fmt)}      w: ${formatNumber(w, fmt)}`;
