@@ -1,11 +1,11 @@
 // Copyright 2025 Michael V. Schaefer
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at:
-// 
+//
 //     http://www.apache.org/licenses/LICENSE-2.0
-// 
+//
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -114,10 +114,10 @@ bool vfb_init()
 
 void vfb_step_100Hz()
 {
-  imu_step(&ax, &ay, &az, &gx, &gy, &gz);
+  imu_step(&ax_raw, &ay_raw, &az_raw, &gx_raw, &gy_raw, &gz_raw);
   // get_imu_temp(&degC); // FIXME: move to inside imu_step()
 
-  mag_step(&mx, &my, &mz);
+  mag_step(&mx_raw, &my_raw, &mz_raw);
   // baro_step( &patm, &degC); // CPU utilization is too high, move to 10Hz
 
   app_step_100Hz();

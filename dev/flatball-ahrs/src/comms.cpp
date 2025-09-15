@@ -1,11 +1,11 @@
 // Copyright 2025 Michael V. Schaefer
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at:
-// 
+//
 //     http://www.apache.org/licenses/LICENSE-2.0
-// 
+//
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,6 +17,7 @@
 #include <esp_now.h>
 #include <WiFi.h>
 #include <esp_wifi.h> // Include header for esp_wifi_set_max_tx_power
+#include <ArduinoJson.h>
 
 #include "app.h"
 #include "vfb.h"
@@ -234,21 +235,38 @@ void comms_step_10Hz(void)
   }
   else if (internals.echo_flgs == 0x0002)
   {
-    //Serial.printf("%3i,", fdev_st);
-    //Serial.printf("[%8.3f, %8.3f, %8.3f, %8.3f],", qw, qx, qy, qz);
-    Serial.printf("[% 6.2f, % 6.2f, % 6.2f],", ax, ay, az);
-    Serial.printf("[% 7.2f, % 7.2f, % 7.2f],", gx, gy, gz);
-    Serial.printf("[% 7.1f, % 7.1f, % 7.1f],", mx, my, mz);
-    Serial.printf("[%7.2f, %7.2f, %7.2f],", pitch, roll, yaw);
-    Serial.printf("[%5.2f, %5.2f, %u],", ahrs_accel_err, ahrs_accel_recovery_trig, (ahrs_flgs >> 4) & 0x01);
-    Serial.printf("[%5.2f, %5.2f, %u],", ahrs_mag_err, ahrs_mag_recovery_trig, (ahrs_flgs >> 5) & 0x01);
-    Serial.printf("[%1u %1u %1u %1u],", ahrs_flgs & 0x01, ahrs_flgs & 0x02, ahrs_flgs & 0x03, ahrs_flgs & 0x04);
-    //Serial.printf("%5.3f (v),", v_batt);
-    //Serial.printf("%8.1f (Pa), %4.1f (C),", patm, degC);
-    //Serial.printf("%2i,%2i,", boot_btn, stat_led);
-    // Serial.printf("[%5.2f, %5.2f]%%",
-    //               internals.core0_idle_rat_buf[0] * 100.0, internals.core1_idle_rat_buf[0] * 100.0);
-    Serial.printf("\n");
+    static unsigned long idx = 0;
+    StaticJsonDocument<128> doc;
+    doc["idx"] = idx;
+    doc["ax_raw"] = ax_raw;
+    doc["ay_raw"] = ay_raw;
+    doc["az_raw"] = az_raw;
+    doc["gx_raw"] = gx_raw;
+    doc["gy_raw"] = gy_raw;
+    doc["gz_raw"] = gz_raw;
+    doc["mx_raw"] = mx_raw;
+    doc["my_raw"] = my_raw;
+    doc["mz_raw"] = mz_raw;
+    doc["ax"] = ax;
+    doc["ay"] = ay;
+    doc["az"] = az;
+    doc["gx"] = gx;
+    doc["gy"] = gy;
+    doc["gz"] = gz;
+    doc["mx"] = mx;
+    doc["my"] = my;
+    doc["mz"] = mz;
+    doc["roll"] = roll;
+    doc["pitch"] = pitch;
+    doc["yaw"] = yaw;
+    doc["v_batt"] = v_batt;
+    doc["p_atm"] = patm;
+    doc["t_atm"] = degC;
+    doc["stat"] = stat_led;
+
+    serializeJson(doc, Serial);
+    Serial.println(); // newline for Python readline()
+    idx += 10;
   }
   else if (internals.echo_flgs == 0x1001)
   {

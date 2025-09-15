@@ -1,11 +1,11 @@
 // Copyright 2025 Michael V. Schaefer
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at:
-// 
+//
 //     http://www.apache.org/licenses/LICENSE-2.0
-// 
+//
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -118,13 +118,13 @@ unsigned int sd_log_new(void)
 
       len = sprintf(hdr, "idx");
       logfile.write((const uint8_t *)(hdr), len);
-      len = sprintf(hdr, ",batt-v,patm-Pa,amb-temp-degC");
+      len = sprintf(hdr, ",vbatt,patm,tatm");
       logfile.write((const uint8_t *)(hdr), len);
-      len = sprintf(hdr, ",acc-x,acc-y,acc-z");
+      len = sprintf(hdr, ",ax,ay,az");
       logfile.write((const uint8_t *)(hdr), len);
-      len = sprintf(hdr, ",gyro-x,gyro-y,gyro-z");
+      len = sprintf(hdr, ",gx,gy,gz");
       logfile.write((const uint8_t *)(hdr), len);
-      len = sprintf(hdr, ",mag-x,mag-y,mag-z");
+      len = sprintf(hdr, ",mx,my,mz");
       logfile.write((const uint8_t *)(hdr), len);
       len = sprintf(hdr, ",roll,pitch,yaw");
       logfile.write((const uint8_t *)(hdr), len);
@@ -132,9 +132,9 @@ unsigned int sd_log_new(void)
       logfile.write((const uint8_t *)(hdr), len);
       // len = sprintf( hdr, ",gravx,gravy,gravz");
       // logfile.write( (const uint8_t*)( hdr), len);
-      len = sprintf(hdr, ",fe-acc-x,fe-acc-y,fe-acc-z");
+      len = sprintf(hdr, ",fe_ax,fe_ay,fe_az");
       logfile.write((const uint8_t *)(hdr), len);
-      len = sprintf(hdr, ",fl-acc-x,fl-acc-y,fl-acc-z");
+      len = sprintf(hdr, ",fl_ax,fl_ay,fl_az");
       logfile.write((const uint8_t *)(hdr), len);
       len = sprintf(hdr, ",ahrs_accel_err,ahrs_accel_recovery_trig");
       logfile.write((const uint8_t *)(hdr), len);

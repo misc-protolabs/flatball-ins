@@ -1,11 +1,11 @@
 // Copyright 2025 Michael V. Schaefer
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at:
-// 
+//
 //     http://www.apache.org/licenses/LICENSE-2.0
-// 
+//
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -30,6 +30,9 @@
 #include "srvr.h"
 #include "util.h"
 
+float gx_raw, gy_raw, gz_raw;
+float ax_raw, ay_raw, az_raw;
+float mx_raw, my_raw, mz_raw;
 float gx, gy, gz;
 float ax, ay, az;
 float mx, my, mz;
@@ -198,10 +201,10 @@ void fdevStateMachine()
 
 void app_step_100Hz(void)
 {
-  float dt = 0.01;                        // 100Hz
-  FusionVector gyro_raw = {gy, gx, -gz};  // NED
-  FusionVector accel_raw = {ay, ax, -az}; // NED
-  FusionVector mag_raw = {my, mx, mz};    // NED
+  float dt = 0.01;                                    // 100Hz
+  FusionVector gyro_raw = {gy_raw, gx_raw, -gz_raw};  // NED
+  FusionVector accel_raw = {ay_raw, ax_raw, -az_raw}; // NED
+  FusionVector mag_raw = {my_raw, mx_raw, mz_raw};    // NED
 
   FusionVector gyroscope = FusionCalibrationInertial(
       gyro_raw,
@@ -259,6 +262,18 @@ void app_step_100Hz(void)
   ahrs_flgs |= ahrs_flags.magneticRecovery << 3;
   ahrs_flgs |= ahrs_st.accelerometerIgnored << 4;
   ahrs_flgs |= ahrs_st.magnetometerIgnored << 5;
+
+  ax = accelerometer.axis.x;
+  ay = accelerometer.axis.y;
+  az = accelerometer.axis.z;
+
+  gx = gyroscope.axis.x;
+  gy = gyroscope.axis.y;
+  gz = gyroscope.axis.z;
+
+  mx = magnetometer.axis.x;
+  my = magnetometer.axis.y;
+  mz = magnetometer.axis.z;
 
   qw = quat.element.w;
   qx = quat.element.x;
