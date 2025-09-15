@@ -1,0 +1,59 @@
+{
+  "labels": [
+    {
+      "name": "bug",
+      "color": "d73a4a",
+      "description": "Something isn't working"
+    },
+    {
+      "name": "enhancement",
+      "color": "a2eeef",
+      "description": "New feature or request"
+    },
+    {
+      "name": "question",
+      "color": "d876e3",
+      "description": "Further information is requested"
+    },
+    {
+      "name": "blocked",
+      "color": "e11d21",
+      "description": "Work cannot proceed until this is resolved"
+    },
+    {
+      "name": "in progress",
+      "color": "fbca04",
+      "description": "Actively being worked on"
+    },
+    {
+      "name": "ready for review",
+      "color": "0e8a16",
+      "description": "Awaiting code or design review"
+    },
+    {
+      "name": "telemetry",
+      "color": "5319e7",
+      "description": "Related to telemetry, heartbeat, or metrics"
+    },
+    {
+      "name": "UI",
+      "color": "cfd3d7",
+      "description": "User interface and experience"
+    },
+    {
+      "name": "launcher",
+      "color": "fef2c0",
+      "description": "Launcher hardware or geometry"
+    },
+    {
+      "name": "needs spec",
+      "color": "b60205",
+      "description": "Requires design or technical specification"
+    },
+    {
+      "name": "good first issue",
+      "color": "7057ff",
+      "description": "Ideal for new contributors"
+    }
+  ]
+}
