@@ -51,6 +51,11 @@ Join us. Fork the repo. Open an issue. Let’s build something that flies.
 
 We welcome collaborators! Please read `CONTRIBUTING.md` before submitting code, hardware designs, or documentation. By contributing, you agree to license your work under Apache 2.0 and grant the project maintainers the right to relicense or publish derivative works, including scientific papers and datasets.
 
+## 💰 Funding Opportunities
+
+Interested in supporting this project?  
+See [funding.md](admin/mike-schaefer/md/funding.md) for details on sponsorship tiers, collaboration channels, and impact goals.
+
 ## 📡 GitHub Repository
 
 Explore the code and contribute here:  
