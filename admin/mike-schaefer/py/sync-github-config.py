@@ -4,7 +4,7 @@ import argparse
 from datetime import datetime
 import os
 
-LOG_DIR = os.path.join("admin", "mike-schaefer", "logs")
+LOG_DIR = os.path.join("admin", "logs")
 os.makedirs(LOG_DIR, exist_ok=True)
 LOG_FILE = os.path.join(LOG_DIR, "sync-github-config.log")
 REPO = "misc-protolabs/flatball-ins"  # Replace with your actual repo
