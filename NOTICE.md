@@ -1,4 +1,4 @@
-Flatball INS — Frisbee Flight Logger & Visualization Toolkit  
+Flatball INS — Frisbee Inertial Navigation System, Flight Logger & Visualization Toolkit  
 Copyright 2025 Michael V. Schaefer
 
 This product includes software, hardware designs, and documentation developed by contributors to the Flatball INS project, licensed under the Apache License, Version 2.0.

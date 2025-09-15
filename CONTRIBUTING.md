@@ -42,7 +42,7 @@ By submitting a contribution, you agree to:
 
 ## 📣 Communication
 
-We use GitHub Issues and Discussions for technical dialogue. Please tag issues with `help wanted`, `good first issue`, or `calibration` as appropriate. You can also reach out via [project contact email or Discord link if applicable].
+We use GitHub Issues and Discussions for technical dialogue. Please tag issues with `help wanted`, `good first issue`, or `calibration` as appropriate.
 
 ---
 
