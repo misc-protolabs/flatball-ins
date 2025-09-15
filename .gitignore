@@ -2,6 +2,7 @@
 # misc
 .wrk/
 *.asv
+dev/gcode+stl
 
 # Prerequisites
 *.d
