@@ -1,0 +1,960 @@
+Info: Processing symbol 'C1:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'H2:MountingHole:MountingHole_3.2mm_M3'.
+Info: Processing symbol 'H4:MountingHole:MountingHole_3.2mm_M3'.
+Info: Processing symbol 'D3:Diode_SMD:D_0805_2012Metric'.
+Info: Processing symbol 'C18:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'D5:LED_SMD:LED_0805_2012Metric'.
+Info: Processing symbol 'C8:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'C11:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'C16:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'C5:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'C20:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'H1:MountingHole:MountingHole_3.2mm_M3'.
+Info: Processing symbol 'JP3:Jumper:SolderJumper-2_P1.3mm_Bridged_Pad1.0x1.5mm'.
+Info: Processing symbol 'C2:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Total warnings: 7, errors: 0.
+Info: Processing symbol 'C14:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'C22:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'D2:Diode_SMD:D_0805_2012Metric'.
+Info: Processing symbol 'H5:MountingHole:MountingHole_3.2mm_M3'.
+Info: Processing symbol 'C9:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'JP2:Jumper:SolderJumper-2_P1.3mm_Bridged_Pad1.0x1.5mm'.
+Info: Processing symbol 'C6:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'C12:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'Q1:Package_SO:TSOP-6_1.65x3.05mm_P0.95mm'.
+Info: Processing symbol 'J1:Connector_USB:USB_C_Receptacle_HCTL_HC-TYPE-C-16P-01A'.
+Info: Processing symbol 'C3:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'D1:Diode_SMD:D_0805_2012Metric'.
+Info: Processing symbol 'C17:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'C19:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'J2:Connector_Card:microSD_HC_Hirose_DM3BT-DSF-PEJS'.
+Info: Processing symbol 'C15:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'C21:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'C10:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'C7:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'JP1:Jumper:SolderJumper-2_P1.3mm_Bridged_Pad1.0x1.5mm'.
+Info: Processing symbol 'H3:MountingHole:MountingHole_3.2mm_M3'.
+Info: Processing symbol 'C4:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'D4:LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm'.
+Info: Processing symbol 'C13:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'C23:Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder'.
+Info: Processing symbol 'R1:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R2:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R3:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R4:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R5:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R6:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R7:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R8:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R9:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R10:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R11:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R12:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R13:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R14:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R15:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R16:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R17:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'R18:Resistor_SMD:R_0402_1005Metric'.
+Info: Processing symbol 'SW1:Button_Switch_SMD:SW_SPST_EVQP7C'.
+Info: Processing symbol 'SW2:Button_Switch_SMD:SW_SPST_EVQP7C'.
+Info: Processing symbol 'U3:Package_TO_SOT_SMD:SOT-23-5'.
+Info: Processing symbol 'SW3:Button_Switch_SMD:SW_SPST_EVQP7C'.
+Info: Processing symbol 'U1:RF_Module:ESP32-WROOM-32D'.
+Info: Processing symbol 'U2:Package_TO_SOT_SMD:SOT-23-5'.
+Info: Processing symbol 'U4:Package_SO:SOIC-16_3.9x9.9mm_P1.27mm'.
+Info: Processing symbol 'U5:Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.5mm_EP1.66x2.38mm'.
+Info: Processing symbol 'U6:Package_LGA:LGA-14_3x2.5mm_P0.5mm_LayoutBorder3x4y'.
+Info: Processing symbol 'U7:Package_LGA:LGA-16_3x3mm_P0.5mm'.
+Updated C3 sheetname to '/'.
+Updated C3 sheetfile to 'flatball-ins-pcb.kicad_sch'.
+Updated C3 footprint filters to 'C_*'.
+Connected C3 pin 2 to GND.
+Connected C3 pin 1 to +3.3V.
+Added C4 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C4.
+Changed C4 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 2.2uF.
+Updated C4 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/180f47c8-5493-4ec5-b141-1029d4d63d68.
+Updated C4 fields.
+Updated C4 sheetname to '/power/'.
+Updated C4 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated C4 footprint filters to 'C_*'.
+Add net VIN.
+Connected C4 pin 1 to VIN.
+Connected C4 pin 2 to GND.
+Added C5 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C5.
+Changed C5 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 0.1uF.
+Updated C5 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/9d7cedab-9541-40c4-82c8-0cb94e8c1488.
+Updated C5 fields.
+Updated C5 sheetname to '/power/'.
+Updated C5 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated C5 footprint filters to 'C_*'.
+Connected C5 pin 2 to GND.
+Connected C5 pin 1 to VIN.
+Added C6 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C6.
+Changed C6 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 2.2uF.
+Updated C6 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/d16a0e7d-643c-43d5-9963-f89c3f256d52.
+Updated C6 fields.
+Updated C6 sheetname to '/power/'.
+Updated C6 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated C6 footprint filters to 'C_*'.
+Connected C6 pin 2 to GND.
+Connected C6 pin 1 to VIN.
+Added C7 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C7.
+Changed C7 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 2.2uF.
+Updated C7 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/a54f5df7-9782-46c8-b463-ef273b881e25.
+Updated C7 fields.
+Updated C7 sheetname to '/power/'.
+Updated C7 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated C7 footprint filters to 'C_*'.
+Connected C7 pin 1 to VIN.
+Connected C7 pin 2 to GND.
+Added C8 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C8.
+Changed C8 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 2.2uF.
+Updated C8 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/1a8b1211-584c-40e5-b205-0d95e2fad16c.
+Updated C8 fields.
+Updated C8 sheetname to '/power/'.
+Updated C8 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated C8 footprint filters to 'C_*'.
+Connected C8 pin 1 to VIN.
+Connected C8 pin 2 to GND.
+Added C9 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C9.
+Changed C9 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 2.2uF.
+Updated C9 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/3f1cef30-ccc2-40e2-b552-c7ade903e660.
+Updated C9 fields.
+Updated C9 sheetname to '/power/'.
+Updated C9 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated C9 footprint filters to 'C_*'.
+Connected C9 pin 1 to +3.3V.
+Connected C9 pin 2 to GND.
+Added C10 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C10.
+Changed C10 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 10nF.
+Updated C10 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/f0fc2d83-93a9-4d11-9b80-44a05b9fe4e4.
+Updated C10 fields.
+Updated C10 sheetname to '/power/'.
+Updated C10 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated C10 footprint filters to 'C_*'.
+Connected C10 pin 2 to GND.
+Connected C10 pin 1 to +3.3V.
+Added C11 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C11.
+Changed C11 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 0.1uF.
+Updated C11 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/4f521e33-08c0-48dd-9aa5-7c1263e303cd.
+Updated C11 sheetname to '/power/'.
+Updated C11 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated C11 footprint filters to 'C_*'.
+Connected C11 pin 1 to +3.3V.
+Connected C11 pin 2 to GND.
+Added C12 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C12.
+Changed C12 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 0.1uF.
+Updated C12 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/6ad0bde8-0627-491d-a9a3-a7be6763a3bd.
+Updated C12 fields.
+Updated C12 sheetname to '/power/'.
+Updated C12 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated C12 footprint filters to 'C_*'.
+Add net +3.3V_SW.
+Connected C12 pin 1 to +3.3V_SW.
+Connected C12 pin 2 to GND.
+Added C13 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C13.
+Changed C13 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 2.2uF.
+Updated C13 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/cf73d562-e753-4c42-8a28-c7b9ba0f2f69.
+Updated C13 fields.
+Updated C13 sheetname to '/power/'.
+Updated C13 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated C13 footprint filters to 'C_*'.
+Connected C13 pin 1 to +3.3V.
+Connected C13 pin 2 to GND.
+Added C14 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C14.
+Changed C14 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 2.2uF.
+Updated C14 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/602bd74d-677e-44c0-a691-272b0dbd7b52.
+Updated C14 fields.
+Updated C14 sheetname to '/power/'.
+Updated C14 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated C14 footprint filters to 'C_*'.
+Connected C14 pin 1 to +3.3V_SW.
+Connected C14 pin 2 to GND.
+Added C15 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C15.
+Changed C15 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 2.2uF.
+Updated C15 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/f358a77f-df46-45e0-89b0-bc87d5be8e5b.
+Updated C15 fields.
+Updated C15 sheetname to '/power/'.
+Updated C15 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated C15 footprint filters to 'C_*'.
+Connected C15 pin 2 to GND.
+Connected C15 pin 1 to +3.3V_SW.
+Added C16 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C16.
+Changed C16 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 0.1uF.
+Updated C16 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/b80c9f2a-a0e8-4efe-ba54-d5a6b0e365d9.
+Updated C16 fields.
+Updated C16 sheetname to '/power/'.
+Updated C16 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated C16 footprint filters to 'C_*'.
+Connected C16 pin 1 to +3.3V_SW.
+Connected C16 pin 2 to GND.
+Added C17 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C17.
+Changed C17 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 2.2uF.
+Updated C17 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/971b1a8d-c6ad-4f88-a3ef-430aa91e2635.
+Updated C17 fields.
+Updated C17 sheetname to '/power/'.
+Updated C17 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated C17 footprint filters to 'C_*'.
+Connected C17 pin 1 to +3.3V_SW.
+Connected C17 pin 2 to GND.
+Added C18 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C18.
+Changed C18 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 0.1uF.
+Updated C18 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/2057ab91-2faa-45d0-9dc1-0c76e9e21cb7.
+Updated C18 fields.
+Updated C18 sheetname to '/power/'.
+Updated C18 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated C18 footprint filters to 'C_*'.
+Add net V_BAT.
+Connected C18 pin 1 to V_BAT.
+Connected C18 pin 2 to GND.
+Added C19 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C19.
+Changed C19 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 2.2uF.
+Updated C19 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/9f82e388-fe44-4681-84ba-03531152f5fc.
+Updated C19 fields.
+Updated C19 sheetname to '/power/'.
+Updated C19 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated C19 footprint filters to 'C_*'.
+Connected C19 pin 1 to +3.3V_SW.
+Connected C19 pin 2 to GND.
+Added C20 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C20.
+Changed C20 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 0.1uF.
+Updated C20 symbol association from  to /77737cbe-ba7b-41b6-97bf-050a97a18fb5/84e03a03-6f23-4e44-88b5-f8be396ba135.
+Updated C20 fields.
+Updated C20 sheetname to '/sensor/'.
+Updated C20 sheetfile to 'flatball-ins-sensors.kicad_sch'.
+Updated C20 footprint filters to 'C_*'.
+Connected C20 pin 1 to +3.3V_SW.
+Connected C20 pin 2 to GND.
+Added C21 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C21.
+Changed C21 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 0.1uF.
+Updated C21 symbol association from  to /77737cbe-ba7b-41b6-97bf-050a97a18fb5/66cd447f-155d-447d-9d49-a32d496dc42f.
+Updated C21 fields.
+Updated C21 sheetname to '/sensor/'.
+Updated C21 sheetfile to 'flatball-ins-sensors.kicad_sch'.
+Updated C21 footprint filters to 'C_*'.
+Connected C21 pin 2 to GND.
+Connected C21 pin 1 to +3.3V_SW.
+Added C22 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C22.
+Changed C22 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 2.2uF.
+Updated C22 symbol association from  to /77737cbe-ba7b-41b6-97bf-050a97a18fb5/e08b9556-177e-429c-8951-5c9824544071.
+Updated C22 fields.
+Updated C22 sheetname to '/sensor/'.
+Updated C22 sheetfile to 'flatball-ins-sensors.kicad_sch'.
+Updated C22 footprint filters to 'C_*'.
+Connected C22 pin 2 to GND.
+Connected C22 pin 1 to +3.3V_SW.
+Added C23 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Changed REF** reference designator to C23.
+Changed C23 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 10uF.
+Updated C23 symbol association from  to /77737cbe-ba7b-41b6-97bf-050a97a18fb5/60fa6198-9be4-409c-9666-f6be3d4b6a44.
+Updated C23 fields.
+Updated C23 sheetname to '/sensor/'.
+Updated C23 sheetfile to 'flatball-ins-sensors.kicad_sch'.
+Updated C23 footprint filters to 'C_*'.
+Add net Net-(U7-CAP).
+Connected C23 pin 1 to Net-(U7-CAP).
+Connected C23 pin 2 to GND.
+Added D1 (footprint 'Diode_SMD:D_0805_2012Metric').
+Changed REF** reference designator to D1.
+Changed D1 value from D_0805_2012Metric to 3A/10V/180mV.
+Updated D1 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/8b871db4-e144-4330-96a4-0dfaa4330e06.
+Updated D1 fields.
+Updated D1 sheetname to '/power/'.
+Updated D1 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Connected D1 pin 1 to V_BAT.
+Add net Net-(D1A-K).
+Connected D1 pin 2 to Net-(D1A-K).
+Added D2 (footprint 'Diode_SMD:D_0805_2012Metric').
+Changed REF** reference designator to D2.
+Changed D2 value from D_0805_2012Metric to 3A/10V/180mV.
+Updated D2 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/e37cf7fd-b925-4645-b3b2-b01997b616f0.
+Updated D2 fields.
+Updated D2 sheetname to '/power/'.
+Updated D2 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Add net V_USB.
+Connected D2 pin 1 to V_USB.
+Connected D2 pin 2 to Net-(D1A-K).
+Added D3 (footprint 'Diode_SMD:D_0805_2012Metric').
+Changed REF** reference designator to D3.
+Changed D3 value from D_0805_2012Metric to TVS.
+Updated D3 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/ac7b82e5-3a74-49dd-8d97-e9261c274b41.
+Updated D3 fields.
+Updated D3 sheetname to '/power/'.
+Updated D3 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated D3 footprint filters to 'TO-???* *_Diode_* *SingleDiode* D_*'.
+Connected D3 pin 1 to GND.
+Connected D3 pin 2 to V_USB.
+Added D4 (footprint 'LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm').
+Changed REF** reference designator to D4.
+Changed D4 value from LED_WS2812B-2020_PLCC4_2.0x2.0mm to WS2812B-2020.
+Updated D4 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/093bcef8-0e13-4be9-a103-5a69ddffe38a.
+Updated D4 fields.
+Updated D4 sheetname to '/power/'.
+Updated D4 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated D4 footprint filters to 'LED*WS2812*-2020_PLCC4*'.
+Connected D4 pin 2 to GND.
+Add net unconnected-(D4-DOUT-Pad1).
+Connected D4 pin 1 to unconnected-(D4-DOUT-Pad1).
+Add net Net-(D4-DIN).
+Connected D4 pin 3 to Net-(D4-DIN).
+Connected D4 pin 4 to +3.3V_SW.
+Added D5 (footprint 'LED_SMD:LED_0805_2012Metric').
+Changed REF** reference designator to D5.
+Changed D5 value from LED_0805_2012Metric to BLUE.
+Updated D5 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/b78e662c-6553-417b-8204-72eba27f5eb1.
+Updated D5 fields.
+Updated D5 sheetname to '/power/'.
+Updated D5 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated D5 footprint filters to 'LED* LED_SMD:* LED_THT:*'.
+Connected D5 pin 1 to GND.
+Add net Net-(D5-A).
+Connected D5 pin 2 to Net-(D5-A).
+Added H1 (footprint 'MountingHole:MountingHole_3.2mm_M3').
+Changed REF** reference designator to H1.
+Changed H1 value from MountingHole_3.2mm_M3 to MountingHole.
+Updated H1 symbol association from  to /1b72ad51-b7ef-4c60-81e4-525a3e30e6d2.
+Updated H1 fields.
+Updated H1 sheetname to '/'.
+Updated H1 sheetfile to 'flatball-ins-pcb.kicad_sch'.
+Updated H1 footprint filters to 'MountingHole*'.
+Added H2 (footprint 'MountingHole:MountingHole_3.2mm_M3').
+Changed REF** reference designator to H2.
+Changed H2 value from MountingHole_3.2mm_M3 to MountingHole.
+Updated H2 symbol association from  to /dccdd421-8a32-44d3-8acf-87392bfa49ca.
+Updated H2 fields.
+Updated H2 sheetname to '/'.
+Updated H2 sheetfile to 'flatball-ins-pcb.kicad_sch'.
+Updated H2 footprint filters to 'MountingHole*'.
+Added H3 (footprint 'MountingHole:MountingHole_3.2mm_M3').
+Changed REF** reference designator to H3.
+Changed H3 value from MountingHole_3.2mm_M3 to MountingHole.
+Updated H3 symbol association from  to /322f380d-565c-46f7-b6a1-b8e235a30fc4.
+Updated H3 fields.
+Updated H3 sheetname to '/'.
+Updated H3 sheetfile to 'flatball-ins-pcb.kicad_sch'.
+Updated H3 footprint filters to 'MountingHole*'.
+Added H4 (footprint 'MountingHole:MountingHole_3.2mm_M3').
+Changed REF** reference designator to H4.
+Changed H4 value from MountingHole_3.2mm_M3 to MountingHole.
+Updated H4 symbol association from  to /ead16185-0284-42a4-8d2d-03b3c15ed0e1.
+Updated H4 fields.
+Updated H4 sheetname to '/'.
+Updated H4 sheetfile to 'flatball-ins-pcb.kicad_sch'.
+Updated H4 footprint filters to 'MountingHole*'.
+Added H5 (footprint 'MountingHole:MountingHole_3.2mm_M3').
+Changed REF** reference designator to H5.
+Changed H5 value from MountingHole_3.2mm_M3 to MountingHole.
+Updated H5 symbol association from  to /7aad89fb-ae5f-457c-86ef-34d8c42f9f6d.
+Updated H5 fields.
+Updated H5 sheetname to '/'.
+Updated H5 sheetfile to 'flatball-ins-pcb.kicad_sch'.
+Updated H5 footprint filters to 'MountingHole*'.
+Added J1 (footprint 'Connector_USB:USB_C_Receptacle_HCTL_HC-TYPE-C-16P-01A').
+Changed REF** reference designator to J1.
+Changed J1 value from USB_C_Receptacle_HCTL_HC-TYPE-C-16P-01A to USB_C_Receptacle_USB2.0_16P.
+Updated J1 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/85a4de33-d925-40c2-8876-1938f0157430.
+Updated J1 fields.
+Updated J1 sheetname to '/power/'.
+Updated J1 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated J1 footprint filters to 'USB*C*Receptacle*'.
+Add net Net-(J1-SHIELD).
+Connected J1 pin S1 to Net-(J1-SHIELD).
+Add net Net-(J1-CC2).
+Connected J1 pin B5 to Net-(J1-CC2).
+Add net D+.
+Connected J1 pin B6 to D+.
+Add net D-.
+Connected J1 pin B7 to D-.
+Connected J1 pin B9 to V_USB.
+Connected J1 pin A9 to V_USB.
+Connected J1 pin B12 to GND.
+Add net Net-(J1-CC1).
+Connected J1 pin A5 to Net-(J1-CC1).
+Add net unconnected-(J1-SBU2-PadB8).
+Connected J1 pin B8 to unconnected-(J1-SBU2-PadB8).
+Connected J1 pin A7 to D-.
+Connected J1 pin S1 to Net-(J1-SHIELD).
+Connected J1 pin B1 to GND.
+Connected J1 pin A1 to GND.
+Connected J1 pin S1 to Net-(J1-SHIELD).
+Connected J1 pin A4 to V_USB.
+Connected J1 pin S1 to Net-(J1-SHIELD).
+Connected J1 pin B4 to V_USB.
+Add net unconnected-(J1-SBU1-PadA8).
+Connected J1 pin A8 to unconnected-(J1-SBU1-PadA8).
+Connected J1 pin A6 to D+.
+Connected J1 pin A12 to GND.
+Added J2 (footprint 'Connector_Card:microSD_HC_Hirose_DM3BT-DSF-PEJS').
+Changed REF** reference designator to J2.
+Changed J2 value from microSD_HC_Hirose_DM3BT-DSF-PEJS to Micro_SD_Card_Det2.
+Updated J2 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/49c03384-9eef-401d-b1bd-7525a2dfd827.
+Updated J2 fields.
+Updated J2 sheetname to '/power/'.
+Updated J2 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated J2 footprint filters to 'microSD*'.
+Add net SD_DATA0.
+Connected J2 pin 7 to SD_DATA0.
+Add net ESP13/DAT3.
+Connected J2 pin 2 to ESP13/DAT3.
+Add net ESP14/CLK.
+Connected J2 pin 5 to ESP14/CLK.
+Connected J2 pin 11 to GND.
+Connected J2 pin 11 to GND.
+Connected J2 pin 11 to GND.
+Add net ESP4/DAT1.
+Connected J2 pin 8 to ESP4/DAT1.
+Connected J2 pin 11 to GND.
+Add net SD_DATA2.
+Connected J2 pin 1 to SD_DATA2.
+Add net unconnected-(J2-DET_A-Pad10).
+Connected J2 pin 10 to unconnected-(J2-DET_A-Pad10).
+Connected J2 pin 4 to +3.3V_SW.
+Connected J2 pin 11 to GND.
+Add net unconnected-(J2-DET_B-Pad9).
+Connected J2 pin 9 to unconnected-(J2-DET_B-Pad9).
+Add net SD_CMD.
+Connected J2 pin 3 to SD_CMD.
+Connected J2 pin 11 to GND.
+Connected J2 pin 6 to GND.
+Added JP1 (footprint 'Jumper:SolderJumper-2_P1.3mm_Bridged_Pad1.0x1.5mm').
+Changed REF** reference designator to JP1.
+Changed JP1 value from SolderJumper-2_P1.3mm_Bridged_Pad1.0x1.5mm to SHLD.
+Updated JP1 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/88768a67-56b8-4c20-90c3-e77d0b9320c9.
+Updated JP1 fields.
+Updated JP1 sheetname to '/power/'.
+Updated JP1 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated JP1 footprint filters to 'SolderJumper*Bridged*'.
+Connected JP1 pin 2 to Net-(J1-SHIELD).
+Connected JP1 pin 1 to GND.
+Added JP2 (footprint 'Jumper:SolderJumper-2_P1.3mm_Bridged_Pad1.0x1.5mm').
+Changed REF** reference designator to JP2.
+Changed JP2 value from SolderJumper-2_P1.3mm_Bridged_Pad1.0x1.5mm to RGB.
+Updated JP2 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/d7b160f5-085b-40e2-b3c8-a12248a044a1.
+Updated JP2 fields.
+Updated JP2 sheetname to '/power/'.
+Updated JP2 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated JP2 footprint filters to 'SolderJumper*Bridged*'.
+Connected JP2 pin 1 to Net-(D4-DIN).
+Add net ESP26/RGBLED.
+Connected JP2 pin 2 to ESP26/RGBLED.
+Added JP3 (footprint 'Jumper:SolderJumper-2_P1.3mm_Bridged_Pad1.0x1.5mm').
+Changed REF** reference designator to JP3.
+Changed JP3 value from SolderJumper-2_P1.3mm_Bridged_Pad1.0x1.5mm to STATE.
+Updated JP3 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/7b666d03-309a-4235-9bc8-277f8eb39a3b.
+Updated JP3 fields.
+Updated JP3 sheetname to '/power/'.
+Updated JP3 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated JP3 footprint filters to 'SolderJumper*Bridged*'.
+Add net Net-(JP3-A).
+Connected JP3 pin 1 to Net-(JP3-A).
+Connected JP3 pin 2 to Net-(D5-A).
+Added Q1 (footprint 'Package_SO:TSOP-6_1.65x3.05mm_P0.95mm').
+Changed REF** reference designator to Q1.
+Changed Q1 value from TSOP-6_1.65x3.05mm_P0.95mm to BC846BDW1.
+Updated Q1 symbol association from  to /b13eb415-565d-4d82-b0c1-d5208f3c41aa.
+Updated Q1 fields.
+Updated Q1 sheetname to '/'.
+Updated Q1 sheetfile to 'flatball-ins-pcb.kicad_sch'.
+Updated Q1 footprint filters to 'SOT?23*'.
+Updated C11 fields.
+Connected Q1 pin 2 to Net-(Q1-B).
+Add net Net-(Q1-C-Pad5).
+Connected Q1 pin 5 to Net-(Q1-C-Pad5).
+Add net CH340-RTS.
+Connected Q1 pin 4 to CH340-RTS.
+Connected Q1 pin 3 to RESET.
+Add net CH340-DTR.
+Connected Q1 pin 1 to CH340-DTR.
+Add net ESP0/BOOT.
+Connected Q1 pin 6 to ESP0/BOOT.
+Added C1 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Added R1 (footprint 'Resistor_SMD:R_0402_1005Metric').
+Changed REF** reference designator to R1.
+Changed R1 value from R_0402_1005Metric to 10K.
+Updated R1 symbol association from  to /86b24f2f-cb8e-4922-af45-f9db51f2cc6e.
+Updated R1 fields.
+Updated R1 sheetname to '/'.
+Updated R1 sheetfile to 'flatball-ins-pcb.kicad_sch'.
+Updated R1 footprint filters to 'R_*'.
+Connected R1 pin 2 to RESET.
+Connected R1 pin 1 to +3.3V.
+Changed REF** reference designator to C1.
+Added R2 (footprint 'Resistor_SMD:R_0402_1005Metric').
+Changed REF** reference designator to R2.
+Changed R2 value from R_0402_1005Metric to 10K.
+Updated R2 symbol association from  to /547ff738-4414-42ac-83c1-acdcb3a5337d.
+Updated R2 fields.
+Updated R2 sheetname to '/'.
+Updated R2 sheetfile to 'flatball-ins-pcb.kicad_sch'.
+Updated R2 footprint filters to 'R_*'.
+Connected R2 pin 1 to Net-(Q1-C-Pad5).
+Connected R2 pin 2 to CH340-DTR.
+Changed C1 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to DNP.
+Added R3 (footprint 'Resistor_SMD:R_0402_1005Metric').
+Changed REF** reference designator to R3.
+Changed R3 value from R_0402_1005Metric to 10K.
+Updated R3 symbol association from  to /1a9e72a8-a15d-49b9-9ca5-0a66515a17d6.
+Updated R3 fields.
+Updated R3 sheetname to '/'.
+Updated R3 sheetfile to 'flatball-ins-pcb.kicad_sch'.
+Updated R3 footprint filters to 'R_*'.
+Connected R3 pin 1 to Net-(Q1-B).
+Connected R3 pin 2 to CH340-RTS.
+Updated C1 symbol association from  to /13474c7c-1857-493c-a7e2-14ce45bee9e6.
+Added R4 (footprint 'Resistor_SMD:R_0402_1005Metric').
+Changed REF** reference designator to R4.
+Changed R4 value from R_0402_1005Metric to 5.1k.
+Updated R4 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/fa36c78d-2e36-4fb4-a384-0c8faed2a9ed.
+Updated R4 fields.
+Updated R4 sheetname to '/power/'.
+Updated R4 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated R4 footprint filters to 'R_*'.
+Connected R4 pin 2 to GND.
+Connected R4 pin 1 to Net-(J1-CC1).
+Updated C1 fields.
+Added R5 (footprint 'Resistor_SMD:R_0402_1005Metric').
+Changed REF** reference designator to R5.
+Changed R5 value from R_0402_1005Metric to 5.1k.
+Updated R5 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/cd43e825-91a0-4124-9557-6d142713e744.
+Updated R5 fields.
+Updated R5 sheetname to '/power/'.
+Updated R5 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated R5 footprint filters to 'R_*'.
+Connected R5 pin 1 to Net-(J1-CC2).
+Connected R5 pin 2 to GND.
+Updated C1 sheetname to '/'.
+Added R6 (footprint 'Resistor_SMD:R_0402_1005Metric').
+Changed REF** reference designator to R6.
+Changed R6 value from R_0402_1005Metric to 10K.
+Updated R6 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/a078e3e5-64ce-4ce7-85ce-8f5af1bcab22.
+Updated R6 fields.
+Updated R6 sheetname to '/power/'.
+Updated R6 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated R6 footprint filters to 'R_*'.
+Connected R6 pin 2 to SD_DATA2.
+Connected R6 pin 1 to +3.3V_SW.
+Updated C1 sheetfile to 'flatball-ins-pcb.kicad_sch'.
+Added R7 (footprint 'Resistor_SMD:R_0402_1005Metric').
+Changed REF** reference designator to R7.
+Changed R7 value from R_0402_1005Metric to 10K.
+Updated R7 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/882f3006-012f-4c6f-8590-4e6dff5c21ed.
+Updated R7 fields.
+Updated R7 sheetname to '/power/'.
+Updated R7 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated R7 footprint filters to 'R_*'.
+Connected R7 pin 1 to +3.3V_SW.
+Connected R7 pin 2 to ESP13/DAT3.
+Updated C1 footprint filters to 'C_*'.
+Added R8 (footprint 'Resistor_SMD:R_0402_1005Metric').
+Changed REF** reference designator to R8.
+Changed R8 value from R_0402_1005Metric to 10K.
+Updated R8 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/2a14a310-5581-4a34-aaaa-e3fdd181af65.
+Updated R8 fields.
+Updated R8 sheetname to '/power/'.
+Updated R8 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated R8 footprint filters to 'R_*'.
+Connected R8 pin 1 to +3.3V_SW.
+Connected R8 pin 2 to SD_CMD.
+Add net RESET.
+Added R9 (footprint 'Resistor_SMD:R_0402_1005Metric').
+Changed REF** reference designator to R9.
+Changed R9 value from R_0402_1005Metric to 10K.
+Updated R9 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/1e83d8ee-390f-4c67-96f8-08275190ae14.
+Updated R9 fields.
+Updated R9 sheetname to '/power/'.
+Updated R9 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated R9 footprint filters to 'R_*'.
+Connected R9 pin 1 to +3.3V_SW.
+Connected R9 pin 2 to SD_DATA0.
+Connected C1 pin 1 to RESET.
+Added R10 (footprint 'Resistor_SMD:R_0402_1005Metric').
+Changed REF** reference designator to R10.
+Changed R10 value from R_0402_1005Metric to 10K.
+Updated R10 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/dbe013c2-2adf-486c-bd6a-9f250c68de7b.
+Updated R10 fields.
+Updated R10 sheetname to '/power/'.
+Updated R10 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated R10 footprint filters to 'R_*'.
+Connected R10 pin 1 to +3.3V_SW.
+Connected R10 pin 2 to ESP4/DAT1.
+Add net GND.
+Added R11 (footprint 'Resistor_SMD:R_0402_1005Metric').
+Changed REF** reference designator to R11.
+Changed R11 value from R_0402_1005Metric to 1K.
+Updated R11 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/800c7a30-45b9-4c1b-b725-e8deff1d3d9d.
+Updated R11 fields.
+Updated R11 sheetname to '/power/'.
+Updated R11 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated R11 footprint filters to 'R_*'.
+Add net ESP25/LED.
+Connected R11 pin 1 to ESP25/LED.
+Connected R11 pin 2 to Net-(JP3-A).
+Connected C1 pin 2 to GND.
+Added R12 (footprint 'Resistor_SMD:R_0402_1005Metric').
+Changed REF** reference designator to R12.
+Changed R12 value from R_0402_1005Metric to 2.2K.
+Updated R12 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/d5854d69-194f-4490-9859-977ca0498145.
+Updated R12 fields.
+Updated R12 sheetname to '/power/'.
+Updated R12 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated R12 footprint filters to 'R_*'.
+Add net ESP21/SDA.
+Connected R12 pin 2 to ESP21/SDA.
+Add net Net-(U5-SDA).
+Connected R12 pin 1 to Net-(U5-SDA).
+Added C2 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Added R13 (footprint 'Resistor_SMD:R_0402_1005Metric').
+Changed REF** reference designator to R13.
+Changed R13 value from R_0402_1005Metric to 2.2K.
+Updated R13 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/ab5369d2-844b-4b2e-aa39-41b1467b9981.
+Updated R13 fields.
+Updated R13 sheetname to '/power/'.
+Updated R13 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated R13 footprint filters to 'R_*'.
+Add net ESP22/SCL.
+Connected R13 pin 2 to ESP22/SCL.
+Add net Net-(U5-SCL).
+Connected R13 pin 1 to Net-(U5-SCL).
+Changed REF** reference designator to C2.
+Added R14 (footprint 'Resistor_SMD:R_0402_1005Metric').
+Changed REF** reference designator to R14.
+Changed R14 value from R_0402_1005Metric to 100K.
+Updated R14 symbol association from  to /77737cbe-ba7b-41b6-97bf-050a97a18fb5/d7e2bc8c-3c04-42b1-baf9-2bd0d5ba7aac.
+Updated R14 fields.
+Updated R14 sheetname to '/sensor/'.
+Updated R14 sheetfile to 'flatball-ins-sensors.kicad_sch'.
+Updated R14 footprint filters to 'R_*'.
+Add net ESP23/PICO.
+Connected R14 pin 2 to ESP23/PICO.
+Connected R14 pin 1 to +3.3V_SW.
+Changed C2 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 2.2uF.
+Added R15 (footprint 'Resistor_SMD:R_0402_1005Metric').
+Changed REF** reference designator to R15.
+Changed R15 value from R_0402_1005Metric to 10K.
+Updated R15 symbol association from  to /77737cbe-ba7b-41b6-97bf-050a97a18fb5/2b5c5f94-8502-4aae-b914-f018b278237f.
+Updated R15 fields.
+Updated R15 sheetname to '/sensor/'.
+Updated R15 sheetfile to 'flatball-ins-sensors.kicad_sch'.
+Updated R15 footprint filters to 'R_*'.
+Add net ESP19/POCI.
+Connected R15 pin 2 to ESP19/POCI.
+Connected R15 pin 1 to +3.3V_SW.
+Updated C2 symbol association from  to /24f5cf62-442f-4f18-abac-1a99a788d8e0.
+Added R16 (footprint 'Resistor_SMD:R_0402_1005Metric').
+Changed REF** reference designator to R16.
+Changed R16 value from R_0402_1005Metric to 100K.
+Updated R16 symbol association from  to /77737cbe-ba7b-41b6-97bf-050a97a18fb5/2776202b-5847-4f24-9a06-c3e0413cd764.
+Updated R16 fields.
+Updated R16 sheetname to '/sensor/'.
+Updated R16 sheetfile to 'flatball-ins-sensors.kicad_sch'.
+Updated R16 footprint filters to 'R_*'.
+Connected R16 pin 1 to +3.3V_SW.
+Add net ESP18/SCK.
+Connected R16 pin 2 to ESP18/SCK.
+Updated C2 fields.
+Added R17 (footprint 'Resistor_SMD:R_0402_1005Metric').
+Changed REF** reference designator to R17.
+Changed R17 value from R_0402_1005Metric to 100K.
+Updated R17 symbol association from  to /77737cbe-ba7b-41b6-97bf-050a97a18fb5/35f7b9ac-e5aa-4a7e-8a45-60f6d066cb87.
+Updated R17 fields.
+Updated R17 sheetname to '/sensor/'.
+Updated R17 sheetfile to 'flatball-ins-sensors.kicad_sch'.
+Updated R17 footprint filters to 'R_*'.
+Connected R17 pin 1 to +3.3V_SW.
+Add net ESP5/IMU_CS.
+Connected R17 pin 2 to ESP5/IMU_CS.
+Updated C2 sheetname to '/'.
+Added R18 (footprint 'Resistor_SMD:R_0402_1005Metric').
+Changed REF** reference designator to R18.
+Changed R18 value from R_0402_1005Metric to 100K.
+Updated R18 symbol association from  to /77737cbe-ba7b-41b6-97bf-050a97a18fb5/277aa04c-28db-4665-9dbd-31e2b1cc4c28.
+Updated R18 fields.
+Updated R18 sheetname to '/sensor/'.
+Updated R18 sheetfile to 'flatball-ins-sensors.kicad_sch'.
+Updated R18 footprint filters to 'R_*'.
+Add net ESP27/MAG_CS.
+Connected R18 pin 2 to ESP27/MAG_CS.
+Connected R18 pin 1 to +3.3V_SW.
+Updated C2 sheetfile to 'flatball-ins-pcb.kicad_sch'.
+Added SW1 (footprint 'Button_Switch_SMD:SW_SPST_EVQP7C').
+Changed REF** reference designator to SW1.
+Changed SW1 value from SW_SPST_EVQP7C to RESET.
+Updated SW1 symbol association from  to /6202b3c1-730c-497e-b2f6-03259b158386.
+Updated SW1 fields.
+Updated SW1 sheetname to '/'.
+Updated SW1 sheetfile to 'flatball-ins-pcb.kicad_sch'.
+Connected SW1 pin 1 to RESET.
+Connected SW1 pin 2 to GND.
+Connected SW1 pin 2 to GND.
+Connected SW1 pin 1 to RESET.
+Updated C2 footprint filters to 'C_*'.
+Added SW2 (footprint 'Button_Switch_SMD:SW_SPST_EVQP7C').
+Changed REF** reference designator to SW2.
+Changed SW2 value from SW_SPST_EVQP7C to BOOT.
+Updated SW2 symbol association from  to /95ae093f-e260-4320-9989-e8c98f57bd14.
+Updated SW2 fields.
+Updated SW2 sheetname to '/'.
+Updated SW2 sheetfile to 'flatball-ins-pcb.kicad_sch'.
+Connected SW2 pin 2 to GND.
+Connected C2 pin 2 to GND.
+Connected SW2 pin 1 to ESP0/BOOT.
+Connected SW2 pin 1 to ESP0/BOOT.
+Add net +3.3V.
+Added SW3 (footprint 'Button_Switch_SMD:SW_SPST_EVQP7C').
+Changed REF** reference designator to SW3.
+Changed SW3 value from SW_SPST_EVQP7C to ON/OFF.
+Updated SW3 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/78b8bf8d-07c3-4bc0-afe7-fb0870c4556a.
+Updated SW3 fields.
+Updated SW3 sheetname to '/power/'.
+Updated SW3 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Connected SW3 pin 1 to Net-(D1A-K).
+Connected SW3 pin 2 to VIN.
+Connected SW3 pin 2 to VIN.
+Connected SW3 pin 1 to Net-(D1A-K).
+Connected C2 pin 1 to +3.3V.
+Added U1 (footprint 'RF_Module:ESP32-WROOM-32D').
+Changed REF** reference designator to U1.
+Changed U1 value from ESP32-WROOM-32D to ESP32-WROOM-32E.
+Updated U1 symbol association from  to /c03b1197-b990-469b-a792-7a6413628acb.
+Updated U1 fields.
+Updated U1 sheetname to '/'.
+Updated U1 sheetfile to 'flatball-ins-pcb.kicad_sch'.
+Updated U1 footprint filters to 'ESP32?WROOM?32D*'.
+Add net unconnected-(U1-IO2-Pad24).
+Connected U1 pin 24 to unconnected-(U1-IO2-Pad24).
+Connected U1 pin 1 to GND.
+Add net unconnected-(U1-NC-Pad21).
+Connected U1 pin 21 to unconnected-(U1-NC-Pad21).
+Connected U1 pin 39 to GND.
+Connected U1 pin 39 to GND.
+Connected U1 pin 39 to GND.
+Connected U1 pin 11 to ESP26/RGBLED.
+Connected U1 pin 30 to ESP18/SCK.
+Connected U1 pin 13 to ESP14/CLK.
+Connected U1 pin 39 to GND.
+Connected U1 pin 2 to +3.3V.
+Connected U1 pin 39 to GND.
+Connected U1 pin 10 to ESP25/LED.
+Add net ESP32/PWREN.
+Connected U1 pin 8 to ESP32/PWREN.
+Connected U1 pin 37 to ESP23/PICO.
+Connected U1 pin 3 to RESET.
+Connected U1 pin 39 to GND.
+Connected U1 pin 39 to GND.
+Add net unconnected-(U1-SENSOR_VN-Pad5).
+Connected U1 pin 5 to unconnected-(U1-SENSOR_VN-Pad5).
+Add net unconnected-(U1-IO16-Pad27).
+Connected U1 pin 27 to unconnected-(U1-IO16-Pad27).
+Add net unconnected-(U1-SENSOR_VP-Pad4).
+Connected U1 pin 4 to unconnected-(U1-SENSOR_VP-Pad4).
+Add net unconnected-(U1-IO33-Pad9).
+Connected U1 pin 9 to unconnected-(U1-IO33-Pad9).
+Add net CH340-TX.
+Connected U1 pin 34 to CH340-TX.
+Connected U1 pin 29 to ESP5/IMU_CS.
+Connected U1 pin 39 to GND.
+Add net CH340-RX.
+Connected U1 pin 35 to CH340-RX.
+Add net unconnected-(U1-NC-Pad20).
+Connected U1 pin 20 to unconnected-(U1-NC-Pad20).
+Connected U1 pin 39 to GND.
+Add net unconnected-(U1-NC-Pad22).
+Connected U1 pin 22 to unconnected-(U1-NC-Pad22).
+Connected U1 pin 39 to GND.
+Connected U1 pin 39 to GND.
+Add net ESP35/MAG_INT.
+Connected U1 pin 7 to ESP35/MAG_INT.
+Connected U1 pin 16 to ESP13/DAT3.
+Connected U1 pin 39 to GND.
+Connected U1 pin 39 to GND.
+Connected U1 pin 39 to GND.
+Connected U1 pin 36 to ESP22/SCL.
+Connected U1 pin 39 to GND.
+Connected U1 pin 39 to GND.
+Connected U1 pin 39 to GND.
+Connected U1 pin 31 to ESP19/POCI.
+Connected U1 pin 39 to GND.
+Connected U1 pin 39 to GND.
+Connected U1 pin 33 to ESP21/SDA.
+Add net unconnected-(U1-IO17-Pad28).
+Connected U1 pin 28 to unconnected-(U1-IO17-Pad28).
+Add net unconnected-(U1-NC-Pad18).
+Connected U1 pin 18 to unconnected-(U1-NC-Pad18).
+Add net unconnected-(U1-IO15-Pad23).
+Connected U1 pin 23 to unconnected-(U1-IO15-Pad23).
+Add net unconnected-(U1-IO12-Pad14).
+Connected U1 pin 14 to unconnected-(U1-IO12-Pad14).
+Add net ESP34/IMU_INT.
+Connected U1 pin 6 to ESP34/IMU_INT.
+Add net unconnected-(U1-NC-Pad19).
+Connected U1 pin 19 to unconnected-(U1-NC-Pad19).
+Connected U1 pin 38 to GND.
+Connected U1 pin 25 to ESP0/BOOT.
+Connected U1 pin 26 to ESP4/DAT1.
+Add net unconnected-(U1-NC-Pad17).
+Connected U1 pin 17 to unconnected-(U1-NC-Pad17).
+Connected U1 pin 15 to GND.
+Connected U1 pin 12 to ESP27/MAG_CS.
+Connected U1 pin 39 to GND.
+Connected U1 pin 39 to GND.
+Connected U1 pin 39 to GND.
+Add net unconnected-(U1-NC-Pad32).
+Connected U1 pin 32 to unconnected-(U1-NC-Pad32).
+Added C3 (footprint 'Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder').
+Added U2 (footprint 'Package_TO_SOT_SMD:SOT-23-5').
+Changed REF** reference designator to U2.
+Changed U2 value from SOT-23-5 to XC6222B331MR.
+Updated U2 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/fae8b9b8-363d-4a0d-aafc-558109ddf35c.
+Updated U2 fields.
+Updated U2 sheetname to '/power/'.
+Updated U2 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated U2 footprint filters to 'SOT?23*'.
+Connected U2 pin 3 to VIN.
+Connected U2 pin 5 to +3.3V.
+Connected U2 pin 1 to VIN.
+Connected U2 pin 2 to GND.
+Add net unconnected-(U2-NC-Pad4).
+Connected U2 pin 4 to unconnected-(U2-NC-Pad4).
+Add net Net-(Q1-B).
+Added U3 (footprint 'Package_TO_SOT_SMD:SOT-23-5').
+Changed REF** reference designator to U3.
+Changed U3 value from SOT-23-5 to XC6222B331MR.
+Updated U3 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/80cb8220-dc75-4a4c-9a1e-9f911c1c9fbd.
+Updated U3 fields.
+Updated U3 sheetname to '/power/'.
+Updated U3 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated U3 footprint filters to 'SOT?23*'.
+Connected U3 pin 2 to GND.
+Connected U3 pin 5 to +3.3V_SW.
+Add net unconnected-(U3-NC-Pad4).
+Connected U3 pin 4 to unconnected-(U3-NC-Pad4).
+Connected U3 pin 3 to ESP32/PWREN.
+Connected U3 pin 1 to VIN.
+Changed REF** reference designator to C3.
+Added U4 (footprint 'Package_SO:SOIC-16_3.9x9.9mm_P1.27mm').
+Changed REF** reference designator to U4.
+Changed U4 value from SOIC-16_3.9x9.9mm_P1.27mm to CH340C.
+Updated U4 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/7f84e75d-5b01-48ee-9e88-4b90b1a505a0.
+Updated U4 fields.
+Updated U4 sheetname to '/power/'.
+Updated U4 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated U4 footprint filters to 'SOIC*3.9x9.9mm*P1.27mm*'.
+Connected U4 pin 2 to CH340-TX.
+Connected U4 pin 6 to D-.
+Add net unconnected-(U4-~{DCD}-Pad12).
+Connected U4 pin 12 to unconnected-(U4-~{DCD}-Pad12).
+Connected U4 pin 13 to CH340-DTR.
+Add net unconnected-(U4-NC-Pad7).
+Connected U4 pin 7 to unconnected-(U4-NC-Pad7).
+Connected U4 pin 1 to GND.
+Add net unconnected-(U4-~{DSR}-Pad10).
+Connected U4 pin 10 to unconnected-(U4-~{DSR}-Pad10).
+Connected U4 pin 4 to +3.3V.
+Connected U4 pin 14 to CH340-RTS.
+Connected U4 pin 16 to +3.3V.
+Add net unconnected-(U4-~{CTS}-Pad9).
+Connected U4 pin 9 to unconnected-(U4-~{CTS}-Pad9).
+Add net unconnected-(U4-R232-Pad15).
+Connected U4 pin 15 to unconnected-(U4-R232-Pad15).
+Connected U4 pin 3 to CH340-RX.
+Add net unconnected-(U4-NC-Pad8).
+Connected U4 pin 8 to unconnected-(U4-NC-Pad8).
+Connected U4 pin 5 to D+.
+Add net unconnected-(U4-~{RI}-Pad11).
+Connected U4 pin 11 to unconnected-(U4-~{RI}-Pad11).
+Changed C3 value from C_0402_1005Metric_Pad0.74x0.62mm_HandSolder to 0.1uF.
+Added U5 (footprint 'Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.5mm_EP1.66x2.38mm').
+Changed REF** reference designator to U5.
+Changed U5 value from DFN-8-1EP_3x3mm_P0.5mm_EP1.66x2.38mm to MAX17048.
+Updated U5 symbol association from  to /493f47d5-e737-4a9f-8b3c-8a79cbbf3e8d/1b48409f-8b5a-4864-bac5-528f7434adbe.
+Updated U5 fields.
+Updated U5 sheetname to '/power/'.
+Updated U5 sheetfile to 'flatball-ins-batt.kicad_sch'.
+Updated U5 footprint filters to 'DFN*3x3mm*P0.5mm*'.
+Connected U5 pin 6 to GND.
+Add net unconnected-(U5-ALRT-Pad5).
+Connected U5 pin 5 to unconnected-(U5-ALRT-Pad5).
+Connected U5 pin 7 to Net-(U5-SCL).
+Connected U5 pin 4 to GND.
+Connected U5 pin 1 to GND.
+Connected U5 pin 3 to V_BAT.
+Connected U5 pin 2 to V_BAT.
+Connected U5 pin 8 to Net-(U5-SDA).
+Updated C3 symbol association from  to /1a055dcc-220b-4134-aedd-29c569fba364.
+Added U6 (footprint 'Package_LGA:LGA-14_3x2.5mm_P0.5mm_LayoutBorder3x4y').
+Changed REF** reference designator to U6.
+Changed U6 value from LGA-14_3x2.5mm_P0.5mm_LayoutBorder3x4y to ISM330DHCX.
+Updated U6 symbol association from  to /77737cbe-ba7b-41b6-97bf-050a97a18fb5/7d875d63-5298-4447-908a-fdb4f8c1426d.
+Updated U6 fields.
+Updated U6 sheetname to '/sensor/'.
+Updated U6 sheetfile to 'flatball-ins-sensors.kicad_sch'.
+Updated U6 footprint filters to '*LGA*3x2.5mm*P0.5mm*LayoutBorder3x4y*'.
+Connected U6 pin 1 to ESP19/POCI.
+Connected U6 pin 3 to GND.
+Connected U6 pin 8 to +3.3V_SW.
+Connected U6 pin 5 to +3.3V_SW.
+Add net unconnected-(U6-OCS_AUX-Pad10).
+Connected U6 pin 10 to unconnected-(U6-OCS_AUX-Pad10).
+Add net unconnected-(U6-SDO_AUX-Pad11).
+Connected U6 pin 11 to unconnected-(U6-SDO_AUX-Pad11).
+Connected U6 pin 14 to ESP23/PICO.
+Add net unconnected-(U6-INT2-Pad9).
+Connected U6 pin 9 to unconnected-(U6-INT2-Pad9).
+Connected U6 pin 6 to GND.
+Connected U6 pin 2 to GND.
+Connected U6 pin 4 to ESP34/IMU_INT.
+Connected U6 pin 7 to GND.
+Connected U6 pin 12 to ESP5/IMU_CS.
+Connected U6 pin 13 to ESP18/SCK.
+Updated C3 fields.
+Added U7 (footprint 'Package_LGA:LGA-16_3x3mm_P0.5mm').
+Changed REF** reference designator to U7.
+Changed U7 value from LGA-16_3x3mm_P0.5mm to MMC5983MA_QFN16.
+Updated U7 symbol association from  to /77737cbe-ba7b-41b6-97bf-050a97a18fb5/650cab01-2594-4778-9918-9f758b4ceaea.
+Updated U7 fields.
+Updated U7 sheetname to '/sensor/'.
+Updated U7 sheetfile to 'flatball-ins-sensors.kicad_sch'.
+Updated U7 footprint filters to '*LGA*3x3mm*P0.5mm*'.
+Connected U7 pin 9 to GND.
+Connected U7 pin 15 to ESP35/MAG_INT.
+Connected U7 pin 1 to ESP18/SCK.
+Connected U7 pin 11 to GND.
+Connected U7 pin 13 to +3.3V_SW.
+Connected U7 pin 10 to Net-(U7-CAP).
+Connected U7 pin 2 to +3.3V_SW.
+Connected U7 pin 4 to ESP27/MAG_CS.
+Connected U7 pin 5 to ESP19/POCI.
+Connected U7 pin 16 to ESP23/PICO.
+
+
+Connected SW2 pin 2 to GND.
+Warning: No net found for component U7 pad 3 (no pin 3 in symbol).
+Warning: No net found for component U7 pad 6 (no pin 6 in symbol).
+Warning: No net found for component U5 pad 9 (no pin 9 in symbol).
+Warning: No net found for component U7 pad 14 (no pin 14 in symbol).
+Warning: No net found for component U7 pad 8 (no pin 8 in symbol).
+Warning: No net found for component U7 pad 7 (no pin 7 in symbol).
+Warning: No net found for component U7 pad 12 (no pin 12 in symbol).
+
+
+Info: Total warnings: 7, errors: 0.

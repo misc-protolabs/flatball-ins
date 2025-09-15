@@ -1,0 +1,5 @@
+Surface Area: 44923.91 mm^2
+Volume: 37419.31 mm^3
+Mass: 0.0365 kg
+Center of Mass: x = -0.00 mm, y = 23.55 mm, z = 0.00 mm
+Moment of Inertia: Ixx = 6.413e-05 g·mm², Iyy = 1.273e-04 g·mm², Izz = 6.413e-05 g·mm²
