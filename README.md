@@ -11,7 +11,6 @@ We’re building an open-source platform to analyze and visualize frisbee flight
 🌐 Three.js-based 3D visualization of flight trajectories  
 ✈️ Airfoil design iterations using 3D-printed prototypes
 
-
 ## We’re looking for:
 - Embedded devs, PCB designers, and sensor wranglers
 - Web-based visualization builders (Three.js, D3, etc.)
@@ -21,6 +20,13 @@ We’re building an open-source platform to analyze and visualize frisbee flight
 ## Why it matters:
 Frisbee flight is beautiful, chaotic, and underexplored. We want to make flight analytics accessible — not just for researchers, but for athletes, makers, and curious minds everywhere.
 Join us. Fork the repo. Open an issue. Let’s build something that flies.
+
+## 🥏 Ultimate Frisbee & UFA Spotlight
+
+This project is deeply inspired by the athleticism, precision, and innovation seen in professional Ultimate.  
+Explore the evolution of the sport and the rise of the Ultimate Frisbee Association (UFA):  
+➡️ [`ultimate-history.md`](admin/mike-schaefer/md/ultimate-history.md)  
+➡️ [`UFA.md`](admin/mike-schaefer/md/UFA.md)
 
 ## 🎯 Project Goals
 
