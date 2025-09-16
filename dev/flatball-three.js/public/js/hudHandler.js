@@ -15,6 +15,8 @@
 // hudHandler.js
 // Handles creation, styling, and updates for Debug HUD and State Vector HUD
 
+//import config from './config.json';
+
 let config;
 let lastStateHudUpdateMs = 0;
 
@@ -186,6 +188,301 @@ export function updateHUDs() {
       const unitsFooter = `[units] pos: ${config.processing.units.length}, vel: ${config.processing.units.velocity}, angles: ${config.processing.units.angles}, rates: ${config.processing.units.angleRates}`;
 
       st.textContent = `${line1}\n${line2}\n${line3}\n${line4}\n${unitsFooter}`;
+    }
+  }
+}
+
+export function createCompositeStream(videoEl, options = {}) {
+  const {
+    canvasSelector = 'canvas',
+    pipSize = { width: 160, height: 90 },
+    pipLocation = 'lowerR',
+    frameRate = 30,
+    resolution = { width: 1280, height: 720 }
+  } = options;
+
+  const sceneCanvas = document.querySelector(canvasSelector);
+  if (!sceneCanvas) {
+    console.warn('[CompositeStream] Scene canvas not found.');
+    return null;
+  }
+
+  const compositeCanvas = document.createElement('canvas');
+  compositeCanvas.width = resolution.width;
+  compositeCanvas.height = resolution.height;
+  const ctx = compositeCanvas.getContext('2d');
+
+  const getPipPosition = () => {
+    const { width, height } = pipSize;
+    switch (pipLocation) {
+      case 'upperL': return { x: 10, y: 10 };
+      case 'upperR': return { x: compositeCanvas.width - width - 10, y: 10 };
+      case 'lowerL': return { x: 10, y: compositeCanvas.height - height - 10 };
+      case 'lowerR': return { x: compositeCanvas.width - width - 10, y: compositeCanvas.height - height - 10 };
+      case 'center': return {
+        x: (compositeCanvas.width - width) / 2,
+        y: (compositeCanvas.height - height) / 2
+      };
+      default: return { x: 10, y: 10 };
+    }
+  };
+
+  const drawFrame = () => {
+    ctx.clearRect(0, 0, compositeCanvas.width, compositeCanvas.height);
+    ctx.drawImage(sceneCanvas, 0, 0, compositeCanvas.width, compositeCanvas.height);
+
+    if (videoEl?.readyState >= 2) {
+      const { width, height } = pipSize;
+      const { x, y } = getPipPosition();
+      ctx.drawImage(videoEl, x, y, width, height);
+    }
+
+    requestAnimationFrame(drawFrame);
+  };
+
+  drawFrame();
+  console.log('[CompositeStream] Composite canvas stream initialized.');
+  return compositeCanvas.captureStream(frameRate);
+}
+
+function shouldShowPipHUD() {
+  return config.hudPiP?.enabled && config.hudPiP?.show;
+}
+
+export function renderHUD(state, payload) {
+  const hudElement = document.getElementById('hudPip');
+  if (!hudElement) {
+    console.warn('[HUD] Element not found.');
+    return;
+  }
+
+  hudElement.innerHTML = '';
+
+  const {
+    location = 'upperL',
+    offset = { x: 10, y: 10 },
+    units = 'px',
+    size = { width: '300px', height: '200px' },
+    style = 'minimal',
+    startCamera = false,
+    recordingEnabled = true,
+    resolution = { width: 1280, height: 720 },
+    frameRate = 30,
+    mimeType = 'video/webm',
+    recordSource = 'camera',
+    composite = {
+      pipSize: { width: 160, height: 90 },
+      pipLocation: 'lowerR'
+    }
+  } = payload;
+
+  console.log('[HUD] Config:', {
+    location, startCamera, recordingEnabled, resolution, frameRate, mimeType, recordSource
+  });
+
+  // Positioning
+  hudElement.style.display = 'block';
+  hudElement.style.position = 'absolute';
+  hudElement.style.width = size.width;
+  hudElement.style.height = size.height;
+  hudElement.style.overflow = 'hidden';
+  hudElement.style.top = '';
+  hudElement.style.bottom = '';
+  hudElement.style.left = '';
+  hudElement.style.right = '';
+  hudElement.style.transform = '';
+
+  switch (location) {
+    case 'upperL': hudElement.style.top = `${offset.y}${units}`; hudElement.style.left = `${offset.x}${units}`; break;
+    case 'upperR': hudElement.style.top = `${offset.y}${units}`; hudElement.style.right = `${offset.x}${units}`; break;
+    case 'lowerL': hudElement.style.bottom = `${offset.y}${units}`; hudElement.style.left = `${offset.x}${units}`; break;
+    case 'lowerR': hudElement.style.bottom = `${offset.y}${units}`; hudElement.style.right = `${offset.x}${units}`; break;
+    case 'center': hudElement.style.top = '50%'; hudElement.style.left = '50%'; hudElement.style.transform = 'translate(-50%, -50%)'; break;
+    default: hudElement.style.top = `${offset.y}${units}`; hudElement.style.left = `${offset.x}${units}`; break;
+  }
+
+  if (style === 'minimal') {
+    hudElement.style.backgroundColor = '#000';
+    hudElement.style.border = '2px solid #444';
+    hudElement.style.borderRadius = '8px';
+  }
+
+  // Video preview
+  const video = document.createElement('video');
+  video.setAttribute('autoplay', true);
+  video.setAttribute('playsinline', true);
+  video.style.width = '100%';
+  video.style.height = '100%';
+  video.style.objectFit = 'cover';
+  hudElement.appendChild(video);
+
+  // Toggle button
+  const toggleBtn = document.createElement('button');
+  toggleBtn.innerText = '▶️';
+  toggleBtn.title = 'Toggle Camera';
+  Object.assign(toggleBtn.style, {
+    position: 'absolute', top: '5px', left: '5px', zIndex: '10',
+    padding: '4px 8px', fontSize: '14px', border: 'none',
+    borderRadius: '4px', backgroundColor: '#444', color: '#fff', cursor: 'pointer'
+  });
+  hudElement.appendChild(toggleBtn);
+
+  // Record button
+  let recordBtn = null;
+  if (recordingEnabled) {
+    recordBtn = document.createElement('button');
+    recordBtn.innerText = '📹';
+    recordBtn.title = 'Start Recording';
+    Object.assign(recordBtn.style, {
+      position: 'absolute', top: '5px', right: '5px', zIndex: '10',
+      padding: '4px 8px', fontSize: '14px', border: 'none',
+      borderRadius: '4px', backgroundColor: '#444', color: '#fff', cursor: 'pointer'
+    });
+    hudElement.appendChild(recordBtn);
+  }
+
+  let cameraStream = null;
+  let mediaRecorder = null;
+  let recordedChunks = [];
+
+  function activateCameraStream() {
+    const constraints = {
+      video: {
+        width: resolution.width,
+        height: resolution.height,
+        frameRate: frameRate
+      }
+    };
+    console.log('[HUD] Requesting camera stream:', constraints);
+
+    navigator.mediaDevices.getUserMedia(constraints)
+      .then(s => {
+        cameraStream = s;
+        video.srcObject = s;
+        toggleBtn.innerText = '⏹️';
+        console.log('[HUD] Camera stream activated.');
+      })
+      .catch(err => {
+        console.error('[HUD] Camera access failed:', err);
+        hudElement.innerHTML = `<div style="color: red; padding: 10px;">Camera access denied</div>`;
+      });
+  }
+
+  function deactivateCameraStream() {
+    if (cameraStream) {
+      cameraStream.getTracks().forEach(track => track.stop());
+      cameraStream = null;
+      video.srcObject = null;
+      toggleBtn.innerText = '▶️';
+      console.log('[HUD] Camera stream deactivated.');
+    }
+  }
+
+  function getRecordingStream() {
+    if (recordSource === 'scene') {
+      const canvas = document.querySelector('canvas');
+      if (!canvas) {
+        console.warn('[HUD] Canvas not found.');
+        return null;
+      }
+      console.log('[HUD] Capturing canvas stream.');
+      return canvas.captureStream(frameRate);
+    }
+
+    if (recordSource === 'composite') {
+      const compositeStream = createCompositeStream(video, {
+        pipSize: composite.pipSize,
+        pipLocation: composite.pipLocation,
+        frameRate,
+        resolution
+      });
+      console.log('[HUD] Capturing composite stream.');
+      return compositeStream;
+    }
+
+    if (recordSource === 'camera') {
+      if (!cameraStream) {
+        console.warn('[HUD] Camera stream not active.');
+        return null;
+      }
+      console.log('[HUD] Using camera stream.');
+      return cameraStream;
+    }
+
+    console.warn(`[HUD] Unknown recordSource: ${recordSource}`);
+    return null;
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    if (cameraStream) {
+      deactivateCameraStream();
+    } else {
+      activateCameraStream();
+    }
+  });
+
+  if (recordBtn) {
+    recordBtn.addEventListener('click', () => {
+      const sourceStream = getRecordingStream();
+      if (!sourceStream) {
+        console.warn('[HUD] No stream available for recording.');
+        return;
+      }
+
+      if (!mediaRecorder || mediaRecorder.state === 'inactive') {
+        recordedChunks = [];
+        try {
+          mediaRecorder = new MediaRecorder(sourceStream, { mimeType });
+          console.log('[HUD] MediaRecorder initialized.');
+        } catch (err) {
+          console.error('[HUD] MediaRecorder failed:', err);
+          return;
+        }
+
+        mediaRecorder.ondataavailable = e => {
+          if (e.data.size > 0) recordedChunks.push(e.data);
+        };
+
+        mediaRecorder.onstop = () => {
+          const blob = new Blob(recordedChunks, { type: mimeType });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `demo-recording-${Date.now()}.webm`;
+          a.click();
+          console.log('[HUD] Recording saved.');
+        };
+
+        mediaRecorder.start();
+        recordBtn.innerText = '⏹️';
+        recordBtn.title = 'Stop Recording';
+        console.log('[HUD] Recording started.');
+      } else {
+        mediaRecorder.stop();
+        recordBtn.innerText = '📹';
+        recordBtn.title = 'Start Recording';
+        console.log('[HUD] Recording stopped.');
+      }
+    });
+  }
+
+  // Initial stream setup
+  if (startCamera) {
+    activateCameraStream();
+    toggleBtn.style.display = 'block';
+  } else {
+    toggleBtn.innerText = '▶️';
+    toggleBtn.style.display = 'block';
+  }
+
+  if (recordSource === 'scene' || recordSource === 'composite') {
+    const previewStream = getRecordingStream();
+    if (previewStream) {
+      video.srcObject = previewStream;
+      console.log('[HUD] Previewing stream for recordSource:', recordSource);
+    } else {
+      video.style.display = 'none';
+      console.warn('[HUD] Preview stream not available.');
     }
   }
 }

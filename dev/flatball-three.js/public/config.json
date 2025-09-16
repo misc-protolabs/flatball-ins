@@ -3,18 +3,18 @@
     "coordinateSystem": "ENU",
     "gridSize": 60,
     "gridStep": 1,
-	"showAxesHelper": true,
-	"axesHelperLength": 0.25,
-	"skyColor": "#87CEEB"
+    "showAxesHelper": true,
+    "axesHelperLength": 0.25,
+    "skyColor": "#87CEEB"
   },
-"nsewMarkers": {
-  "enabled": true,
-  "offset": { "x": 2.5, "y": -0.5, "z": 2.5 },
-  "color": "#ffaa00",
-  "fontSize": 0.5,
-  "labelStyle": "flat",
-  "attachTo": "disc"
-},
+  "nsewMarkers": {
+    "enabled": true,
+    "offset": { "x": 2.5, "y": -0.5, "z": 2.5 },
+    "color": "#ffaa00",
+    "fontSize": 0.5,
+    "labelStyle": "flat",
+    "attachTo": "disc"
+  },
   "processing": {
     "units": {
       "length": "m",
@@ -33,27 +33,11 @@
     "pitchOffsetDeg": -90,
     "yawOffsetDeg": 0
   },
-"model": {
-  "frisbeeDiameter": 1.0,
-  "frisbeeStartHeight": 1.0,
-  "startPosition": { "x": 0, "y": 1.0, "z": -30 },
-  "frameCorrectionDeg": [90, 0, 90]
-},
-  "hudDebug": {
-    "enabled": true,
-    "position": "top-left",
-    "fontSize": 13,
-    "color": "#ffffff",
-    "background": "rgba(0,0,0,0.5)"
-  },
-  "hudState": {
-    "enabled": true,
-    "position": "lowerR",
-    "fontSize": 13,
-    "color": "#00ffd5",
-    "background": "rgba(0,0,0,0.5)",
-    "updateRateHz": 20,
-    "numericFormat": "%10.4f"
+  "model": {
+    "frisbeeDiameter": 1.0,
+    "frisbeeStartHeight": 1.0,
+    "startPosition": { "x": 0, "y": 1.0, "z": -30 },
+    "frameCorrectionDeg": [90, 0, 90]
   },
   "lights": {
     "skyColor": "#ffffff",
@@ -65,54 +49,88 @@
     "size": 100,
     "color": "#444444"
   },
-"camera": {
-  "startPosition": { "x": 0, "y": 2.5, "z": -35 },
-  "lookAt": { "x": 0, "y": 1, "z": -30 }
-},
-"field": {
-  "length": 100,
-  "width": 37,
-  "endZoneDepth": 18,
-  "playingFieldLength": 64,
-  "brickMarkDistance": 2,
-  "color": "#228B22",
-
-  "lines": {
+  "camera": {
+    "startPosition": { "x": 0, "y": 2.5, "z": -35 },
+    "lookAt": { "x": 0, "y": 1, "z": -30 }
+  },
+  "field": {
+    "length": 100,
+    "width": 37,
+    "endZoneDepth": 18,
+    "playingFieldLength": 64,
+    "brickMarkDistance": 2,
+    "color": "#228B22",
+    "lines": {
+      "enabled": true,
+      "color": "#ffffff",
+      "width": 0.05,
+      "brickMarkRadius": 0.125,
+      "drawSidelines": true,
+      "drawEndZoneLines": true,
+      "drawBrickMarks": true,
+      "drawMidline": true,
+      "drawGoalLines": false
+    },
+    "grid": {
+      "enabled": true,
+      "spacing": 5,
+      "color": "#cccccc",
+      "width": 0.01,
+      "opacity": 0.3,
+      "drawOnField": true,
+      "drawBeyondField": false,
+      "labelAxes": false
+    }
+  },
+  "dataSource": {
+    "mode": "csv",
+    "telemetry": {
+      "enabled": true,
+      "url": "ws://localhost:8080",
+      "fields": ["x", "y", "z", "roll", "pitch", "yaw"],
+      "scale": 1.0,
+      "debug": true
+    },
+    "csv": {
+      "path": "data/flight.csv",
+      "playbackRate": 1.0,
+      "loop": false
+    }
+  },
+  "hudDebug": {
     "enabled": true,
+    "position": "top-left",
+    "fontSize": 13,
     "color": "#ffffff",
-    "width": 0.05,
-    "brickMarkRadius": 0.125,
-    "drawSidelines": true,
-    "drawEndZoneLines": true,
-    "drawBrickMarks": true,
-    "drawMidline": true,
-    "drawGoalLines": false
+    "background": "rgba(0,0,0,0.5)"
   },
-
-  "grid": {
+  "hudState": {
     "enabled": true,
-    "spacing": 5,
-    "color": "#cccccc",
-    "width": 0.01,
-    "opacity": 0.3,
-    "drawOnField": true,
-    "drawBeyondField": false,
-    "labelAxes": false
-  }
-},
-"dataSource": {
-  "mode": "csv",
-  "telemetry": {
-    "enabled": true,
-    "url": "ws://localhost:8080",
-    "fields": ["x", "y", "z", "roll", "pitch", "yaw"],
-    "scale": 1.0,
-    "debug": true
+    "position": "lowerL",
+    "fontSize": 13,
+    "color": "#00ffd5",
+    "background": "rgba(0,0,0,0.5)",
+    "updateRateHz": 20,
+    "numericFormat": "%10.4f"
   },
-  "csv": {
-    "path": "data/flight.csv",
-    "playbackRate": 1.0,
-    "loop": false
+"hudPiP": {
+  "enabled": true,
+  "show": true,
+  "location": "lowerR",
+  "offset": { "x": 20, "y": 20 },
+  "units": "px",
+  "size": { "width": "320px", "height": "180px" },
+  "style": "minimal",
+  "startCamera": false,
+  "showCameraToggle": true,
+  "recordingEnabled": true,
+  "recordSource": "composite",
+  "resolution": { "width": 1280, "height": 720 },
+  "frameRate": 30,
+  "mimeType": "video/webm",
+  "composite": {
+    "pipSize": { "width": 320, "height": 180 },
+    "pipLocation": "lowerR"
   }
 }
 }

@@ -10,6 +10,7 @@ We’re building an open-source platform to analyze and visualize frisbee flight
 🚀 Twin-motor frisbee launcher for repeatable flight studies  
 🌐 Three.js-based 3D visualization of flight trajectories  
 ✈️ Airfoil design iterations using 3D-printed prototypes
+📍 Flight path reconstruction from live telemetry and datalogging
 
 ## We’re looking for:
 - Embedded devs, PCB designers, and sensor wranglers
@@ -19,7 +20,7 @@ We’re building an open-source platform to analyze and visualize frisbee flight
 
 ## Why it matters:
 Frisbee flight is beautiful, chaotic, and underexplored. We want to make flight analytics accessible — not just for researchers, but for athletes, makers, and curious minds everywhere.
-Join us. Fork the repo. Open an issue. Let’s build something that flies.
+Join us. Open an issue. Let’s build something that flies.
 
 ## 🥏 Ultimate Frisbee & UFA Spotlight
 

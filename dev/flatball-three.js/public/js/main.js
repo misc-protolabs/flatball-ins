@@ -22,6 +22,8 @@ import { addCrossHatch, addNSEWMarkers, addFieldLines, addFieldGrid } from './fi
 import { initHUDs, updatePlaybackState, updateHUDs } from './hudHandler.js';
 import { TelemetryHelper } from './telemetryHelper.js';
 import { CsvPlayback, csvData, initCSVLoader } from './csvLoader.js';
+import { renderHUD } from './hudHandler.js';
+import { initPipFlow } from './pipHelper.js';
 
 let config;
 let controls;
@@ -264,6 +266,10 @@ async function init() {
     }
   });
   startDataSource(config.dataSource.mode);
+
+  // PiP
+  initPipFlow(config);
+
   animate();
 }
 
