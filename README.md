@@ -1,81 +1,111 @@
-# Flatball Inertial Navigation System: Advanced Frisbee Flight Dynamics & Aerodynamics Research
+# Flatball Inertial Navigation System
+Advanced frisbee flight dynamics, sensor fusion, and aerodynamics research — open-source platform for precise onboard IMU logging, 3D trajectory playback, and CFD-backed airfoil modeling.
 
-## 🌀 Open Call: Help Us Decode Frisbee Flight
-
-We’re building an open-source platform to analyze and visualize frisbee flight — from onboard IMU logging to 3D trajectory playback and CFD-backed airfoil modeling. If you’re into embedded systems, real-time sensor fusion, or just want to help frisbees fly smarter, this is your launchpad.
-
-## What’s in motion:
-
-	🛠️ Custom PCB for onboard IMU logging  
-	🚀 Twin-motor frisbee launcher for repeatable flight studies 
-	🌐 Three.js-based 3D visualization of flight trajectories
-	✈️ Airfoil design iterations using 3D-printed prototypes
-	📍 Flight path reconstruction from live telemetry and datalogging
-
-	Some video clips:
-		➡️ [`launcher-concept-spin-test.mov`](arxiv/vid/launcher-concept-spin-test.mov)
-		➡️ [`prototype-pcb-ahrs-demo.webm`](arxiv/vid/prototype-pcb-ahrs-demo.webm) 
-
-## We’re looking for:
-- Embedded devs, PCB designers, and sensor wranglers
-- Web-based visualization builders (Three.js, D3, etc.)
-- CFD modelers and aerodynamic tinkerers
-- Outreach-minded collaborators who care about open sports-tech
-
-## Why it matters:
-Frisbee flight is beautiful, chaotic, and underexplored. We want to make flight analytics accessible — not just for researchers, but for athletes, makers, and curious minds everywhere.
-Join us. Open an issue. Let’s build something that flies.
-
-## 🥏 Ultimate Frisbee & UFA Spotlight
-
-This project is deeply inspired by the athleticism, precision, and innovation seen in professional Ultimate.  
-Explore the evolution of the sport and the rise of the Ultimate Frisbee Association (UFA):  
-➡️ [`ultimate-history.md`](admin/md/ultimate-history.md)  
-➡️ [`UFA.md`](admin/md/UFA.md)
-
-## 🎯 Project Goals
-
-- Develop a custom PCB mounted to a Discraft 175g Ultra-Star that logs:
-  - 3DOF accelerometer, gyroscope, magnetometer
-  - Barometric pressure, temperature, battery voltage
-- Build a launcher capable of repeatable 6DOF launch conditions using twin e-bike hub motors
-- Validate aerodynamic models across throw types (forehand, backhand, hammer, scoober)
-- Simulate airfoil shape changes using CFD (OpenFOAM) and predict trajectory impacts
-- Visualize flight data in 3D using Three.js and web-based tools
-
-## 🧠 Skills We're Looking For
-
-| Domain | Skills |
-|--------|--------|
-| Embedded Systems | Bluetooth, WiFi, SD/MMC, USB, sensor integration |
-| Realtime Programming | Sensor fusion, I2C/SPI, IMU calibration |
-| Aerospace Engineering | 6DOF rigid body modeling, aerodynamic coefficient estimation |
-| Visualization | Three.js, Node.js, browser-based 3D rendering |
-| Hardware Prototyping | PCB design, launcher fabrication, disc integration |
-| Math & Physics | Quaternions, rotation matrices, Euler angles |
-
-## ⚖️ Licensing
-
-- All software and hardware files are licensed under the **Apache License 2.0**  
-- Scientific data and papers are licensed under **Creative Commons Attribution (CC-BY)**  
-- Trademark use is restricted; see `NOTICE` for details
-
-## 🤝 Contributing
-
-We welcome collaborators! Please read `CONTRIBUTING.md` before submitting code, hardware designs, or documentation. By contributing, you agree to license your work under Apache 2.0 and grant the project maintainers the right to relicense or publish derivative works, including scientific papers and datasets.
-
-## 💰 Funding Opportunities
-
-Interested in supporting this project?  
-See [funding.md](admin/mike-schaefer/md/funding.md) for details on sponsorship tiers, collaboration channels, and impact goals.
-
-## 📡 GitHub Repository
-
-Explore the code and contribute here:  
-👉 [https://github.com/misc-protolabs/flatball-ins](https://github.com/misc-protolabs/flatball-ins)
-
-📘 For detailed repo administration and workflow docs, see [repo-admin.md](admin/mike-schaefer/md/repo-admin.md).
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![Build Status](https://img.shields.io/badge/build-none-lightgrey)]()
+[![Contributors](https://img.shields.io/github/contributors/misc-protolabs/flatball-ins)](https://github.com/misc-protolabs/flatball-ins/graphs/contributors)
+[![Issues](https://img.shields.io/github/issues/misc-protolabs/flatball-ins)](https://github.com/misc-protolabs/flatball-ins/issues)
 
 ---
 
-Whether you're an engineer, maker, coder, or frisbee fanatic — this is your invitation to help build something novel, rigorous, and open-source.
+## Elevator pitch
+Precise, repeatable frisbee flight datasets and open tooling for 3D visualization and aerodynamic validation. We provide hardware, firmware, simulation, and web tools so researchers, athletes, and makers can analyze and reproduce frisbee flight with scientific rigor.
+
+---
+
+## Featured media
+- Launcher concept: `arxiv/vid/launcher-concept-spin-test.mov`  
+- AHRS demo: `arxiv/vid/prototype-pcb-ahrs-demo.webm`
+
+(Consider replacing these links with embedded thumbnails or a single highlight video for the project landing page.)
+
+---
+
+## Open call — how to help
+We welcome contributions across hardware, firmware, simulation, and visualization. Typical ways to join:
+- Open an issue to propose work or report data
+- Pick a "Start here" onboarding issue from the project board
+- Submit a focused PR (see CONTRIBUTING.md)
+
+Who we need
+- Embedded engineers and PCB designers
+- Sensor fusion and realtime programmers
+- CFD and aerodynamics modelers
+- Web visualization engineers (Three.js, D3)
+- Outreach and documentation contributors
+
+Start here:
+- Hardware onboarding: admin/mike-schaefer/md/repo-admin.md#hardware
+- Firmware onboarding: admin/mike-schaefer/md/repo-admin.md#firmware
+- Visualization onboarding: admin/mike-schaefer/md/repo-admin.md#visualization
+- CFD onboarding: admin/mike-schaefer/md/repo-admin.md#cfd
+
+---
+
+## What we build
+- Custom PCB mounted to a Discraft 175g Ultra-Star for onboard logging:
+  - 3-axis accel, gyro, magnetometer
+  - Barometer, temperature, battery voltage
+- Twin-motor launcher for reproducible 6DOF launch conditions
+- Flight path reconstruction from onboard telemetry and ground tracking
+- CFD (OpenFOAM) airfoil simulations and 3D-printed prototype testing
+- Web-based 3D visualization and playback using Three.js
+
+---
+
+## Project goals (short list)
+- Deliver a sharable dataset of repeatable throws with synchronized IMU and telemetry
+- Provide an open PCB and firmware reference for instrumented frisbees
+- Validate aerodynamic and rigid-body models across common throw types
+- Ship a web-based replay tool for interactive analysis and publication-ready figures
+
+---
+
+## Quick status (example)
+- Labels and milestones are config-driven in `admin/json/labels.json` and `admin/json/milestones.json`
+- Sync tooling: `admin/mike-schaefer/py/sync-github-config.py`
+- Repo admin docs: `admin/mike-schaefer/md/repo-admin.md`
+
+---
+
+## Roadmap (high level)
+- onboarding/v1.0 — contributor docs, labels, and starter issues
+- infra/sync-scripts — reliable config-driven label/milestone sync + audit logs
+- hardware/pcb-v1.0 — design freeze and PCBA V&V
+- math/flight-prototype — quaternion-based pose and trajectory pipeline
+- visualization/v1.0 — Three.js playback and publication export
+
+Acceptance criteria: one reproducible experiment with full data, one validated PCB V&V run, and a public Three.js replay.
+
+---
+
+## Contributing & governance
+- Read `CONTRIBUTING.md` before submitting contributions.
+- Contributions are licensed under **Apache License 2.0**. Scientific data and papers are CC-BY unless stated otherwise. See `NOTICE` for trademark rules.
+- Maintainability rules: config-driven labels/milestones, descriptive PRs, and automated sync logs in `admin/logs-and-reports/`.
+
+---
+
+## Code of conduct
+Be respectful. Inclusive collaboration is required. See `CODE_OF_CONDUCT.md` for details.
+
+---
+
+## Funding & sponsorship
+Interested in sponsoring the project? See `admin/mike-schaefer/md/funding.md` for tiers and contact channels.
+
+---
+
+## Links
+- Repository: https://github.com/misc-protolabs/flatball-ins  
+- Admin docs: `admin/mike-schaefer/md/repo-admin.md`  
+- Ultimate history and context: `admin/md/ultimate-history.md`, `admin/md/UFA.md`
+
+---
+
+## Contact
+Open an issue, or reach out via the repository issue tracker to start collaborating.
+
+---
+
+Thank you for helping build reproducible, rigorous, and open frisbee flight science.
