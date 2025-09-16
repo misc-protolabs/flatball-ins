@@ -1,13 +1,17 @@
 import json
 import subprocess
 import argparse
-from datetime import datetime
 import os
+from datetime import datetime, timedelta, timezone
 
-LOG_DIR = os.path.join("admin", "logs")
+LOG_DIR = os.path.join("..", "..", "admin", "logs-and-reports")
 os.makedirs(LOG_DIR, exist_ok=True)
-LOG_FILE = os.path.join(LOG_DIR, "sync-github-config.log")
+LOG_FILE = os.path.join(LOG_DIR, "sync-github-config-log.txt")
 REPO = "misc-protolabs/flatball-ins"  # Replace with your actual repo
+
+def default_due_date():
+    future_date = datetime.now(timezone.utc) + timedelta(days=5*365)
+    return future_date.strftime("%Y-%m-%dT%H:%M:%SZ")
 
 def log(msg):
     timestamp = datetime.now().isoformat()
@@ -27,8 +31,9 @@ def run(cmd, dry_run):
     return result.stdout.strip()
 
 def sync_labels(dry_run):
-    with open(".github/labels.json") as f:
-        labels = json.load(f)["labels"]
+    repo = "misc-protolabs/flatball-ins"
+    with open("../../json/labels.json") as f:
+        labels = json.load(f)
     for label in labels:
         name = label["name"]
         color = label["color"]
@@ -39,18 +44,19 @@ def sync_labels(dry_run):
         run(f"{cmd_create} || {cmd_edit}", dry_run)
 
 def sync_milestones(dry_run):
-    with open(".github/milestones.json") as f:
-        milestones = json.load(f)["milestones"]
+    repo = "misc-protolabs/flatball-ins"
+    with open("../../json/milestones.json") as f:
+        milestones = json.load(f)
     for m in milestones:
-        title = m["title"]
-        desc = m.get("description", "")
-        due = m.get("due_on", "")
-        state = m.get("state", "open")
-        log(f"Syncing milestone: {title}")
-        cmd = (
-            f'gh api repos/{REPO}/milestones --method POST '
-            f'-f title="{title}" -f description="{desc}" -f due_on="{due}" -f state="{state}"'
-        )
+        due_on = m.get("due_on") or default_due_date()
+        cmd = [
+            "gh", "api", f"repos/{repo}/milestones",
+            "--method", "POST",
+            "-f", f"title={m['title']}",
+            "-f", f"description={m['description']}",
+            "-f", f"due_on={due_on}",
+            "-f", "state=open"
+        ]
         run(cmd, dry_run)
 
 if __name__ == "__main__":
@@ -60,5 +66,5 @@ if __name__ == "__main__":
 
     log("=== Sync Started ===")
     sync_labels(args.dry_run)
-    sync_milestones(args.dry_run)
+    #sync_milestones(args.dry_run)
     log("=== Sync Complete ===")

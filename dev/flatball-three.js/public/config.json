@@ -116,7 +116,7 @@
 "hudPiP": {
   "enabled": true,
   "show": true,
-  "location": "lowerR",
+  "location": "upperR",
   "offset": { "x": 20, "y": 20 },
   "units": "px",
   "size": { "width": "320px", "height": "180px" },
@@ -130,7 +130,7 @@
   "mimeType": "video/webm",
   "composite": {
     "pipSize": { "width": 320, "height": 180 },
-    "pipLocation": "lowerR"
+    "pipLocation": "upperR"
   }
 }
 }

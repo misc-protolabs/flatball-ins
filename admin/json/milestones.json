@@ -1,0 +1,37 @@
+[
+  {
+    "title": "SN-2024110603-calibration",
+    "description": "Calibration procedures for unit SN-2024110603",
+    "due_on": null
+  },
+  {
+    "title": "SN-2024110603-pose",
+    "description": "Pose estimation validation for unit SN-2024110603",
+    "due_on": null
+  },
+  {
+    "title": "SN-2024110603-ahrs",
+    "description": "AHRS tuning and integration for unit SN-2024110603",
+    "due_on": null
+  },
+  {
+    "title": "SN-2024110603-flight-path-recovery",
+    "description": "Flight path reconstruction and analysis for unit SN-2024110603",
+    "due_on": null
+  },
+  {
+    "title": "pcb-v1.0-design-freeze",
+    "description": "Finalized PCB design parameters for v1.0",
+    "due_on": null
+  },
+  {
+    "title": "pcb-v1.0-pcba-vnv",
+    "description": "Verification and validation of PCB assembly v1.0",
+    "due_on": null
+  },
+  {
+    "title": "flatball-ins-v1.0",
+    "description": "Integrated INS prototype for frisbee flight studies",
+    "due_on": null
+  }
+]

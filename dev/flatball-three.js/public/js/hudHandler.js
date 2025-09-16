@@ -110,7 +110,7 @@ export function initHUDs(cfg) {
 }
 
 export function updatePlaybackState( data) { //simTime, rollDeg, pitchDeg, yawDeg, rollDegPerSec, pitchDegPerSec, yawDegPerSec) {
-	t = data.idx * 0.01;
+	t = data.idx * 0.10; // this is a magic-number - #FIXME
 	ax_raw = data.ax_raw;
 	ay_raw = data.ay_raw;
 	az_raw = data.az_raw;
@@ -152,7 +152,9 @@ export function updateHUDs() {
 
 	const line7 = `  roll: ${formatNumber(  roll, fmt)}  pitch: ${formatNumber( pitch, fmt)}    yaw: ${formatNumber(   yaw, fmt)}`;
 
-	dbg.textContent = `${line1}\n${line2}\n${line3}\n\n${line4}\n${line5}\n${line6}\n\n${line7}`;
+	const line8 = `  time: ${formatNumber(  t, fmt)}`;
+
+	dbg.textContent = `${line1}\n${line2}\n${line3}\n\n${line4}\n${line5}\n${line6}\n\n${line7}\n${line8}`;
 
 	//const unitsFooter = `[units] pos: ${config.processing.units.length}, vel: ${config.processing.units.velocity}, angles: ${config.processing.units.angles}, rates: ${config.processing.units.angleRates}`;
   }

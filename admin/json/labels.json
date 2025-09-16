@@ -1,0 +1,11 @@
+[
+  { "name": "mechanical", "color": "f4a261", "description": "Mechanical systems and components" },
+  { "name": "electrical", "color": "e76f51", "description": "Electrical systems and wiring" },
+  { "name": "sensors", "color": "2a9d8f", "description": "Sensor modules and integration" },
+  { "name": "pose", "color": "264653", "description": "Pose estimation and tracking" },
+  { "name": "ahrs", "color": "457b9d", "description": "Attitude and heading reference system" },
+  { "name": "6dof", "color": "1d3557", "description": "Six degrees of freedom modeling" },
+  { "name": "cfd", "color": "a8dadc", "description": "Computational fluid dynamics" },
+  { "name": "eqom", "color": "e9c46a", "description": "Equations of motion and dynamics" },
+  { "name": "visualization", "color": "b5838d", "description": "Data visualization and playback tools" }
+]
