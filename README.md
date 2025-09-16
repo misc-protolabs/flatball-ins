@@ -33,7 +33,7 @@ Some video clips:
 
 A short, practical onboarding path for new contributors and a quick reference for returning collaborators. Full onboarding details live in START-HERE.md — read that first.
 
-[Start here → START-HERE.md](./admin/md/START-HERE.md)
+[Start here → start-here.md](./admin/md/start-here.md)
 
 ---
 
