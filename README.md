@@ -4,19 +4,21 @@
 
 We’re building an open-source platform to analyze and visualize frisbee flight — from onboard IMU logging to 3D trajectory playback and CFD-backed airfoil modeling. If you’re into embedded systems, real-time sensor fusion, or just want to help frisbees fly smarter, this is your launchpad.
 
-What’s in motion:
-- 🛠️ Custom PCB for onboard IMU logging
-- 🚀 Twin-motor frisbee launcher for repeatable flight studies
-- 🌐 Three.js-based 3D visualization of flight trajectories
-- 📜 Apache 2.0 licensing and reproducible workflows for contributors
+## What’s in motion:
 
-We’re looking for:
+🛠️ Custom PCB for onboard IMU logging  
+🚀 Twin-motor frisbee launcher for repeatable flight studies  
+🌐 Three.js-based 3D visualization of flight trajectories  
+✈️ Airfoil design iterations using 3D-printed prototypes
+
+
+## We’re looking for:
 - Embedded devs, PCB designers, and sensor wranglers
 - Web-based visualization builders (Three.js, D3, etc.)
 - CFD modelers and aerodynamic tinkerers
 - Outreach-minded collaborators who care about open sports-tech
 
-Why it matters:
+## Why it matters:
 Frisbee flight is beautiful, chaotic, and underexplored. We want to make flight analytics accessible — not just for researchers, but for athletes, makers, and curious minds everywhere.
 Join us. Fork the repo. Open an issue. Let’s build something that flies.
 
