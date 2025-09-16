@@ -29,6 +29,14 @@ Some video clips:
 
 ---
 
+## Start here
+
+A short, practical onboarding path for new contributors and a quick reference for returning collaborators. Full onboarding details live in START-HERE.md — read that first.
+
+[Start here → START-HERE.md](./START-HERE.md)
+
+---
+
 ## Why it matters
 
 Frisbee flight is beautiful, chaotic, and underexplored. We want to make flight analytics accessible — not just for researchers, but for athletes, makers, and curious minds everywhere.  
