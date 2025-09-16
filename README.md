@@ -8,11 +8,13 @@ We’re building an open-source platform to analyze and visualize frisbee flight
 
 🛠️ Custom PCB for onboard IMU logging  
 🚀 Twin-motor frisbee launcher for repeatable flight studies 
-	➡️ [`launcher-concept-spin-test.mov`](arxiv/vid/launcher-concept-spin-test.mov)
 🌐 Three.js-based 3D visualization of flight trajectories
-	➡️ [`prototype-pcb-ahrs-demo.webm`](arxiv/vid/prototype-pcb-ahrs-demo.webm) 
 ✈️ Airfoil design iterations using 3D-printed prototypes
 📍 Flight path reconstruction from live telemetry and datalogging
+
+Some video clips:
+	➡️ [`launcher-concept-spin-test.mov`](arxiv/vid/launcher-concept-spin-test.mov)
+	➡️ [`prototype-pcb-ahrs-demo.webm`](arxiv/vid/prototype-pcb-ahrs-demo.webm) 
 
 ## We’re looking for:
 - Embedded devs, PCB designers, and sensor wranglers
