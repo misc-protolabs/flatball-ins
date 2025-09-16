@@ -25,8 +25,8 @@ Join us. Fork the repo. Open an issue. Let’s build something that flies.
 
 This project is deeply inspired by the athleticism, precision, and innovation seen in professional Ultimate.  
 Explore the evolution of the sport and the rise of the Ultimate Frisbee Association (UFA):  
-➡️ [`ultimate-history.md`](admin/mike-schaefer/md/ultimate-history.md)  
-➡️ [`UFA.md`](admin/mike-schaefer/md/UFA.md)
+➡️ [`ultimate-history.md`](admin/md/ultimate-history.md)  
+➡️ [`UFA.md`](admin/md/UFA.md)
 
 ## 🎯 Project Goals
 
