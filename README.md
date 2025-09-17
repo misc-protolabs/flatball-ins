@@ -8,17 +8,12 @@ We’re building an open-source platform to analyze and visualize frisbee flight
 
 ## What’s in motion
 
-- 🛠️ Custom PCB for onboard IMU logging  
-- 🚀 Twin-motor frisbee launcher for repeatable flight studies  
-- 🌐 Three.js-based 3D visualization of flight trajectories  
-- ✈️ Airfoil design iterations using 3D-printed prototypes  
+- 🛠️ Custom PCB for onboard IMU logging
+- 🚀 Twin-motor frisbee launcher for repeatable flight studies
+- 🌐 Three.js-based 3D visualization of flight trajectories
+- ✈️ Airfoil design iterations using 3D-printed prototypes
 - 📍 Flight path reconstruction from live telemetry and datalogging
-
-## Featured media
-
-Check out our experiment and demo footage on YouTube. Click a link to open the video; if you prefer embedding on the site, use the provided iframe snippet under each item.
-
-- 🎥 Prototype PCB — AHRS demos  
+- 🎥 YouTube channel
   [![Playlist thumbnail](https://img.youtube.com/vi/ioMUSfeN5g4/hqdefault.jpg)](https://www.youtube.com/playlist?list=PL1cZNuavm2yz7gydodbOZ3c9RqUwPA7GN)
 
 ---
