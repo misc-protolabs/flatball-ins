@@ -19,7 +19,7 @@ We’re building an open-source platform to analyze and visualize frisbee flight
 Check out our experiment and demo footage on YouTube. Click a link to open the video; if you prefer embedding on the site, use the provided iframe snippet under each item.
 
 - 🎥 Prototype PCB — AHRS demos  
-  [![Playlist thumbnail](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/playlist?list=PL1cZNuavm2yz7gydodbOZ3c9RqUwPA7GN)
+  [![Playlist thumbnail](https://img.youtube.com/vi/ioMUSfeN5g4/maxresdefault.jpg)](https://www.youtube.com/playlist?list=PL1cZNuavm2yz7gydodbOZ3c9RqUwPA7GN)
 
 ---
 
