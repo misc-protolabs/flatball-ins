@@ -18,12 +18,13 @@ import shutil
 import subprocess
 from datetime import datetime
 
-LIB_DIR = "lib"
+LIB_DIR = "lib/extern"
 BUILD_DIRS = [".pio"] #, "build", ".temp", "dist"]
 VALID_LIBS = {
     "Adafruit_BMP3XX_Library",
     "Adafruit_BusIO",
     "Adafruit_Unified_Sensor",
+    "ArduinoJson",
     "ESP32WebServer",
     "Fusion",
     "SparkFun_6DoF_ISM330DHCX",
@@ -33,11 +34,12 @@ VALID_LIBS = {
 }
 
 # 🗒️ UTF-8 logging setup
+#ROOT = os.path.dirname(__file__) or "."
+LOG_DIR = os.path.join(".", "..", "..", "admin", "logs")
+LOG_FILE = os.path.join(LOG_DIR, "flatball-ahrs-build-log.md")
+print( LOG_FILE)
 timestamp = datetime.now().strftime("%Y-%m-%d_%H%M")
-log_filename = f"flatball-ahrs-build.log"
-#log_filename = f"flatball_build{timestamp}.log"
-#os.makedirs("logs", exist_ok=True)
-log_file = open(log_filename, "w", encoding="utf-8")
+log_file = open(LOG_FILE, "w", encoding="utf-8")
 
 def log(msg):
     time_tag = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
