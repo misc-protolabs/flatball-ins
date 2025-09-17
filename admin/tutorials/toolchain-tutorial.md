@@ -3,6 +3,7 @@
 ## prerequisites
 
 - 🛠️ clone of repository
+- 🛠️ <>/admin/md/toolchain.md
 
 ---
 

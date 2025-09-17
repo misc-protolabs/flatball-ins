@@ -1,10 +1,5 @@
 # toolchain.md
 
-## version / revision control
-
-Git					- Git-2.50.1-64-bit.exe
-TortoiseGit			- TortoiseGit-2.17.0.2-64bit.msi
-
 ## office 
 
 LibreOffice			- LibreOffice_25.2.4_Win_x86-64.msi
@@ -25,3 +20,8 @@ VSCode				- VSCodeUserSetup-x64-1.101.2.exe
 
 Three.js			- https://threejs.org/manual/#en/installation
 NodeJS				- node-v22.19.0-x64.msi
+
+## version / revision control
+
+Git					- Git-2.50.1-64-bit.exe
+TortoiseGit			- TortoiseGit-2.17.0.2-64bit.msi
