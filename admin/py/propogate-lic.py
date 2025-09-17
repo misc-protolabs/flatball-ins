@@ -224,7 +224,7 @@ def scan_and_insert(root_dir, dry_run=False, report=False):
     return counters
 
 def write_markdown_report(counters, modified_files, dry_run):
-    report_path = os.path.join(os.getcwd(), "..", "admin", "logs", "license-report.md")
+    report_path = os.path.join(os.getcwd(), "..", "admin", "logs", "license-report-log.md")
     os.makedirs(os.path.dirname(report_path), exist_ok=True)
     with open(report_path, 'w', encoding='utf-8') as f:
         f.write("# 📝 License Header Insertion Report\n\n")

@@ -3,7 +3,7 @@
 **Run mode**: Actual insertion/removal
 
 ## 📊 Summary
-- Scanned: 1423
+- Scanned: 1210
 - Matched_ext: 539
 - Inserted: 0
 - Skipped: 174
