@@ -139,7 +139,7 @@ def scan_and_insert(root_dir, dry_run=False, report=False):
     return counters
 
 def write_markdown_report(counters, modified_files, dry_run):
-    report_path = os.path.join(os.getcwd(), "license-report.md")
+    report_path = os.path.join(os.getcwd(), "..", "admin", "logs", "license-report.md")
     with open(report_path, 'w', encoding='utf-8') as f:
         f.write("# 📝 License Header Insertion Report\n\n")
         f.write(f"**Run mode**: {'Dry-run' if dry_run else 'Actual insertion'}\n\n")
