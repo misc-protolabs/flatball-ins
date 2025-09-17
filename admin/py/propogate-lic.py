@@ -39,7 +39,7 @@ COMMENT_STYLES = {
 
 def setup_logging():
     script_name = os.path.splitext(os.path.basename(sys.argv[0]))[0]
-    log_file = os.path.join(os.getcwd(), f"{script_name}.log")
+    log_file = os.path.join(os.getcwd(), "..", "admin", "logs", "propogate-lic-log.md")
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s [%(levelname)s] %(message)s',
@@ -224,7 +224,7 @@ def scan_and_insert(root_dir, dry_run=False, report=False):
     return counters
 
 def write_markdown_report(counters, modified_files, dry_run):
-    report_path = os.path.join(os.getcwd(), "..", "admin", "logs", "license-report-log.md")
+    report_path = os.path.join(os.getcwd(), "..", "admin", "logs", "propogate-lic-log.md")
     os.makedirs(os.path.dirname(report_path), exist_ok=True)
     with open(report_path, 'w', encoding='utf-8') as f:
         f.write("# 📝 License Header Insertion Report\n\n")
