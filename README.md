@@ -18,30 +18,8 @@ We’re building an open-source platform to analyze and visualize frisbee flight
 
 Check out our experiment and demo footage on YouTube. Click a link to open the video; if you prefer embedding on the site, use the provided iframe snippet under each item.
 
-- 🎥 Prototype PCB — AHRS demo  
-  https://youtu.be/k5PUpcQUlSg
-
-- 🎥 Repeatability run (high-speed)  
-  https://youtu.be/PGqU8aDdyb0
-
-- 🎥 Flight path reconstruction demo  
-  https://youtu.be/MtxgidojeJc
-
-- 🎥 Airflow / CFD validation clip  
-  https://youtu.be/zQEqDukvxfI
-
-- 🎥 Full system demo and walkthrough  
-  https://youtu.be/TNCLyyOd1IQ
-
-- 🎥 Launcher concept — spin test  
-  https://youtu.be/ioMUSfeN5g4
-
-
-Optional: embed a single featured video in markdown-capable renderers that accept raw HTML (example uses the launcher concept):
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/k5PUpcQUlSg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-[![Launcher concept — spin test](path/to/launcher-thumbnail.png)](https://youtu.be/ioMUSfeN5g4)
+- 🎥 Prototype PCB — AHRS demos
+  [demo playlist](https://www.youtube.com/playlist?list=PL1cZNuavm2yz7gydodbOZ3c9RqUwPA7GN)
 
 ---
 
