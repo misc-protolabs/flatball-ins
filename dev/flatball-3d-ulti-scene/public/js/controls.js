@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { OrbitControls } from './libs/OrbitControls.js';
 
 function addControls(camera, renderer) {
   const controls = new OrbitControls(camera, renderer.domElement);

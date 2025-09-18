@@ -132,5 +132,9 @@
     "pipSize": { "width": 320, "height": 180 },
     "pipLocation": "upperR"
   }
+},
+"logging": {
+  "dumpMethod": "file",
+  "dumpFilename": "log-dump.md"
 }
 }

@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as THREE from 'three';
-import { createLetterSprite } from './letterSprite.js'; // assuming you have this helper
+import * as THREE from './libs/three.module.js';
+// import { createLetterSprite } from './letterSprite.js'; // assuming you have this helper
 import { frisbee } from './frisbeeLoader.js'; // assumes frisbee is exported
 
 export function addCrossHatch(scene, config) {
@@ -110,8 +110,8 @@ export function addNSEWMarkers(scene, config) {
   const cfg = config.nsewMarkers;
   if (!cfg?.enabled) return;
 
-//console.log('Frisbee:', frisbee);
-//console.log('Frisbee position:', frisbee?.position?.toArray());
+//log('Frisbee:', frisbee);
+//log('Frisbee position:', frisbee?.position?.toArray());
 
   const group = new THREE.Group();
   group.name = 'nsewMarkers';
@@ -137,7 +137,7 @@ const base =
     const position = base.clone().add(delta);
     sprite.position.copy(position);
     group.add(sprite);
-    //console.log(`Placed ${label} at`, position.toArray());
+    //log(`Placed ${label} at`, position.toArray());
   });
 
   scene.add(group);

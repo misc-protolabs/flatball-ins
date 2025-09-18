@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as THREE from 'three';
+import * as THREE from './libs/three.module.js';
 import { scene, camera, renderer } from './sceneSetup.js';
 import { addLights } from './lights.js';
 import { addGround } from './ground.js';
@@ -24,6 +24,7 @@ import { TelemetryHelper } from './telemetryHelper.js';
 import { CsvPlayback, csvData, initCSVLoader } from './csvLoader.js';
 import { renderHUD } from './hudHandler.js';
 import { initPipFlow } from './pipHelper.js';
+import { log, setConfig } from './utils/logger.js';
 
 let config;
 let controls;
@@ -37,11 +38,7 @@ async function loadConfig() {
   const res = await fetch('./public/config.json');
   config = await res.json();
 
-  console.group('[Startup] Config loaded');
-  Object.entries(config).forEach(([key, value]) => {
-    if (typeof value === 'object') console.table(value);
-  });
-  console.groupEnd();
+  log('[Startup] Config loaded', config);
 }
 
 // === CSV load callback ===
@@ -49,7 +46,7 @@ function onCSVLoaded() {
   playStartTime = null;
   playing = false;
 
-  console.info(`[CSV] Loaded ${csvData.length} rows — ready for playback`);
+  log(`[CSV] Loaded ${csvData.length} rows — ready for playback`);
 
   if (config.dataSource.mode === 'csv') {
     if (currentDataSource && typeof currentDataSource.stop === 'function') {
@@ -57,7 +54,7 @@ function onCSVLoaded() {
     }
 
     currentDataSource = new CsvPlayback(csvData, handleTelemetry, 50);
-    console.log('[CSV] ✅ CsvPlayback instance created');
+    log('[CSV] ✅ CsvPlayback instance created');
   }
 }
 
@@ -97,7 +94,7 @@ function animate(timestamp) {
     const clampedTime = Math.min(simTime, lastTime);
     if (clampedTime >= lastTime) {
       playing = false;
-      console.info('[Playback] Reached end of CSV');
+      log('[Playback] Reached end of CSV');
     }
 
     const idx = Math.floor(clampedTime / config.playback.frameInterval);
@@ -115,12 +112,12 @@ function waitForFrisbeeThenAddMarkers(maxTries = 50, interval = 100) {
   let tries = 0;
   const poll = () => {
     if (frisbee?.position) {
-      console.log('[Startup] Frisbee ready — adding NSEW markers');
+      log('[Startup] Frisbee ready — adding NSEW markers');
       addNSEWMarkers(scene, config);
     } else if (tries++ < maxTries) {
       setTimeout(poll, interval);
     } else {
-      console.warn('[Startup] Frisbee not ready — NSEW markers skipped');
+      log('[Startup] Frisbee not ready — NSEW markers skipped');
     }
   };
   poll();
@@ -168,7 +165,7 @@ function startDataSource(mode) {
   // Gracefully stop any existing stream
   if (currentDataSource && typeof currentDataSource.stop === 'function') {
     currentDataSource.stop();
-    console.log(`[DataSource] 🔄 Switched from ${config.dataSource.mode}`);
+    log(`[DataSource] 🔄 Switched from ${config.dataSource.mode}`);
   }
 
   // Update config
@@ -178,7 +175,7 @@ function startDataSource(mode) {
     currentDataSource = new TelemetryHelper(config.dataSource.telemetry, handleTelemetry);
   } else {
     if (csvData.length === 0) {
-      console.warn('[CSV] ⚠️ No data loaded—prompting user to select a file');
+      log('[CSV] ⚠️ No data loaded—prompting user to select a file');
 
       // Trigger file input click
       const input = document.getElementById('csvInput');
@@ -195,7 +192,7 @@ function startDataSource(mode) {
     currentDataSource.start();
   }
 
-  console.log(`[DataSource] ✅ Started ${mode} mode`);
+  log(`[DataSource] ✅ Started ${mode} mode`);
 }
 
 function addPlayPauseButton(onToggle) {
@@ -227,6 +224,7 @@ function addPlayPauseButton(onToggle) {
 
 // === Initialization ===
 async function init() {
+  log('Initializing application');
   await loadConfig();
   initCSVLoader(onCSVLoaded);
 

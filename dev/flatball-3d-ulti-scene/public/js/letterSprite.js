@@ -1,3 +1,4 @@
+/*
 // Copyright 2025 Michael V. Schaefer
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,7 +13,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as THREE from 'three';
+import * as THREE from './libs/three.module.js';
 
 export function createLetterSprite(letter, color = '#ffffff') {
   const fontSize = 64;
@@ -36,3 +37,4 @@ export function createLetterSprite(letter, color = '#ffffff') {
 
   return sprite;
 }
+*/

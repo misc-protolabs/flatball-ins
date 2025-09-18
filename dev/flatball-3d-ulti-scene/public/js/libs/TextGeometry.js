@@ -14,7 +14,7 @@
 
 import {
 	ExtrudeGeometry
-} from 'three';
+} from './three.module.js';
 
 /**
  * A class for generating text as a single geometry. It is constructed by providing a string of text, and a set of

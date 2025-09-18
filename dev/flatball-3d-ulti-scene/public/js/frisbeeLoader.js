@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import * as THREE from './libs/three.module.js';
+import { GLTFLoader } from './libs/GLTFLoader.js';
 
 let frisbee = null;
 

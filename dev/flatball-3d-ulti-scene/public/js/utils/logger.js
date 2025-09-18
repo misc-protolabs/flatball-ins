@@ -14,6 +14,11 @@
 
 // public/js/utils/logger.js
 const logBuffer = [];
+let config = {};
+
+export function setConfig(newConfig) {
+  config = newConfig;
+}
 
 export function log(...args) {
   const message = args.map(a => (typeof a === 'object' ? JSON.stringify(a) : a)).join(' ');
@@ -22,8 +27,28 @@ export function log(...args) {
 }
 
 export function getLogDump() {
-  return logBuffer.join('\n');
+  const logData = logBuffer.join('\n');
+
+  if (config.logging?.dumpMethod === 'file') {
+    const blob = new Blob([logData], { type: 'text/markdown;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = config.logging.dumpFilename || 'log-dump.md';
+    a.click();
+    URL.revokeObjectURL(url);
+  } else if (config.logging?.dumpMethod === 'clipboard') {
+    navigator.clipboard.writeText(logData).then(() => {
+      console.log('Logs copied to clipboard');
+    }, () => {
+      console.error('Failed to copy logs to clipboard');
+    });
+  } else {
+    console.log(logData);
+  }
 }
+
+window.getLogDump = getLogDump;
 
 export function clearLog() {
   logBuffer.length = 0;
