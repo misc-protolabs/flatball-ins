@@ -1,0 +1,11 @@
+{
+  "name": "flatball-3d-ulti-scene",
+  "version": "1.0.0",
+  "description": "A 3D viewer for Flatball INS data.",
+  "main": "index.html",
+  "scripts": {
+    "3d-ulti-scene": "python .\\public\\py\\flatball-3d-ulti-scene.py"
+  },
+  "author": "",
+  "license": "UNLICENSED"
+}
