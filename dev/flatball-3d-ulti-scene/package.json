@@ -4,7 +4,7 @@
   "description": "A 3D viewer for Flatball INS data.",
   "main": "index.html",
   "scripts": {
-    "3d-ulti-scene": "python .\\public\\py\\flatball-3d-ulti-scene.py"
+    "3d-ulti-scene": "python -u .\\public\\py\\flatball-3d-ulti-scene.py > ..\\..\\admin\\logs\\flatball-3d-ulti-scene-log.md 2>&1"
   },
   "author": "",
   "license": "UNLICENSED"

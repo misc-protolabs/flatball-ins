@@ -24,5 +24,13 @@
 	  <div id="hudDebug"></div>
 	  <div id="hudState"></div>
 	  <div id="hudPip" style="display:none; position:absolute;"></div>
+
+	  <script>
+		window.addEventListener('beforeunload', function (e) {
+			// Use navigator.sendBeacon to reliably send a signal on page exit.
+			// This sends a POST request to the /shutdown endpoint.
+			navigator.sendBeacon('/shutdown', '');
+		});
+	  </script>
 	</body>
 </html>

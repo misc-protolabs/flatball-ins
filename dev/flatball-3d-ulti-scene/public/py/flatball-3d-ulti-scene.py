@@ -16,16 +16,39 @@ import subprocess
 import time
 import sys
 import webbrowser
+import os
+import argparse
 
+# --- Logging ---
+def log(message):
+    timestamp = time.strftime("[%Y-%m-%d %H:%M:%S]")
+    print(f"{timestamp} {message}", flush=True)
+
+# --- Argument Parsing ---
+parser = argparse.ArgumentParser(description="Launch the Flatball 3D Ultimate Scene.")
+parser.add_argument('--port', type=str, help='The COM port to use for telemetry data.')
+args = parser.parse_args()
+
+# --- Launch Services ---
 webbrowser.open("http://localhost:8000");
-http = subprocess.Popen(["python", "-m", "http.server"])
-telemetry = subprocess.Popen(["python", "./public/py/ins-telemetry.py"])
 
-print("🚀 Both services launched. Press Ctrl+C to shut down.")
+# Launch the custom server, passing the current script's PID to it.
+http = subprocess.Popen(["python", "-u", "./public/py/server.py", str(os.getpid())],
+                        stdout=sys.stdout, stderr=sys.stderr)
+
+# Prepare the command for the telemetry service
+telemetry_cmd = ["python", "-u", "./public/py/ins-telemetry.py"]
+if args.port:
+    telemetry_cmd.extend(["--port", args.port])
+
+telemetry = subprocess.Popen(telemetry_cmd,
+                             stdout=sys.stdout, stderr=sys.stderr)
+
+log("[INFO] Both services launched. Press Ctrl+C to shut down.")
 try:
     while True:
         time.sleep(1)
 except KeyboardInterrupt:
-    print("🛑 Shutting down...")
+    log("[INFO] Shutting down...")
     http.terminate()
     telemetry.terminate()
