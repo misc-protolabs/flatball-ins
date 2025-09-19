@@ -18,8 +18,8 @@ Arduino				- arduino-ide_2.3.6_Windows_64bit.exe
 Python				- python-3.13.5-amd64.exe
 VSCode				- VSCodeUserSetup-x64-1.101.2.exe
 
-Three.js			- https://threejs.org/manual/#en/installation
 NodeJS				- node-v22.19.0-x64.msi
+Three.js			- https://threejs.org/manual/#en/installation
 
 ## version / revision control
 
