@@ -23,7 +23,7 @@ This is where the different parts of the Flatball INS system are designed and bu
 ### Simulaton & Visualization
 
 *   [**`dev/flatball-6dof/`**](./dev/flatball-6dof/): A 6-Degrees-of-Freedom (6DoF) flight simulation built in **MATLAB**. Used for algorithm development and verification.
-*   [**`dev/flatball-three.js/`**](./dev/flatball-three.js/): A **Three.js** web-based 3D visualizer to play back flight data and view the disc's orientation in real-time.
+*   [**`dev/flatball-3d-ulti-scene/`**](./dev/flatball-3d-ulti-scene/): A modern **Three.js** web-based 3D visualizer for flight data, built with Vite. This is the primary 3D visualization application.
 
 ### Hardware & Firmware
 

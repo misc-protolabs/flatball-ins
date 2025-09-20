@@ -10,7 +10,7 @@ We’re building an open-source platform to analyze and visualize frisbee flight
 
 - 🛠️ Custom PCB for onboard IMU logging
 - 🚀 Twin-motor frisbee launcher for repeatable flight studies
-- 🌐 Three.js-based 3D visualization of flight trajectories
+- 🌐 Three.js-based 3D visualization of flight trajectories (see `dev/flatball-3d-ulti-scene/`)
 - ✈️ Airfoil design iterations using 3D-printed prototypes
 - 📍 Flight path reconstruction from live telemetry and datalogging
 - 🎥 YouTube channel
