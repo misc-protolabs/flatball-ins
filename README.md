@@ -14,7 +14,7 @@ We’re building an open-source platform to analyze and visualize frisbee flight
 - ✈️ Airfoil design iterations using 3D-printed prototypes
 - 📍 Flight path reconstruction from live telemetry and datalogging
 - 🎥 YouTube channel
-  [![Playlist thumbnail](https://img.youtube.com/vi/ioMUSfeN5g4/hqdefault.jpg)](https://www.youtube.com/playlist?list=PL1cZNuavm2yz7gydodbOZ3c9RqUwPA7GN)
+  [![Playlist thumbnail](https://youtu.be/TH5P7Og6-sQ)](https://www.youtube.com/playlist?list=PL1cZNuavm2yz7gydodbOZ3c9RqUwPA7GN)
 
 ---
 
