@@ -4,6 +4,7 @@
   "description": "A 3D viewer for Flatball INS data.",
   "main": "index.js",
   "scripts": {
+	"3d-ulti-scene": "concurrently --kill-others \"vite\" \"npm run telemetry-server\"",
     "dev": "concurrently --kill-others \"vite\" \"npm run telemetry-server\"",
     "telemetry-server": "python ../../admin/py/ins-telemetry.py > ../../admin/logs/telemetry-server.log 2>&1"
   },
