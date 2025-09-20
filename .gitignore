@@ -1,10 +1,13 @@
-
 # misc
 .wrk/
 *.asv
 dev/gcode+stl
-
+# Node.js modules
+dev/flatball-3d-ulti-scene/node_modules/
+# Generated logs
+admin/logs/telemetry-server.log
 # Prerequisites
+
 *.d
 
 # Compiled Object files

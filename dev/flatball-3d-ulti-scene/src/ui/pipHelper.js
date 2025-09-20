@@ -14,7 +14,7 @@
 
 // piphelper.js
 
-import { renderHUD } from './hudhandler.js';
+import { renderHUD } from './hudHandler.js';
 
 export function testPipHUD(config) {
   const hudConfig = config.hudPiP;

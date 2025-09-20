@@ -12,15 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as THREE from './libs/three.module.js';
-import { GLTFLoader } from './libs/GLTFLoader.js';
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 let frisbee = null;
 
 function loadFrisbee(scene, config) {
   const loader = new GLTFLoader();
-  loader.load(
-	'./public/models/flatball-usau-frisbee.gltf', (gltf) => {
+  loader.load('/models/flatball-usau-frisbee.gltf', (gltf) => {
     frisbee = gltf.scene;
 
     // Start position

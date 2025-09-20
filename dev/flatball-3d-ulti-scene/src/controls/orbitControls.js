@@ -12,24 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as THREE from './libs/three.module.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
-const scene = new THREE.Scene();
+function addControls(camera, renderer) {
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.target.set(0, 0, 0);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.05;
+  controls.update();
+  return controls;
+}
 
-const camera = new THREE.PerspectiveCamera(
-  60,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
-);
-
-// ENU top‑down lock
-camera.position.set(0, 50, 0);   // directly above origin
-camera.up.set(0, 0, -1);         // make +Z point to top of view
-camera.lookAt(0, 0, 0);
-
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
-
-export { scene, camera, renderer };
+export { addControls };

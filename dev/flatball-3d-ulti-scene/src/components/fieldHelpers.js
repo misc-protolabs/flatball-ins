@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as THREE from './libs/three.module.js';
+import * as THREE from 'three';
 // import { createLetterSprite } from './letterSprite.js'; // assuming you have this helper
-import { frisbee } from './frisbeeLoader.js'; // assumes frisbee is exported
+import { frisbee } from '../loaders/frisbeeLoader.js'; // assumes frisbee is exported
 
 export function addCrossHatch(scene, config) {
   // Remove old field if re‑initializing

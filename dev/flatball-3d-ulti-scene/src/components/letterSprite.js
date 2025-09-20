@@ -13,7 +13,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as THREE from './libs/three.module.js';
+import * as THREE from 'three';
 
 export function createLetterSprite(letter, color = '#ffffff') {
   const fontSize = 64;

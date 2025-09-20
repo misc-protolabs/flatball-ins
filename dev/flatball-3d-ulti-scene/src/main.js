@@ -12,18 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as THREE from './libs/three.module.js';
+import * as THREE from 'three';
 import { scene, camera, renderer } from './sceneSetup.js';
-import { addLights } from './lights.js';
-import { addGround } from './ground.js';
-import { addControls } from './controls.js';
-import { loadFrisbee, frisbee } from './frisbeeLoader.js';
-import { addCrossHatch, addNSEWMarkers, addFieldLines, addFieldGrid } from './fieldHelpers.js';
-import { initHUDs, updatePlaybackState, updateHUDs } from './hudHandler.js';
-import { TelemetryHelper } from './telemetryHelper.js';
-import { CsvPlayback, csvData, initCSVLoader } from './csvLoader.js';
-import { renderHUD } from './hudHandler.js';
-import { initPipFlow } from './pipHelper.js';
+import { addLights } from './components/lights.js';
+import { addGround } from './components/ground.js';
+import { addControls } from './controls/orbitControls.js';
+import { loadFrisbee, frisbee } from './loaders/frisbeeLoader.js';
+import { addCrossHatch, addNSEWMarkers, addFieldLines, addFieldGrid } from './components/fieldHelpers.js';
+import { initHUDs, updatePlaybackState, updateHUDs, renderHUD } from './ui/hudHandler.js';
+import { TelemetryHelper } from './ui/telemetryHelper.js';
+import { CsvPlayback, csvData, initCSVLoader } from './loaders/csvLoader.js';
+import { initPipFlow } from './ui/pipHelper.js';
 import { log, setConfig } from './utils/logger.js';
 
 let config;
@@ -35,7 +34,7 @@ let telemetryActive = false;
 
 // === Load config.json ===
 async function loadConfig() {
-  const res = await fetch('./public/config.json');
+  const res = await fetch('/config.json');
   config = await res.json();
 
   log('[Startup] Config loaded', config);

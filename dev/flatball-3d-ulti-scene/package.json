@@ -2,10 +2,20 @@
   "name": "flatball-3d-ulti-scene",
   "version": "1.0.0",
   "description": "A 3D viewer for Flatball INS data.",
-  "main": "index.html",
+  "main": "index.js",
   "scripts": {
-    "3d-ulti-scene": "python -u .\\public\\py\\flatball-3d-ulti-scene.py > ..\\..\\admin\\logs\\flatball-3d-ulti-scene-log.md 2>&1"
+    "dev": "concurrently --kill-others \"vite\" \"npm run telemetry-server\"",
+    "telemetry-server": "python ../../admin/py/ins-telemetry.py > ../../admin/logs/telemetry-server.log 2>&1"
   },
+  "keywords": [],
   "author": "",
-  "license": "UNLICENSED"
+  "license": "Apache-2.0",
+  "type": "module",
+  "dependencies": {
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "vite": "^7.1.6"
+  }
 }
