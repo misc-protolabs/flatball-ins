@@ -12,7 +12,7 @@
 
 Option A — clone then checkout (recommended)
 ```bash
-git clone --branch sandbox --single-branch git@github.com:misc-protolabs/flatball-ins.git
+git clone --branch main --single-branch git@github.com:misc-protolabs/flatball-ins.git
 cd flatball-ins
 ```
 
