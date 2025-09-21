@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Git",
+    "command": "git --version",
+    "purpose": "Version control"
+  },
+  {
+    "name": "Python",
+    "command": "python --version",
+    "purpose": "Data analysis and scripting"
+  },
+  {
+    "name": "Node.js",
+    "command": "node --version",
+    "purpose": "3D visualization build tools"
+  },
+  {
+    "name": "VSCode",
+    "command": "code --version",
+    "purpose": "Recommended code editor"
+  },
+  {
+    "name": "PlatformIO",
+    "command": "pio --version",
+    "purpose": "Firmware development"
+  },
+  {
+    "name": "KiCad CLI",
+    "command": "kicad-cli --version",
+    "purpose": "Hardware design"
+  }
+]

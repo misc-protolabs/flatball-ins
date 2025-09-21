@@ -27,14 +27,6 @@ We’re building an open-source platform to analyze and visualize frisbee flight
 
 ---
 
-## Start here
-
-A short, practical onboarding path for new contributors and a quick reference for returning collaborators. Full onboarding details live in START-HERE.md — read that first.
-
-[Start here → start-here.md](./admin/md/start-here.md)
-
----
-
 ## Why it matters
 
 Frisbee flight is beautiful, chaotic, and underexplored. We want to make flight analytics accessible — not just for researchers, but for athletes, makers, and curious minds everywhere.  
@@ -84,9 +76,11 @@ This project is deeply inspired by the athleticism, precision, and innovation se
 
 ---
 
-## 🤝 Contributing
+## 🚀 Get Involved & Contribute
 
-We welcome collaborators. Please read `CONTRIBUTING.md` before submitting code, hardware designs, or documentation. By contributing, you agree to license your work under Apache 2.0 and grant the project maintainers the right to relicense or publish derivative works, including scientific papers and datasets.
+Ready to contribute? We welcome collaborators!
+
+**All the instructions to set up your development environment and get started are in the `CONTRIBUTING.md` file.** Please read it before submitting code, hardware designs, or documentation.
 
 ---
 

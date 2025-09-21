@@ -34,6 +34,62 @@ By submitting a contribution, you agree to:
 
 ## 🛠️ Getting Started
 
+### System Requirements
+
+Before you can contribute, you will need to install several system-level tools. This project involves multiple disciplines, including hardware design, firmware development, and data analysis.
+
+Please install the following software using your operating system's recommended package manager (e.g., Homebrew on macOS, Chocolatey/Winget on Windows, or `apt`/`dnf` on Linux).
+
+**Core Tools:**
+*   **Git:** For version control.
+*   **Node.js:** LTS version is recommended. Used for the 3D visualization components.
+*   **Python:** Version 3.11 or newer. Used for data analysis and utility scripts.
+*   **Visual Studio Code:** The recommended code editor for this project.
+
+**Hardware & Firmware:**
+*   **KiCad:** For PCB design.
+*   **PlatformIO CLI:** For building and uploading the firmware. This can be installed as a VSCode extension or via `pip`.
+
+**Mechanical Design & Documentation:**
+*   **FreeCAD:** For mechanical design of brackets and enclosures.
+*   **LibreOffice:** For viewing and editing project documentation in `.odt` format.
+*   **Ultimaker Cura:** For slicing 3D models for printing.
+
+### Installation
+
+Once you have the system requirements installed, you can set up the project for development.
+
+1.  **(Optional) Verify Your Environment:**
+    After installing the tools listed above, you can run this command to verify they are all accessible from your terminal.
+    ```bash
+    npm run check:env
+    ```
+
+2.  **Clone the Repository:**
+    ```bash
+    git clone https://github.com/misc-protolabs/flatball-ins.git
+    ```
+
+3.  **Navigate into the Project Directory:**
+    ```bash
+    cd flatball-ins
+    ```
+
+4.  **Install Dependencies:**
+    This command installs dependencies for the root project and also automatically triggers the installation for the 3D visualization project.
+    ```bash
+    npm install
+    ```
+
+5.  **Run the Development Server:**
+    This command starts the development server for the 3D visualization scene.
+    ```bash
+    npm start
+    ```
+    You should now be able to access the application in your web browser at the address provided (usually `http://localhost:5173`).
+
+### Contribution Workflow
+
 1. Fork the repository and clone your fork  
 2. Create a feature branch (`git checkout -b feature/your-feature-name`)  
 3. Make your changes and commit with clear messages  
