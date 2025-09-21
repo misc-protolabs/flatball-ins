@@ -1,0 +1,12 @@
+{
+  "name": "flatball-ins",
+  "version": "0.1.0",
+  "description": "Root package for the Flatball-INS project, containing setup and utility scripts.",
+  "scripts": {
+    "start": "npm run dev --prefix dev/flatball-3d-ulti-scene",
+    "postinstall": "npm install --prefix dev/flatball-3d-ulti-scene",
+    "check:env": "python admin/py/check-env.py"
+  },
+  "author": "Michael V. Schaefer",
+  "license": "Apache-2.0"
+}
