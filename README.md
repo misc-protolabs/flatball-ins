@@ -36,10 +36,12 @@ Join us. Open an issue. Let’s build something that flies.
 
 ## 🥏 Ultimate Frisbee & UFA Spotlight
 
-This project is deeply inspired by the athleticism, precision, and innovation seen in professional Ultimate. Explore the evolution of the sport and the rise of the Ultimate Frisbee Association (UFA):
+This project is inspired by the athleticism, precision, and innovation seen in professional Ultimate. Explore the evolution of the sport and the rise of the Ultimate Frisbee Association (UFA):
 
 - `admin/md/ultimate-history.md`  
 - `admin/md/UFA.md`
+
+[![I Am Ultimate | The UFA Documentary](https://img.youtube.com/vi/BrwV1m2rpKQ/0.jpg)](https://youtu.be/BrwV1m2rpKQ?si=GuZMwLysNUO1rD0Q)
 
 ---
 
