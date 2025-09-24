@@ -69,7 +69,7 @@ function handleTelemetry(data) {
   const yawDeg   = (data.yaw   ?? 0) + (config.orientationOffsets.yawOffsetDeg   ?? 0);
 
   if (frisbee && data.x !== undefined && data.y !== undefined && data.z !== undefined) {
-    frisbee.position.set(data.x * scale, data.y * scale, data.z * scale);
+    frisbee.position.set(data.x * scale, data.z * scale, data.y * -scale);
   }
 
   frisbee.rotation.set(
@@ -99,6 +99,12 @@ function animate(timestamp) {
     const idx = Math.floor(clampedTime / config.playback.frameInterval);
     const row = csvData[idx];
     if (row) handleTelemetry(row);
+//	  if (row) {
+//	  camera.position.set(row.x, row.y, row.z);
+//	  camera.lookAt(row.x, row.y, row.z);
+//	  controls = addControls(camera, renderer);
+//	  controls.target.set(row.x, row.y, row.z);
+//	  }
   }
 
   updateHUDs();

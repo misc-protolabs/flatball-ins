@@ -22,6 +22,7 @@ let lastStateHudUpdateMs = 0;
 
 // Internal state for HUD updates
 let t = 0;
+let idx = 0;
 let ax_raw = 0;
 let ay_raw = 0;
 let az_raw = 0;
@@ -46,6 +47,18 @@ let qz = 0;
 let roll = 0;
 let pitch = 0;
 let yaw = 0;
+let x = 0;
+let y = 0;
+let z = 0;
+let u = 0;
+let v = 0;
+let w = 0;
+let phi = 0;
+let theta = 0;
+let psi = 0;
+let phidt = 0;
+let thetadt = 0;
+let psidt = 0;
 let v_batt = 0;
 let p_atm = 0;
 let t_atm = 0;
@@ -110,7 +123,7 @@ export function initHUDs(cfg) {
 }
 
 export function updatePlaybackState( data) { //simTime, rollDeg, pitchDeg, yawDeg, rollDegPerSec, pitchDegPerSec, yawDegPerSec) {
-	t = data.idx * 0.10; // this is a magic-number - #FIXME
+	idx = data.idx;
 	ax_raw = data.ax_raw;
 	ay_raw = data.ay_raw;
 	az_raw = data.az_raw;
@@ -132,11 +145,24 @@ export function updatePlaybackState( data) { //simTime, rollDeg, pitchDeg, yawDe
 	roll= data.roll;
 	pitch = data.pitch
 	yaw = data.yaw;
+	x = data.x;
+	y = data.y;
+	z = data.z;
+	u = data.u;
+	v = data.v;
+	w = data.w;
+	phi = data.phi;
+	theta = data.theta;
+	psi = data.psi;
+	phidt = data.phidt;
+	thetadt = data.thetadt;
+	psidt = data.psidt;
 }
 
 export function updateHUDs() {
   // Debug HUD (every frame)
   if (config.hudDebug?.enabled) {
+	const dt = 0.010;
     const dbg = document.getElementById('hudDebug');
 	const fmt = config.hudState.numericFormat || '%10.4f';
     const anglesUnit = (config.processing?.units?.angles || 'rad').toLowerCase();
@@ -152,7 +178,7 @@ export function updateHUDs() {
 
 	const line7 = `  roll: ${formatNumber(  roll, fmt)}  pitch: ${formatNumber( pitch, fmt)}    yaw: ${formatNumber(   yaw, fmt)}`;
 
-	const line8 = `  time: ${formatNumber(  t, fmt)}`;
+	const line8 = `  time: ${formatNumber(  idx * dt, fmt)}`;
 
 	dbg.textContent = `${line1}\n${line2}\n${line3}\n\n${line4}\n${line5}\n${line6}\n\n${line7}\n${line8}`;
 
@@ -170,9 +196,6 @@ export function updateHUDs() {
       const st = document.getElementById('hudState');
       const fmt = config.hudState.numericFormat || '%10.4f';
       const anglesUnit = (config.processing?.units?.angles || 'rad').toLowerCase();
-
-      const x = 0, y = 0, z = 1;
-      const u = 0, v = 0, w = 0;
 
       const phi   = anglesUnit === 'rad' ? degToRad(roll)  : roll;
       const theta = anglesUnit === 'rad' ? degToRad(pitch) : pitch;

@@ -7,6 +7,7 @@
 	"3d-ulti-scene": "concurrently --kill-others \"vite\" \"npm run telemetry-server\"",
     "dev": "concurrently --kill-others \"vite\" \"npm run telemetry-server\"",
     "telemetry-server": "python ../../admin/py/ins-telemetry.py"
+	
   },
   "keywords": [],
   "author": "",
