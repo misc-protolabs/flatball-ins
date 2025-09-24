@@ -1,4 +1,20 @@
-# Flatball-INS PCB: Magnetometer + LED Integration Summary
+<!--
+<!-- Copyright 2025 Michael V. Schaefer
+<!-- 
+<!-- Licensed under the Apache License, Version 2.0 (the "License");
+<!-- you may not use this file except in compliance with the License.
+<!-- You may obtain a copy of the License at:
+<!-- 
+<!--     http://www.apache.org/licenses/LICENSE-2.0
+<!-- 
+<!-- Unless required by applicable law or agreed to in writing, software
+<!-- distributed under the License is distributed on an "AS IS" BASIS,
+<!-- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+<!-- See the License for the specific language governing permissions and
+<!-- limitations under the License.
+-->
+
+# Flatball-INS PCB: Sensor + LED Integration Summary
 
 ## Magnetometer Selection
 
@@ -51,6 +67,53 @@
 
 ---
 
+## Barometric Pressure / Temperature Sensor
+
+### Candidates Considered
+- **BMP581 (Bosch)**
+  - Interface: I²C / SPI
+  - Max ODR: up to 1 kHz
+  - Resolution: ~6 cm altitude
+  - Power: ~700 µA @ 100 Hz
+  - Cost: ~$6–7 each in singles, ~$3.50–4.00 in volume
+  - Status: Bosch’s newest baro, strong availability
+
+- **BMP390 (Bosch)**
+  - Interface: I²C / SPI
+  - Max ODR: 200 Hz
+  - Resolution: ~25 cm altitude
+  - Power: ~3.2 µA @ 1 Hz
+  - Cost: ~$2.50–3.50 in volume
+  - Status: Active, widely used
+
+- **LPS22HB / LPS25HB (ST)**
+  - Interface: I²C / SPI
+  - Max ODR: 75 Hz
+  - Resolution: ~8 cm altitude
+  - Power: ~12 µA @ 1 Hz
+  - Status: Active, ultra-low power
+
+- **MS5611 / MS5637 (TE/MEAS)**
+  - Interface: I²C / SPI
+  - Max ODR: ~50–100 Hz
+  - Resolution: ~10 cm altitude
+  - Power: ~1 mA
+  - Status: Older, still available
+
+### Decision
+- **Chosen part:** **BMP581**  
+  - Matches high ODR requirement (up to 1 kHz) for correlation with 120 fps video and IMU fusion.  
+  - Modern, supported, and future-proof.  
+  - Acceptable cost in volume (~$3.50–4.00).  
+- **Alternative:** BMP390 if lower ODR (≤200 Hz) is acceptable and cost/power are prioritized.
+
+### PCB Placement Notes
+- Place near PCB edge with vent hole; mark with **“VENT”** silkscreen.
+- Keep away from hot LEDs/regulators to avoid thermal drift.
+- Optional PTFE membrane over vent for dust/moisture protection.
+
+---
+
 ## LED Integration for Video Analysis
 
 ### Requirements
@@ -92,5 +155,6 @@
 
 ## Key Takeaways
 - **Magnetometer:** IIS2MDC is the pragmatic, long-term choice (SPI mode 0, 150 Hz, low power, low cost).  
+- **Baro/Temp:** BMP581 is the best fit for high ODR and future-proofing; BMP390 is a lower-cost fallback.  
 - **LEDs:** 4 + 1 configuration on 65 mm circular PCB provides uniform fill and robust video markers.  
 - **Firmware:** Config-driven, reproducible, and fully loggable for auditability.  
