@@ -1,114 +1,12 @@
 # License Header Run Log
 
-**Mode:** Verify  
-**Root:** C:\.local\desktop\misc.protolabs\flatball-ins-main-misc.protolabs\dev  
-**Log:** C:\.local\desktop\misc.protolabs\flatball-ins-main-misc.protolabs\admin\logs\propagate-lic-log.md
+Mode: Verify
 
-- OK: .\flatball-3d-ulti-scene\vite.config.js
-- OK: .\flatball-3d-ulti-scene\src\main.js
-- OK: .\flatball-3d-ulti-scene\src\sceneSetup.js
-- OK: .\flatball-3d-ulti-scene\src\components\fieldHelpers.js
-- OK: .\flatball-3d-ulti-scene\src\components\ground.js
-- OK: .\flatball-3d-ulti-scene\src\components\letterSprite.js
-- OK: .\flatball-3d-ulti-scene\src\components\lights.js
-- OK: .\flatball-3d-ulti-scene\src\controls\orbitControls.js
-- OK: .\flatball-3d-ulti-scene\src\loaders\csvLoader.js
-- OK: .\flatball-3d-ulti-scene\src\loaders\frisbeeLoader.js
-- OK: .\flatball-3d-ulti-scene\src\ui\hudHandler.js
-- OK: .\flatball-3d-ulti-scene\src\ui\pipHelper.js
-- OK: .\flatball-3d-ulti-scene\src\ui\telemetryHelper.js
-- OK: .\flatball-3d-ulti-scene\src\utils\BufferGeometryUtils.js
-- OK: .\flatball-3d-ulti-scene\src\utils\logger.js
-- OK: .\flatball-6dof\flatball_log_augment.m
-- OK: .\flatball-6dof\startup.m
-- OK: .\flatball-6dof\.wrk\accel_offset_wrk.m
-- OK: .\flatball-6dof\.wrk\csv_proc_wrk.m
-- OK: .\flatball-6dof\.wrk\fitExpUntilR2.m
-- OK: .\flatball-6dof\.wrk\fitYawDamping.m
-- OK: .\flatball-6dof\.wrk\fitYawDampingMinimal.m
-- OK: .\flatball-6dof\.wrk\flatball_6dof_animation.m
-- OK: .\flatball-6dof\.wrk\flatball_log_find_flight_window.m
-- OK: .\flatball-6dof\.wrk\flatball_log_get_ic.m
-- OK: .\flatball-6dof\.wrk\jms_animation.m
-- OK: .\flatball-6dof\.wrk\js_animation.m
-- OK: .\flatball-6dof\.wrk\vessel_annimation.m
-- OK: .\flatball-6dof\.wrk\vessel_movie.m
-- OK: .\flatball-6dof\.wrk\data\SN-2024110603\calibration\gen-cal-rprt.py
-- OK: .\flatball-6dof\.wrk\data\SN-2024110603\calibration\SN_2024110603_cal_rprt.m
-- OK: .\flatball-6dof\lib\calibration\fdev_acc_cal.m
-- OK: .\flatball-6dof\lib\calibration\fdev_cal.m
-- OK: .\flatball-6dof\lib\calibration\fdev_cal_plots.m
-- OK: .\flatball-6dof\lib\calibration\fdev_gyro_cal.m
-- OK: .\flatball-6dof\lib\calibration\fdev_mag_cal.m
-- OK: .\flatball-6dof\lib\calibration\fdev_sensor_stddev.m
-- OK: .\flatball-6dof\lib\calibration\magneto_csv2txt.m
-- OK: .\flatball-6dof\lib\calibration\mmc5983ma_cal.m
-- OK: .\flatball-6dof\lib\mil\flatball_6dof_eqom.m
-- OK: .\flatball-6dof\lib\mil\flatball_6dof_hucker_init.m
-- OK: .\flatball-6dof\lib\mil\flatball_6dof_init.m
-- OK: .\flatball-6dof\lib\mil\flatball_6dof_wrk.m
-- OK: .\flatball-6dof\lib\mil\flatball_init_disc_params.m
-- OK: .\flatball-6dof\lib\mil\hummel_thesis_mdl_validation.m
-- OK: .\flatball-6dof\lib\mil\hucker\hucker_wrk.m
-- OK: .\flatball-6dof\lib\mil\post\fdev_v3p1p3_rprt.m
-- OK: .\flatball-6dof\lib\mil\post\flatball_6dof_flight_metrics.m
-- OK: .\flatball-6dof\lib\mil\post\flatball_6dof_launch_plots.m
-- OK: .\flatball-6dof\lib\mil\post\flatball_6dof_plots.m
-- OK: .\flatball-6dof\lib\mil\post\flatball_6dof_post.m
-- OK: .\flatball-6dof\lib\mil\post\flatball_log_plots.m
-- OK: .\flatball-6dof\lib\mil\post\flatball_log_proc.m
-- OK: .\flatball-6dof\lib\mil\post\flatball_log_rprt.m
-- OK: .\flatball-6dof\lib\mil\post\fusion_ahrs_log_proc.m
-- OK: .\flatball-6dof\lib\misc\misc_dbg.m
-- OK: .\flatball-6dof\lib\misc\post\asc2mat\asc2mat.m
-- OK: .\flatball-6dof\lib\misc\post\kme2mat\kme2kvacsv.m
-- OK: .\flatball-6dof\lib\misc\post\kme2mat\kme2mat.m
-- OK: .\flatball-6dof\lib\misc\post\ts\apply_filters.m
-- OK: .\flatball-6dof\lib\misc\post\ts\logsoutelem2ts.m
-- OK: .\flatball-6dof\lib\misc\post\ts\ts_cumsum.m
-- OK: .\flatball-6dof\lib\misc\post\ts\ts_derrivative.m
-- OK: .\flatball-6dof\lib\misc\post\ts\ts_diff.m
-- OK: .\flatball-6dof\lib\misc\post\ts\ts_divide.m
-- OK: .\flatball-6dof\lib\misc\post\ts\ts_eff.m
-- OK: .\flatball-6dof\lib\misc\post\ts\ts_filt.m
-- OK: .\flatball-6dof\lib\misc\post\ts\ts_filter.m
-- OK: .\flatball-6dof\lib\misc\post\ts\ts_integrate.m
-- OK: .\flatball-6dof\lib\misc\post\ts\ts_integrate_win.m
-- OK: .\flatball-6dof\lib\misc\post\ts\ts_slope_offset.m
-- OK: .\flatball-6dof\lib\misc\post\ts\ts_spect.m
-- OK: .\flatball-6dof\lib\misc\post\util\add_vert_marker.m
-- OK: .\flatball-6dof\lib\misc\post\util\grid_off_all.m
-- OK: .\flatball-6dof\lib\misc\post\util\grid_on_all.m
-- OK: .\flatball-6dof\lib\misc\post\util\new_formatted_fig.m
-- OK: .\flatball-6dof\lib\misc\post\util\plot_signal.m
-- OK: .\flatball-6dof\lib\misc\post\util\plot_signal_filt.m
-- OK: .\flatball-6dof\lib\misc\post\util\plot_ts_spect.m
-- OK: .\flatball-6dof\lib\misc\post\util\update_legend.m
-- OK: .\flatball-6dof\lib\misc\post\util\xlim_all.m
-- OK: .\flatball-6dof\lib\misc\post\util\ylim_all.m
-- OK: .\flatball-6dof\lib\misc\stddef\create_phys_const.m
-- OK: .\flatball-6dof\lib\misc\stddef\create_phys_quantity.m
-- OK: .\flatball-6dof\lib\misc\stddef\get_phys_const.m
-- OK: .\flatball-6dof\lib\misc\stddef\get_phys_const_eng.m
-- OK: .\flatball-6dof\lib\misc\stddef\get_phys_const_k.m
-- OK: .\flatball-6dof\lib\misc\stddef\misc_stddef.m
-- OK: .\flatball-6dof\lib\misc\stddef\phys_const_def.m
-- OK: .\flatball-6dof\lib\misc\stddef\phys_quant_def.m
-- OK: .\flatball-6dof\lib\misc\tool_ver\misc_tool_ver_check.m
-- OK: .\flatball-6dof\lib\misc\tool_ver\misc_tool_ver_get.m
-- OK: .\flatball-6dof\lib\misc\tool_ver\misc_tool_ver_update.m
-- OK: .\flatball-ahrs\include\baro.h
-- OK: .\flatball-ahrs\include\imu.h
-- OK: .\flatball-ahrs\include\lipo.h
-- OK: .\flatball-ahrs\include\mag.h
-- OK: .\flatball-ahrs\include\profiler.h
-- OK: .\flatball-ahrs\include\vfb.h
 - INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_BMP3XX_Library\Adafruit_BMP3XX.cpp
 - INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_BMP3XX_Library\Adafruit_BMP3XX.h
 - INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_BMP3XX_Library\bmp3.c
 - INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_BMP3XX_Library\bmp3.h
 - INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_BMP3XX_Library\bmp3_defs.h
-- INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_BMP3XX_Library\README.md
 - INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_BMP3XX_Library\examples\bmp3xx_multi\bmp3xx_multi.ino
 - INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_BMP3XX_Library\examples\bmp3xx_simpletest\bmp3xx_simpletest.ino
 - INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_BusIO\Adafruit_BusIO_Register.cpp
@@ -120,7 +18,6 @@
 - INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_BusIO\Adafruit_I2CRegister.h
 - INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_BusIO\Adafruit_SPIDevice.cpp
 - INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_BusIO\Adafruit_SPIDevice.h
-- INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_BusIO\README.md
 - INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_BusIO\examples\genericdevice_uartregtest\genericdevice_uartregtest.ino
 - INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_BusIO\examples\genericdevice_uarttest\genericdevice_uarttest.ino
 - INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_BusIO\examples\i2corspi_register\i2corspi_register.ino
@@ -133,16 +30,8 @@
 - INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_BusIO\examples\spi_register_bits\spi_register_bits.ino
 - INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_Unified_Sensor\Adafruit_Sensor.cpp
 - INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_Unified_Sensor\Adafruit_Sensor.h
-- INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_Unified_Sensor\README.md
 - INCORRECT: .\flatball-ahrs\lib\extern\Adafruit_Unified_Sensor\examples\sensortest\sensortest.ino
 - INCORRECT: .\flatball-ahrs\lib\extern\ArduinoJson\ArduinoJson.h
-- INCORRECT: .\flatball-ahrs\lib\extern\ArduinoJson\CHANGELOG.md
-- INCORRECT: .\flatball-ahrs\lib\extern\ArduinoJson\CONTRIBUTING.md
-- INCORRECT: .\flatball-ahrs\lib\extern\ArduinoJson\README.md
-- INCORRECT: .\flatball-ahrs\lib\extern\ArduinoJson\SUPPORT.md
-- INCORRECT: .\flatball-ahrs\lib\extern\ArduinoJson\.github\ISSUE_TEMPLATE\bug_report.md
-- INCORRECT: .\flatball-ahrs\lib\extern\ArduinoJson\.github\ISSUE_TEMPLATE\feature_request.md
-- INCORRECT: .\flatball-ahrs\lib\extern\ArduinoJson\.github\ISSUE_TEMPLATE\help.md
 - INCORRECT: .\flatball-ahrs\lib\extern\ArduinoJson\examples\JsonConfigFile\JsonConfigFile.ino
 - INCORRECT: .\flatball-ahrs\lib\extern\ArduinoJson\examples\JsonFilterExample\JsonFilterExample.ino
 - INCORRECT: .\flatball-ahrs\lib\extern\ArduinoJson\examples\JsonGeneratorExample\JsonGeneratorExample.ino
@@ -378,8 +267,6 @@
 - INCORRECT: .\flatball-ahrs\lib\extern\Fusion\src\FusionMath.h
 - INCORRECT: .\flatball-ahrs\lib\extern\Fusion\src\FusionOffset.c
 - INCORRECT: .\flatball-ahrs\lib\extern\Fusion\src\FusionOffset.h
-- INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_6DoF_ISM330DHCX\License.md
-- INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_6DoF_ISM330DHCX\README.md
 - INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_6DoF_ISM330DHCX\examples\example1_basic\example1_basic.ino
 - INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_6DoF_ISM330DHCX\examples\example2_interrupt\example2_interrupt.ino
 - INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_6DoF_ISM330DHCX\examples\example3_sensor_hub\example3_sensor_hub.ino
@@ -395,15 +282,12 @@
 - INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_6DoF_ISM330DHCX\src\SparkFun_ISM330DHCX.h
 - INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_6DoF_ISM330DHCX\src\st_src\ism330dhcx_reg.c
 - INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_6DoF_ISM330DHCX\src\st_src\ism330dhcx_reg.h
-- INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_MAX1704x_Fuel_Gauge_Arduino_Library\README.md
 - INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_MAX1704x_Fuel_Gauge_Arduino_Library\examples\Example1_Simple\Example1_Simple.ino
 - INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_MAX1704x_Fuel_Gauge_Arduino_Library\examples\Example2_AlternatePorts\Example2_AlternatePorts.ino
 - INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_MAX1704x_Fuel_Gauge_Arduino_Library\examples\Example3_MAX17044\Example3_MAX17044.ino
 - INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_MAX1704x_Fuel_Gauge_Arduino_Library\examples\Example4_MAX17048_KitchenSink\Example4_MAX17048_KitchenSink.ino
 - INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_MAX1704x_Fuel_Gauge_Arduino_Library\src\SparkFun_MAX1704x_Fuel_Gauge_Arduino_Library.cpp
 - INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_MAX1704x_Fuel_Gauge_Arduino_Library\src\SparkFun_MAX1704x_Fuel_Gauge_Arduino_Library.h
-- INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_MMC5983MA_Magnetometer_Arduino_Library\LICENSE.md
-- INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_MMC5983MA_Magnetometer_Arduino_Library\README.md
 - INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_MMC5983MA_Magnetometer_Arduino_Library\examples\Example1-I2C_Simple_measurement\Example1-I2C_Simple_measurement.ino
 - INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_MMC5983MA_Magnetometer_Arduino_Library\examples\Example2-I2C_Digital_compass\Example2-I2C_Digital_compass.ino
 - INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_MMC5983MA_Magnetometer_Arduino_Library\examples\Example3-I2C_Continuous_measurement\Example3-I2C_Continuous_measurement.ino
@@ -417,7 +301,6 @@
 - INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_MMC5983MA_Magnetometer_Arduino_Library\src\SparkFun_MMC5983MA_Arduino_Library_Constants.h
 - INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_MMC5983MA_Magnetometer_Arduino_Library\src\SparkFun_MMC5983MA_IO.cpp
 - INCORRECT: .\flatball-ahrs\lib\extern\SparkFun_MMC5983MA_Magnetometer_Arduino_Library\src\SparkFun_MMC5983MA_IO.h
-- INCORRECT: .\flatball-ahrs\lib\extern\TaskScheduler\README.md
 - INCORRECT: .\flatball-ahrs\lib\extern\TaskScheduler\examples\Scheduler_example00_Blink\Scheduler_example00_Blink.ino
 - INCORRECT: .\flatball-ahrs\lib\extern\TaskScheduler\examples\Scheduler_example00_Blink_Namespace\Scheduler_example00_Blink_Namespace.ino
 - INCORRECT: .\flatball-ahrs\lib\extern\TaskScheduler\examples\Scheduler_example01\Scheduler_example01.ino
@@ -468,76 +351,6 @@
 - INCORRECT: .\flatball-ahrs\lib\extern\TaskScheduler\src\TaskScheduler.h
 - INCORRECT: .\flatball-ahrs\lib\extern\TaskScheduler\src\TaskSchedulerDeclarations.h
 - INCORRECT: .\flatball-ahrs\lib\extern\TaskScheduler\src\TaskSchedulerSleepMethods.h
-- OK: .\flatball-ahrs\src\app.cpp
-- OK: .\flatball-ahrs\src\app.h
-- OK: .\flatball-ahrs\src\baro.cpp
-- OK: .\flatball-ahrs\src\cal.cpp
-- OK: .\flatball-ahrs\src\cal.h
-- OK: .\flatball-ahrs\src\comms.cpp
-- OK: .\flatball-ahrs\src\comms.h
-- OK: .\flatball-ahrs\src\CSS.h
-- OK: .\flatball-ahrs\src\imu.cpp
-- OK: .\flatball-ahrs\src\lipo.cpp
-- OK: .\flatball-ahrs\src\mag.cpp
-- OK: .\flatball-ahrs\src\main.cpp
-- OK: .\flatball-ahrs\src\profiler.cpp
-- OK: .\flatball-ahrs\src\sd_log.cpp
-- OK: .\flatball-ahrs\src\sd_log.h
-- OK: .\flatball-ahrs\src\srvr.cpp
-- OK: .\flatball-ahrs\src\srvr.h
-- OK: .\flatball-ahrs\src\twister.cpp
-- OK: .\flatball-ahrs\src\twister.h
-- OK: .\flatball-ahrs\src\util.cpp
-- OK: .\flatball-ahrs\src\util.h
-- OK: .\flatball-ahrs\src\vfb.cpp
-- OK: .\flatball-ahrs\test\flatball-ahrs-tests.py
-- OK: .\flatball-ahrs\test\bmp3xx\tst_bmp3xx_rd.cpp
-- OK: .\flatball-ahrs\test\bmp3xx\tst_bmp3xx_rd.py
-- OK: .\flatball-ahrs\test\ism330dhcx\tst_ism330dhcx_rd.cpp
-- OK: .\flatball-ahrs\test\ism330dhcx\tst_ism330dhcx_rd.py
-- OK: .\flatball-ahrs\test\max1704x\tst_max1704x_rd.cpp
-- OK: .\flatball-ahrs\test\max1704x\tst_max1704x_rd.py
-- OK: .\flatball-ahrs\test\mmc5983ma\tst_mmc5983ma_rd.cpp
-- OK: .\flatball-ahrs\test\mmc5983ma\tst_mmc5983ma_rd.py
-- OK: .\flatball-ahrs\test\taskscheduler\tst_taskscheduler.cpp
-- OK: .\flatball-ahrs\test\taskscheduler\tst_taskscheduler.py
-- OK: .\flatball-ahrs\utils\py\flatball-ahrs-build.py
-- OK: .\flatball-ahrs\utils\py\flatball-ahrs-profiler-plot.py
-- OK: .\flatball-ahrs\utils\py\flatball-ahrs-profiler.py
-- OK: .\flatball-ahrs\utils\py\flatball-uart-file-xfer.py
-- OK: .\flatball-ahrs\utils\py\flatball_build_check.py
-- OK: .\flatball-ahrs\utils\py\flatball_preflight.py
-- OK: .\flatball-imu-pcb\flatball-imu-pcb.kicad_pcb
-- OK: .\flatball-ins-pcb\flatball-ins-pcb.kicad_pcb
-- OK: .\flatball-ins-pcb\notes.md
-- OK: .\flatball-misc\flatball-misc-mk-insert.py
-- OK: .\flatball-three.js\public\js\controls.js
-- OK: .\flatball-three.js\public\js\csvLoader.js
-- OK: .\flatball-three.js\public\js\fieldHelpers.js
-- OK: .\flatball-three.js\public\js\frisbeeLoader.js
-- OK: .\flatball-three.js\public\js\ground.js
-- OK: .\flatball-three.js\public\js\hudHandler.js
-- OK: .\flatball-three.js\public\js\letterSprite.js
-- OK: .\flatball-three.js\public\js\lights.js
-- OK: .\flatball-three.js\public\js\main.js
-- OK: .\flatball-three.js\public\js\pipHelper.js
-- OK: .\flatball-three.js\public\js\sceneSetup.js
-- OK: .\flatball-three.js\public\js\telemetryHelper.js
-- OK: .\flatball-three.js\public\js\libs\FontLoader.js
-- OK: .\flatball-three.js\public\js\libs\GLTFLoader.js
-- OK: .\flatball-three.js\public\js\libs\OrbitControls.js
-- OK: .\flatball-three.js\public\js\libs\TextGeometry.js
-- OK: .\flatball-three.js\public\js\libs\three.module.js
-- OK: .\flatball-three.js\public\js\utils\BufferGeometryUtils.js
-- OK: .\flatball-three.js\public\js\utils\logger.js
-- OK: .\flatball-three.js\public\py\ins-3d.py
-- OK: .\flatball-three.js\public\py\ins-3js-servers.py
-- OK: .\flatball-three.js\public\py\ins-telemetry.py
-- OK: .\flatball-usau\flatball-misc-mk-disc.py
-- OK: .\flatball-usau\flatball-usau-frisbee-metrics.py
-- OK: .\flatball-usau\flatball-usau-frisbee-param-sweep.py
-- OK: .\flatball-usau\flatball-usau-mk-disc.py
-- OK: .\flatball-usau\flatball-usau-mk-mold.py
 
 ## Summary
 - scanned: 1212
@@ -548,9 +361,9 @@
 - skipped: 0
 - dry-run: 0
 - errors: 0
-- incorrect: 365
-- correct: 169
-- elapsed: 0.24s
+- incorrect: 349
+- correct: 185
+- elapsed: 0.32s
 
 ## Incorrect files
 - .\flatball-ahrs\lib\extern\Adafruit_BMP3XX_Library\Adafruit_BMP3XX.cpp
@@ -558,7 +371,6 @@
 - .\flatball-ahrs\lib\extern\Adafruit_BMP3XX_Library\bmp3.c
 - .\flatball-ahrs\lib\extern\Adafruit_BMP3XX_Library\bmp3.h
 - .\flatball-ahrs\lib\extern\Adafruit_BMP3XX_Library\bmp3_defs.h
-- .\flatball-ahrs\lib\extern\Adafruit_BMP3XX_Library\README.md
 - .\flatball-ahrs\lib\extern\Adafruit_BMP3XX_Library\examples\bmp3xx_multi\bmp3xx_multi.ino
 - .\flatball-ahrs\lib\extern\Adafruit_BMP3XX_Library\examples\bmp3xx_simpletest\bmp3xx_simpletest.ino
 - .\flatball-ahrs\lib\extern\Adafruit_BusIO\Adafruit_BusIO_Register.cpp
@@ -570,7 +382,6 @@
 - .\flatball-ahrs\lib\extern\Adafruit_BusIO\Adafruit_I2CRegister.h
 - .\flatball-ahrs\lib\extern\Adafruit_BusIO\Adafruit_SPIDevice.cpp
 - .\flatball-ahrs\lib\extern\Adafruit_BusIO\Adafruit_SPIDevice.h
-- .\flatball-ahrs\lib\extern\Adafruit_BusIO\README.md
 - .\flatball-ahrs\lib\extern\Adafruit_BusIO\examples\genericdevice_uartregtest\genericdevice_uartregtest.ino
 - .\flatball-ahrs\lib\extern\Adafruit_BusIO\examples\genericdevice_uarttest\genericdevice_uarttest.ino
 - .\flatball-ahrs\lib\extern\Adafruit_BusIO\examples\i2corspi_register\i2corspi_register.ino
@@ -583,16 +394,8 @@
 - .\flatball-ahrs\lib\extern\Adafruit_BusIO\examples\spi_register_bits\spi_register_bits.ino
 - .\flatball-ahrs\lib\extern\Adafruit_Unified_Sensor\Adafruit_Sensor.cpp
 - .\flatball-ahrs\lib\extern\Adafruit_Unified_Sensor\Adafruit_Sensor.h
-- .\flatball-ahrs\lib\extern\Adafruit_Unified_Sensor\README.md
 - .\flatball-ahrs\lib\extern\Adafruit_Unified_Sensor\examples\sensortest\sensortest.ino
 - .\flatball-ahrs\lib\extern\ArduinoJson\ArduinoJson.h
-- .\flatball-ahrs\lib\extern\ArduinoJson\CHANGELOG.md
-- .\flatball-ahrs\lib\extern\ArduinoJson\CONTRIBUTING.md
-- .\flatball-ahrs\lib\extern\ArduinoJson\README.md
-- .\flatball-ahrs\lib\extern\ArduinoJson\SUPPORT.md
-- .\flatball-ahrs\lib\extern\ArduinoJson\.github\ISSUE_TEMPLATE\bug_report.md
-- .\flatball-ahrs\lib\extern\ArduinoJson\.github\ISSUE_TEMPLATE\feature_request.md
-- .\flatball-ahrs\lib\extern\ArduinoJson\.github\ISSUE_TEMPLATE\help.md
 - .\flatball-ahrs\lib\extern\ArduinoJson\examples\JsonConfigFile\JsonConfigFile.ino
 - .\flatball-ahrs\lib\extern\ArduinoJson\examples\JsonFilterExample\JsonFilterExample.ino
 - .\flatball-ahrs\lib\extern\ArduinoJson\examples\JsonGeneratorExample\JsonGeneratorExample.ino
@@ -828,8 +631,6 @@
 - .\flatball-ahrs\lib\extern\Fusion\src\FusionMath.h
 - .\flatball-ahrs\lib\extern\Fusion\src\FusionOffset.c
 - .\flatball-ahrs\lib\extern\Fusion\src\FusionOffset.h
-- .\flatball-ahrs\lib\extern\SparkFun_6DoF_ISM330DHCX\License.md
-- .\flatball-ahrs\lib\extern\SparkFun_6DoF_ISM330DHCX\README.md
 - .\flatball-ahrs\lib\extern\SparkFun_6DoF_ISM330DHCX\examples\example1_basic\example1_basic.ino
 - .\flatball-ahrs\lib\extern\SparkFun_6DoF_ISM330DHCX\examples\example2_interrupt\example2_interrupt.ino
 - .\flatball-ahrs\lib\extern\SparkFun_6DoF_ISM330DHCX\examples\example3_sensor_hub\example3_sensor_hub.ino
@@ -845,15 +646,12 @@
 - .\flatball-ahrs\lib\extern\SparkFun_6DoF_ISM330DHCX\src\SparkFun_ISM330DHCX.h
 - .\flatball-ahrs\lib\extern\SparkFun_6DoF_ISM330DHCX\src\st_src\ism330dhcx_reg.c
 - .\flatball-ahrs\lib\extern\SparkFun_6DoF_ISM330DHCX\src\st_src\ism330dhcx_reg.h
-- .\flatball-ahrs\lib\extern\SparkFun_MAX1704x_Fuel_Gauge_Arduino_Library\README.md
 - .\flatball-ahrs\lib\extern\SparkFun_MAX1704x_Fuel_Gauge_Arduino_Library\examples\Example1_Simple\Example1_Simple.ino
 - .\flatball-ahrs\lib\extern\SparkFun_MAX1704x_Fuel_Gauge_Arduino_Library\examples\Example2_AlternatePorts\Example2_AlternatePorts.ino
 - .\flatball-ahrs\lib\extern\SparkFun_MAX1704x_Fuel_Gauge_Arduino_Library\examples\Example3_MAX17044\Example3_MAX17044.ino
 - .\flatball-ahrs\lib\extern\SparkFun_MAX1704x_Fuel_Gauge_Arduino_Library\examples\Example4_MAX17048_KitchenSink\Example4_MAX17048_KitchenSink.ino
 - .\flatball-ahrs\lib\extern\SparkFun_MAX1704x_Fuel_Gauge_Arduino_Library\src\SparkFun_MAX1704x_Fuel_Gauge_Arduino_Library.cpp
 - .\flatball-ahrs\lib\extern\SparkFun_MAX1704x_Fuel_Gauge_Arduino_Library\src\SparkFun_MAX1704x_Fuel_Gauge_Arduino_Library.h
-- .\flatball-ahrs\lib\extern\SparkFun_MMC5983MA_Magnetometer_Arduino_Library\LICENSE.md
-- .\flatball-ahrs\lib\extern\SparkFun_MMC5983MA_Magnetometer_Arduino_Library\README.md
 - .\flatball-ahrs\lib\extern\SparkFun_MMC5983MA_Magnetometer_Arduino_Library\examples\Example1-I2C_Simple_measurement\Example1-I2C_Simple_measurement.ino
 - .\flatball-ahrs\lib\extern\SparkFun_MMC5983MA_Magnetometer_Arduino_Library\examples\Example2-I2C_Digital_compass\Example2-I2C_Digital_compass.ino
 - .\flatball-ahrs\lib\extern\SparkFun_MMC5983MA_Magnetometer_Arduino_Library\examples\Example3-I2C_Continuous_measurement\Example3-I2C_Continuous_measurement.ino
@@ -867,7 +665,6 @@
 - .\flatball-ahrs\lib\extern\SparkFun_MMC5983MA_Magnetometer_Arduino_Library\src\SparkFun_MMC5983MA_Arduino_Library_Constants.h
 - .\flatball-ahrs\lib\extern\SparkFun_MMC5983MA_Magnetometer_Arduino_Library\src\SparkFun_MMC5983MA_IO.cpp
 - .\flatball-ahrs\lib\extern\SparkFun_MMC5983MA_Magnetometer_Arduino_Library\src\SparkFun_MMC5983MA_IO.h
-- .\flatball-ahrs\lib\extern\TaskScheduler\README.md
 - .\flatball-ahrs\lib\extern\TaskScheduler\examples\Scheduler_example00_Blink\Scheduler_example00_Blink.ino
 - .\flatball-ahrs\lib\extern\TaskScheduler\examples\Scheduler_example00_Blink_Namespace\Scheduler_example00_Blink_Namespace.ino
 - .\flatball-ahrs\lib\extern\TaskScheduler\examples\Scheduler_example01\Scheduler_example01.ino
@@ -1019,6 +816,22 @@
 - .\flatball-ahrs\include\mag.h
 - .\flatball-ahrs\include\profiler.h
 - .\flatball-ahrs\include\vfb.h
+- .\flatball-ahrs\lib\extern\Adafruit_BMP3XX_Library\README.md
+- .\flatball-ahrs\lib\extern\Adafruit_BusIO\README.md
+- .\flatball-ahrs\lib\extern\Adafruit_Unified_Sensor\README.md
+- .\flatball-ahrs\lib\extern\ArduinoJson\CHANGELOG.md
+- .\flatball-ahrs\lib\extern\ArduinoJson\CONTRIBUTING.md
+- .\flatball-ahrs\lib\extern\ArduinoJson\README.md
+- .\flatball-ahrs\lib\extern\ArduinoJson\SUPPORT.md
+- .\flatball-ahrs\lib\extern\ArduinoJson\.github\ISSUE_TEMPLATE\bug_report.md
+- .\flatball-ahrs\lib\extern\ArduinoJson\.github\ISSUE_TEMPLATE\feature_request.md
+- .\flatball-ahrs\lib\extern\ArduinoJson\.github\ISSUE_TEMPLATE\help.md
+- .\flatball-ahrs\lib\extern\SparkFun_6DoF_ISM330DHCX\License.md
+- .\flatball-ahrs\lib\extern\SparkFun_6DoF_ISM330DHCX\README.md
+- .\flatball-ahrs\lib\extern\SparkFun_MAX1704x_Fuel_Gauge_Arduino_Library\README.md
+- .\flatball-ahrs\lib\extern\SparkFun_MMC5983MA_Magnetometer_Arduino_Library\LICENSE.md
+- .\flatball-ahrs\lib\extern\SparkFun_MMC5983MA_Magnetometer_Arduino_Library\README.md
+- .\flatball-ahrs\lib\extern\TaskScheduler\README.md
 - .\flatball-ahrs\src\app.cpp
 - .\flatball-ahrs\src\app.h
 - .\flatball-ahrs\src\baro.cpp
