@@ -62,6 +62,19 @@ tsc = tsc.addts( ts);
 ts = logs.getElement( 'r').Values;
 tsc = tsc.addts( ts);
 
+ts = logs.getElement( 'dudt').Values;
+tsc = tsc.addts( ts);
+ts = logs.getElement( 'dvdt').Values;
+tsc = tsc.addts( ts);
+ts = logs.getElement( 'dwdt').Values;
+tsc = tsc.addts( ts);
+ts = logs.getElement( 'dpdt').Values;
+tsc = tsc.addts( ts);
+ts = logs.getElement( 'dqdt').Values;
+tsc = tsc.addts( ts);
+ts = logs.getElement( 'drdt').Values;
+tsc = tsc.addts( ts);
+
 ts = logs.getElement( 'Cdrag').Values;
 tsc = tsc.addts( ts);
 ts = logs.getElement( 'Clift').Values;
@@ -69,12 +82,11 @@ tsc = tsc.addts( ts);
 
 ts = logs.getElement( 'v_inf').Values;
 tsc = tsc.addts( ts);
-% ts = logs.getElement( 'p').Values;
-% tsc = tsc.addts( ts);
-% ts = logs.getElement( 'q').Values;
-% tsc = tsc.addts( ts);
-% ts = logs.getElement( 'r').Values;
-% tsc = tsc.addts( ts);
+
+ts = logs.getElement( 'Cdrag').Values; ts.Name = 'temp';
+tsc = tsc.addts( ts);
+ts = logs.getElement( 'Clift').Values; ts.Name = 'patm';
+tsc = tsc.addts( ts);
 
 if ~isempty(logsout.getElement( 'Fx_launch'))
     % launch forces and moments

@@ -17,6 +17,7 @@ import { scene, camera, renderer } from './sceneSetup.js';
 import { addLights } from './components/lights.js';
 import { addGround } from './components/ground.js';
 import { addControls } from './controls/orbitControls.js';
+import { ChaseCamera } from './controls/chaseCamera.js';
 import { loadFrisbee, frisbee } from './loaders/frisbeeLoader.js';
 import { addCrossHatch, addNSEWMarkers, addFieldLines, addFieldGrid } from './components/fieldHelpers.js';
 import { initHUDs, updatePlaybackState, updateHUDs, renderHUD } from './ui/hudHandler.js';
@@ -27,6 +28,8 @@ import { log, setConfig } from './utils/logger.js';
 
 let config;
 let controls;
+let chaseCamera;
+let cameraMode = 'orbit';
 let telemetryInstance = null;
 let playStartTime = null;
 let playing = false;
@@ -99,16 +102,14 @@ function animate(timestamp) {
     const idx = Math.floor(clampedTime / config.playback.frameInterval);
     const row = csvData[idx];
     if (row) handleTelemetry(row);
-//	  if (row) {
-//	  camera.position.set(row.x, row.y, row.z);
-//	  camera.lookAt(row.x, row.y, row.z);
-//	  controls = addControls(camera, renderer);
-//	  controls.target.set(row.x, row.y, row.z);
-//	  }
   }
 
   updateHUDs();
-  controls?.update();
+  if (cameraMode === 'chase') {
+    chaseCamera?.update();
+  } else {
+    controls?.update();
+  }
   renderer.render(scene, camera);
 }
 
@@ -119,6 +120,7 @@ function waitForFrisbeeThenAddMarkers(maxTries = 50, interval = 100) {
     if (frisbee?.position) {
       log('[Startup] Frisbee ready — adding NSEW markers');
       addNSEWMarkers(scene, config);
+      chaseCamera = new ChaseCamera(camera, frisbee);
     } else if (tries++ < maxTries) {
       setTimeout(poll, interval);
     } else {
@@ -158,6 +160,30 @@ function addDataSourceToggle(startDataSource) {
 
     // Start the new data source
     startDataSource(newMode);
+  };
+
+  document.body.appendChild(btn);
+}
+
+function addCameraToggle() {
+  const btn = document.createElement('button');
+  btn.textContent = 'Switch to Chase Cam';
+  Object.assign(btn.style, {
+    position: 'absolute',
+    top: '90px',
+    right: '10px',
+    zIndex: '1000',
+    padding: '6px 12px',
+    fontSize: '14px',
+    backgroundColor: '#222',
+    color: '#fff',
+    border: '1px solid #555',
+    cursor: 'pointer',
+  });
+
+  btn.onclick = () => {
+    cameraMode = cameraMode === 'orbit' ? 'chase' : 'orbit';
+    btn.textContent = `Switch to ${cameraMode === 'orbit' ? 'Chase' : 'Orbit'} Cam`;
   };
 
   document.body.appendChild(btn);
@@ -258,6 +284,7 @@ async function init() {
 
   // Data source + loop
   addDataSourceToggle(startDataSource);
+  addCameraToggle();
   // 🎮 Add play/pause button for CSV control
   addPlayPauseButton((isPlaying) => {
     if (config.dataSource.mode !== 'csv') return;
