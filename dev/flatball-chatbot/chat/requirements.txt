@@ -1,0 +1,11 @@
+langchain
+langchain-community
+langchain-ollama
+langchain-chroma
+ollama
+chromadb
+pypdf
+tqdm
+fastapi>=0.109.0
+uvicorn>=0.23.2
+
