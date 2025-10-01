@@ -21,3 +21,6 @@ chat/__pycache__/
 # Operating System files
 .DS_Store
 thumbs.db
+
+# wizard stuff
+*wizard*
