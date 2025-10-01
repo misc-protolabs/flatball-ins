@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-import os, sys, time, argparse, re
+import os
+import sys
+import time
+import argparse
+import re
 from typing import Optional, Tuple, List
 
 LICENSE_HEADER = """\
@@ -29,12 +33,11 @@ BASE_COMMENT_STYLES = {
     '.ino': '// ',
     '.sch': '# ',
     '.kicad_pcb': '# ',
-    '.md': '*IGNORE*',   # don’t insert, but clean if present
+    '.md': '<!-- ',
     # .m handled via resolver
 }
 
 APACHE_MARKER = "Licensed under the Apache License"
-PRUNE_DIRS = {"node_modules", ".git", "__pycache__"}
 
 # ---------- Comment style resolution ----------
 
@@ -44,25 +47,25 @@ def is_matlab_m(file_path: str) -> bool:
             head = f.read(4096)
     except Exception:
         return True
+    # Obj-C indicators
     if re.search(r'@interface|@implementation|#import|#include', head):
         return False
+    # MATLAB indicators
     if re.search(r'^\s*%|^\s*%%|^\s*function\b|^\s*classdef\b', head, flags=re.MULTILINE):
         return True
+    # Fallback: lean MATLAB if unsure
     return True
 
-def resolve_comment_style(file_path: str, ext: str, override: Optional[str]) -> Optional[str]:
+def resolve_comment_style(file_path: str, ext: str, override: Optional[str]) -> str:
     if override:
         return override
     if ext == '.m':
         return '% ' if is_matlab_m(file_path) else '// '
-    style = BASE_COMMENT_STYLES.get(ext)
-    if style == "*IGNORE*":
-        return None
-    return style
+    return BASE_COMMENT_STYLES.get(ext, '')
 
 def format_header(ext: str, prefix: str) -> str:
     lines = LICENSE_HEADER.splitlines()
-    if ext == '.md' or (prefix and prefix.startswith('<!--')):
+    if ext == '.md' or prefix.startswith('<!--'):
         body = '\n'.join(f"<!-- {line}" for line in lines)
         return f"<!--\n{body}\n-->\n\n"
     return '\n'.join(f"{prefix}{line}" for line in lines) + '\n\n'
@@ -79,125 +82,191 @@ def has_correct_header(content: str, expected: str) -> bool:
     return False
 
 def find_license_block_span(content: str) -> Optional[Tuple[int,int]]:
-    lines = content.splitlines(keepends=True)[:200]
-    text = ''.join(lines)
-    if APACHE_MARKER not in text:
+    """
+    Find an Apache license block near the top. Returns (start_idx, end_idx) if found.
+    Heuristic: search first ~200 lines for the marker, then consume until two newlines.
+    """
+    head_lines = content.splitlines(keepends=True)[:200]
+    head_text = ''.join(head_lines)
+    if APACHE_MARKER not in head_text:
         return None
-    start = 0
-    if lines and lines[0].startswith('#!'):
-        start = len(lines[0])
-        text = ''.join(lines[1:])
-    marker_pos = text.find(APACHE_MARKER)
+    start_idx = 0
+    # If there's a shebang, start after it
+    if head_lines and head_lines[0].startswith('#!'):
+        start_idx = len(head_lines[0])
+        head_text = ''.join(head_lines[1:])
+
+    marker_pos = head_text.find(APACHE_MARKER)
     if marker_pos == -1:
         return None
-    after = text[marker_pos:]
-    cut_rel = after.find('\n\n')
-    if cut_rel == -1: cut_rel = len(after)
+
+    # Cut at two consecutive newlines after marker
+    after_marker = head_text[marker_pos:]
+    cut_rel = after_marker.find('\n\n')
+    if cut_rel == -1:
+        cut_rel = len(after_marker)
     end_rel = marker_pos + cut_rel
-    return (start, start+end_rel)
+
+    absolute_start = start_idx
+    absolute_end = start_idx + end_rel
+    return (absolute_start, absolute_end)
 
 # ---------- Core operations ----------
+
+def insert_or_fix(file_path: str, ext: str, prefix: str, dry: bool) -> str:
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+    except Exception:
+        return 'error'
+
+    expected = format_header(ext, prefix)
+
+    if has_correct_header(content, expected):
+        return 'skipped'
+
+    span = find_license_block_span(content)
+    if span:
+        s, e = span
+        content_wo_old = content[:s] + content[e:]
+        # Replace with canonical
+        new_content = _prepend_with_shebang_preserved(content_wo_old, expected)
+        if dry:
+            return 'dry-run'
+        try:
+            with open(file_path, 'w', encoding='utf-8') as f:
+                f.write(new_content)
+            return 'fixed'
+        except Exception:
+            return 'error'
+    else:
+        # Insert fresh
+        new_content = _prepend_with_shebang_preserved(content, expected)
+        if dry:
+            return 'dry-run'
+        try:
+            with open(file_path, 'w', encoding='utf-8') as f:
+                f.write(new_content)
+            return 'inserted'
+        except Exception:
+            return 'error'
 
 def _prepend_with_shebang_preserved(content: str, header: str) -> str:
     if content.startswith('#!'):
         nl = content.find('\n')
         if nl != -1:
-            return content[:nl+1] + header + content[nl+1:]
+            shebang = content[:nl+1]
+            body = content[nl+1:]
+            return shebang + header + body
+        # rare: shebang no newline
+        return content + '\n' + header
     return header + content
-
-def insert_or_fix(file_path: str, ext: str, prefix: str, dry: bool) -> str:
-    try:
-        with open(file_path,'r',encoding='utf-8') as f: content=f.read()
-    except: return 'error'
-    expected = format_header(ext,prefix)
-    if has_correct_header(content,expected): return 'skipped'
-    span = find_license_block_span(content)
-    if span:
-        s,e=span
-        content_wo_old = content[:s]+content[e:]
-        new_content = _prepend_with_shebang_preserved(content_wo_old,expected)
-        if dry: return 'dry-run'
-        try:
-            with open(file_path,'w',encoding='utf-8') as f: f.write(new_content)
-            return 'fixed'
-        except: return 'error'
-    else:
-        new_content = _prepend_with_shebang_preserved(content,expected)
-        if dry: return 'dry-run'
-        try:
-            with open(file_path,'w',encoding='utf-8') as f: f.write(new_content)
-            return 'inserted'
-        except: return 'error'
 
 def remove_if_present(file_path: str, dry: bool) -> str:
     try:
-        with open(file_path,'r',encoding='utf-8') as f: content=f.read()
-    except: return 'error'
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+    except Exception:
+        return 'error'
     span = find_license_block_span(content)
-    if not span: return 'not-found'
-    if dry: return 'dry-run'
-    s,e=span
+    if not span:
+        return 'not-found'
+    if dry:
+        return 'dry-run'
+    s, e = span
+    new_content = content[:s] + content[e:]
     try:
-        with open(file_path,'w',encoding='utf-8') as f: f.write(content[:s]+content[e:])
+        with open(file_path, 'w', encoding='utf-8') as f:
+            f.write(new_content)
         return 'removed'
-    except: return 'error'
+    except Exception:
+        return 'error'
 
 # ---------- Unified Markdown logging ----------
 
 class MdLogger:
-    def __init__(self,path:str):
-        self._fh=open(path,'w',encoding='utf-8')
-    def write(self,text:str): self._fh.write(text)
-    def close(self): self._fh.close()
+    def __init__(self, path: str):
+        self.path = path
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        # Open once, write sequentially; no emojis to avoid mojibake
+        self._fh = open(path, 'w', encoding='utf-8')
+
+    def write(self, text: str):
+        self._fh.write(text)
+
+    def close(self):
+        self._fh.flush()
+        self._fh.close()
 
 # ---------- Scanner ----------
 
-def scan(root:str,dry:bool,verify:bool,override_map:dict,log_path:str):
-    counters={k:0 for k in['scanned','matched','inserted','fixed','removed','skipped','dry-run','errors','incorrect','correct']}
-    modified,incorrect,correct=[],[],[]
-    logger=MdLogger(log_path)
-    start=time.time()
-    logger.write(f"# License Header Run Log\n\nMode: {'Verify' if verify else ('Dry-run' if dry else 'Apply')}\n\n")
-    for dirpath,dirnames,filenames in os.walk(root):
-        dirnames[:]=[d for d in dirnames if d not in PRUNE_DIRS]
-        if "node_modules" in dirpath.split(os.sep): continue
-        is_extern='extern' in dirpath.split(os.sep)
+PRUNE_DIRS = {"node_modules", ".git", "__pycache__"}
+
+def scan(root: str, dry: bool, verify: bool, override_map: dict, log_path: str):
+    counters = {k:0 for k in ['scanned','matched','inserted','fixed','removed','skipped','dry-run','errors','incorrect','correct']}
+    modified = []
+    incorrect = []
+    correct = []
+
+    logger = MdLogger(log_path)
+    start = time.time()
+    logger.write("# License Header Run Log\n\n")
+    logger.write(f"**Mode:** {'Verify' if verify else ('Dry-run' if dry else 'Apply')}  \n")
+    logger.write(f"**Root:** {os.path.abspath(root)}  \n")
+    logger.write(f"**Log:** {os.path.abspath(log_path)}\n\n")
+
+    for dirpath, dirnames, filenames in os.walk(root):
+        # prune noisy directories
+        dirnames[:] = [d for d in dirnames if d not in PRUNE_DIRS]
+        # hard-exclude any path containing node_modules (extra safety for symlinks/nesting)
+        if "node_modules" in dirpath.split(os.sep):
+            continue
+
+        is_extern = 'extern' in dirpath.split(os.sep)
         for fn in filenames:
-            counters['scanned']+=1
-            ext=os.path.splitext(fn)[1]
-            if ext not in BASE_COMMENT_STYLES and ext!='.m' and ext not in override_map: continue
-            counters['matched']+=1
-            path=os.path.join(dirpath,fn)
-            prefix=resolve_comment_style(path,ext,override_map.get(ext))
+            counters['scanned'] += 1
+            ext = os.path.splitext(fn)[1]
+            if ext not in BASE_COMMENT_STYLES and ext != '.m' and ext not in override_map:
+                continue
+            counters['matched'] += 1
+
+            path = os.path.join(dirpath, fn)
+            prefix = resolve_comment_style(path, ext, override_map.get(ext))
+
             if verify:
                 try:
-                    with open(path,'r',encoding='utf-8') as f: content=f.read()
-                except: counters['errors']+=1; continue
-                if prefix is None:
-                    # ignore mode: should not have header
-                    if find_license_block_span(content):
-                        counters['incorrect']+=1; incorrect.append(path); logger.write(f"- INCORRECT (ignored ext has header): {path}\n")
-                    else:
-                        counters['correct']+=1; correct.append(path)
+                    with open(path, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                except Exception:
+                    counters['errors'] += 1
+                    continue
+                expected = format_header(ext, prefix)
+                if has_correct_header(content, expected):
+                    counters['correct'] += 1
+                    correct.append(path)
+                    logger.write(f"- OK: {path}\n")
                 else:
-                    expected=format_header(ext,prefix)
-                    if has_correct_header(content,expected):
-                        counters['correct']+=1; correct.append(path)
-                    else:
-                        counters['incorrect']+=1; incorrect.append(path); logger.write(f"- INCORRECT: {path}\n")
+                    counters['incorrect'] += 1
+                    incorrect.append(path)
+                    logger.write(f"- INCORRECT: {path}\n")
                 continue
-            # modify mode
-            if is_extern or prefix is None:
-                res=remove_if_present(path,dry)
+
+            if is_extern:
+                res = remove_if_present(path, dry)
             else:
-                res=insert_or_fix(path,ext,prefix,dry)
-            counters[res]=counters.get(res,0)+1
-            if res in('inserted','fixed','removed','dry-run'):
-                modified.append(path); logger.write(f"- {res.upper()}: {path}\n")
-    elapsed=time.time()-start
+                res = insert_or_fix(path, ext, prefix, dry)
+
+            counters[res] = counters.get(res, 0) + 1
+            if res in ('inserted', 'fixed', 'removed', 'dry-run'):
+                modified.append(path)
+                logger.write(f"- {res.upper()}: {path}\n")
+
+    elapsed = time.time() - start
     logger.write("\n## Summary\n")
-    for k,v in counters.items(): logger.write(f"- {k}: {v}\n")
+    for k, v in counters.items():
+        logger.write(f"- {k}: {v}\n")
     logger.write(f"- elapsed: {elapsed:.2f}s\n")
+
     if verify:
         logger.write("\n## Incorrect files\n")
         if incorrect:
@@ -205,7 +274,6 @@ def scan(root:str,dry:bool,verify:bool,override_map:dict,log_path:str):
                 logger.write(f"- {p}\n")
         else:
             logger.write("_None_\n")
-
         logger.write("\n## Correct files\n")
         if correct:
             for p in correct:
@@ -263,9 +331,7 @@ def main():
     os.makedirs(os.path.dirname(log_path), exist_ok=True)
 
     override_map = build_override_map(args.override)
-    counters = scan(args.root, dry=args.dry_run, verify=args.verify,
-                    override_map=override_map, log_path=log_path)
-
+    counters = scan(args.root, dry=args.dry_run, verify=args.verify, override_map=override_map, log_path=log_path)
     if args.verify and (counters['incorrect'] > 0 or counters['errors'] > 0):
         sys.exit(1)
 
