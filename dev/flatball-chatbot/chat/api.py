@@ -14,6 +14,7 @@
 
 import os
 import json
+import uuid
 from datetime import datetime
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
@@ -32,7 +33,7 @@ from langchain_ollama.embeddings import OllamaEmbeddings
 CHROMA_PATH = "./.chroma_db"
 EMBEDDING_MODEL = "nomic-embed-text"
 GENERATION_MODEL = "llama3:8b"
-QUERY_LOG_PATH = "../.log/query_logs" # Centralized log path
+QUERY_LOG_PATH = "../.log/queries" # Centralized log path
 
 # Ensure query log directory exists
 os.makedirs(QUERY_LOG_PATH, exist_ok=True)
@@ -46,7 +47,13 @@ def get_rag_chain():
     vector_store = Chroma(persist_directory=CHROMA_PATH, embedding_function=embeddings)
     retriever = vector_store.as_retriever()
 
-    template = """Answer the question based only on the following context. If you don't know the answer, just say that you don't know. Don't try to make up an answer.\n\nContext:\n{context}\n\nQuestion: {question}\n"""
+    template = """Answer the question based only on the following context. If you don't know the answer, just say that you don't know. Don't try to make up an answer.
+
+Context:
+{context}
+
+Question: {question}
+"""
     prompt = PromptTemplate.from_template(template)
     ollama_llm = OllamaLLM(model=GENERATION_MODEL, num_predict=1024)
 
@@ -74,27 +81,51 @@ class QueryResponse(BaseModel):
     sources: list[Source]
 
 # --- Query Logging Function ---
-def save_query_response(question, retrieved_docs, answer):
-    """Saves the question, sources, and answer to a timestamped markdown file."""
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = os.path.join(QUERY_LOG_PATH, f"query-{timestamp}-response.md")
+def save_query_response(question, retrieved_docs, answer, start_time, end_time):
+    """Saves the question, sources, and answer to a UUID-named markdown file."""
+    file_id = str(uuid.uuid4())
+    filename = os.path.join(QUERY_LOG_PATH, f"{file_id}.md")
+    duration = end_time - start_time
 
     sources_text = "\n".join([
         f"- **Source:** {os.path.basename(doc.metadata.get("source", "Unknown"))}, **Page:** {doc.metadata.get("page", "N/A")}"
         for doc in retrieved_docs
     ])
 
-    content = f"""# Chatbot Query Response\n\n**Timestamp:** {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}\n\n---\n\n## ❓ Question\n\n{question}\n\n---\n\n## 📚 Sources Used\n\n{sources_text}\n\n---\n\n## 💡 Answer\n\n{answer}\n"""
+    content = f"""# Chatbot Query Metrics
+
+**Start Time:** {start_time.strftime("%Y-%m-%d %H:%M:%S")}
+**End Time:** {end_time.strftime("%Y-%m-%d %H:%M:%S")}
+**Duration:** {duration.total_seconds():.2f} seconds
+
+---
+
+## ❓ Question
+
+{question}
+
+---
+
+## 💡 Answer
+
+{answer}
+
+---
+
+## 📚 Sources Used
+
+{sources_text}
+"""
 
     with open(filename, 'w', encoding='utf-8') as f:
         f.write(content)
-    # In a real app, you might log this to a proper logger, not just print
-    print(f"📝 Answer saved to {filename}")
+    print(f"Answer saved to {filename}")
 
 # --- API Endpoints ---
 @app.post("/query", response_model=QueryResponse)
 async def query_endpoint(query: QueryRequest):
     """Endpoint to ask a question to the RAG chatbot."""
+    start_time = datetime.now()
     question = query.question
     
     # Get sources first
@@ -109,8 +140,10 @@ async def query_endpoint(query: QueryRequest):
     # Get the answer
     answer = rag_chain.invoke(question)
     
+    end_time = datetime.now()
+    
     # Save the query and response to log
-    save_query_response(question, retrieved_docs, answer)
+    save_query_response(question, retrieved_docs, answer, start_time, end_time)
 
     return QueryResponse(answer=answer, sources=sources)
 
