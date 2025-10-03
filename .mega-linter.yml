@@ -22,3 +22,9 @@ SHOW_ELAPSED_TIME: true
 
 # Uncomment if you want MegaLinter to detect errors but not block CI to pass
 # DISABLE_ERRORS: true
+
+# misc
+linters:
+  PYTHON:
+    enabled: true
+    linter: ruff
