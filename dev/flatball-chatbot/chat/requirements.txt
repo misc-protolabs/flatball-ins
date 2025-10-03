@@ -1,11 +1,9 @@
-langchain
-langchain-community
-langchain-ollama
+fastapi
 langchain-chroma
+langchain-ollama
+langchain-community
 ollama
-chromadb
-pypdf
+pydantic
 tqdm
-fastapi>=0.109.0
-uvicorn>=0.23.2
-
+uvicorn
+PyMuPDF

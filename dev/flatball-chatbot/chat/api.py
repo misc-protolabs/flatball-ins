@@ -30,7 +30,7 @@ from langchain_chroma.vectorstores import Chroma
 from langchain_ollama.embeddings import OllamaEmbeddings
 
 # --- Configuration ---
-CHROMA_PATH = "./.chroma_db"
+CHROMA_PATH = "../.chroma_db"
 EMBEDDING_MODEL = "nomic-embed-text"
 GENERATION_MODEL = "llama3:8b"
 QUERY_LOG_PATH = "../.log/queries" # Centralized log path
