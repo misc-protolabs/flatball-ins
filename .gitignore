@@ -48,3 +48,5 @@ admin/logs/telemetry-server.log
 
 # debug information files
 *.dwo
+
+megalinter-reports/
