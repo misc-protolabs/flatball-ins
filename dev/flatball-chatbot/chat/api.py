@@ -1,26 +1,13 @@
-# Copyright 2025 Michael V. Schaefer
-# 
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at:
-# 
-#     http://www.apache.org/licenses/LICENSE-2.0
-# 
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 import os
 import json
 import uuid
 from datetime import datetime
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, BackgroundTasks
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 import uvicorn
+import signal
 
 from langchain_ollama.llms import OllamaLLM
 from langchain_core.prompts import PromptTemplate
@@ -33,15 +20,16 @@ from langchain_ollama.embeddings import OllamaEmbeddings
 CHROMA_PATH = "../.chroma_db"
 EMBEDDING_MODEL = "nomic-embed-text"
 GENERATION_MODEL = "llama3:8b"
-QUERY_LOG_PATH = "../.log/queries" # Centralized log path
+QUERY_LOG_PATH = "../.log/queries"
+SHUTDOWN_FLAG = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".shutdown.flag"))
 
-# Ensure query log directory exists
 os.makedirs(QUERY_LOG_PATH, exist_ok=True)
 
-# --- FastAPI App ---
+def shutdown_server_gracefully():
+    print("Executing graceful shutdown (processes will be terminated by launcher script)...")
+
 app = FastAPI()
 
-# --- RAG Chain Initialization ---
 def get_rag_chain():
     embeddings = OllamaEmbeddings(model=EMBEDDING_MODEL)
     vector_store = Chroma(persist_directory=CHROMA_PATH, embedding_function=embeddings)
@@ -57,7 +45,6 @@ Question: {question}
     prompt = PromptTemplate.from_template(template)
     ollama_llm = OllamaLLM(model=GENERATION_MODEL, num_predict=1024)
 
-    # The chain for getting the answer
     chain = (
         {"context": retriever, "question": RunnablePassthrough()}
         | prompt
@@ -68,7 +55,6 @@ Question: {question}
 
 rag_chain, retriever_instance = get_rag_chain()
 
-# --- API Models ---
 class QueryRequest(BaseModel):
     question: str
 
@@ -80,9 +66,7 @@ class QueryResponse(BaseModel):
     answer: str
     sources: list[Source]
 
-# --- Query Logging Function ---
 def save_query_response(question, retrieved_docs, answer, start_time, end_time):
-    """Saves the question, sources, and answer to a UUID-named markdown file."""
     file_id = str(uuid.uuid4())
     filename = os.path.join(QUERY_LOG_PATH, f"{file_id}.md")
     duration = end_time - start_time
@@ -121,36 +105,53 @@ def save_query_response(question, retrieved_docs, answer, start_time, end_time):
         f.write(content)
     print(f"Answer saved to {filename}")
 
-# --- API Endpoints ---
+@app.post("/shutdown")
+async def shutdown_endpoint(background_tasks: BackgroundTasks):
+    print("Shutdown signal received. Scheduling graceful shutdown.")
+    background_tasks.add_task(shutdown_server_gracefully)
+    try:
+        open(SHUTDOWN_FLAG, "w").close()
+        print(f"Shutdown flag written to {SHUTDOWN_FLAG}")
+    except Exception as e:
+        print(f"Failed to write shutdown flag: {e}")
+    return {"message": "Shutdown initiated."}
+
 @app.post("/query", response_model=QueryResponse)
-async def query_endpoint(query: QueryRequest):
-    """Endpoint to ask a question to the RAG chatbot."""
+async def query_endpoint(query: QueryRequest, background_tasks: BackgroundTasks):
+    question = query.question.strip()
+
+    if question.startswith(':'):
+        command = question.lower()
+        if command == ':exit':
+            background_tasks.add_task(shutdown_server_gracefully)
+            try:
+                open(SHUTDOWN_FLAG, "w").close()
+                print(f"Shutdown flag written to {SHUTDOWN_FLAG}")
+            except Exception as e:
+                print(f"Failed to write shutdown flag: {e}")
+            return QueryResponse(answer="Shutdown initiated.", sources=[])
+        else:
+            return QueryResponse(answer="Unrecognized command.", sources=[])
+
     start_time = datetime.now()
     question = query.question
-    
-    # Get sources first
+
     retrieved_docs = retriever_instance.invoke(question)
     sources = []
     for doc in retrieved_docs:
         sources.append(Source(
             source=os.path.basename(doc.metadata.get("source", "Unknown")),
-            page=doc.metadata.get("page", 0) # Default to page 0 if not available
+            page=doc.metadata.get("page", 0)
         ))
 
-    # Get the answer
     answer = rag_chain.invoke(question)
-    
     end_time = datetime.now()
-    
-    # Save the query and response to log
+
     save_query_response(question, retrieved_docs, answer, start_time, end_time)
 
     return QueryResponse(answer=answer, sources=sources)
 
-# --- Static Files ---
-# This serves the frontend directory and must be mounted after all other API routes
 app.mount("/", StaticFiles(directory="frontend", html=True), name="static")
-
 
 if __name__ == "__main__":
     print("Starting FastAPI server...")

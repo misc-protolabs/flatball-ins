@@ -6,6 +6,7 @@
   "scripts": {
     "postinstall": "python -m venv chat\\.venv",
     "setup": "chat\\.venv\\Scripts\\pip.exe install -r chat\\requirements.txt",
+	"FritzB": "python .\\FritzB.py",
     "start": "cd chat && start http://127.0.0.1:8000 && .\\.venv\\Scripts\\uvicorn.exe api:app --reload",
     "start:log": "npm start > .log\\start-error.log 2>&1",
     "db:ingest": "chat\\.venv\\Scripts\\python.exe chat\\chatbot.py",

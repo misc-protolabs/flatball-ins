@@ -156,9 +156,14 @@ def query_rag():
 
         # Enter the query loop
         while True:
-            question = input("\nAsk a question (or type 'exit' to quit): ")
-            if question.lower() == 'exit':
+            question = input("\nFritzB at your service (ask a ? or type ':exit' to quit): ")
+            question = question.strip()
+            if question.lower() == ':exit':
                 break
+            # Handle other commands starting with ':'
+            elif question.startswith(':'):
+                log.user_info(f"Unrecognized command: {question}")
+                continue # Skip RAG processing for commands
             if not question.strip():
                 continue
 
