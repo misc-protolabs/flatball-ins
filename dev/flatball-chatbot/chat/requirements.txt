@@ -1,9 +1,0 @@
-fastapi
-langchain-chroma
-langchain-ollama
-langchain-community
-ollama
-pydantic
-tqdm
-uvicorn
-PyMuPDF
